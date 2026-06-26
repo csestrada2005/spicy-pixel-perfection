@@ -1,75 +1,112 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X, ShoppingBag } from "lucide-react";
-import { ASSETS, SHOPIFY_CART_URL } from "@/config/assets";
+import { ASSETS } from "@/config/assets";
 
-const LINKS = [
+const LINKS_LEFT = [
   { label: "SABORES", href: "#sabores" },
   { label: "GALERIA", href: "#galeria" },
+];
+const LINKS_RIGHT = [
   { label: "REVIEWS", href: "#reviews" },
   { label: "ÚNETE", href: "#unete" },
 ];
 
 export function NavBar() {
   const [open, setOpen] = useState(false);
-  const cartHref = SHOPIFY_CART_URL || "#";
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 10);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const linkBase =
+    "font-display text-sm tracking-widest text-white transition-all duration-200 hover:text-[#fffbe0]";
+  const linkHover =
+    "hover:drop-shadow-[0_0_6px_rgba(255,232,61,0.55)] hover:drop-shadow-[0_0_12px_rgba(255,232,61,0.35)]";
 
   return (
-    <header className="sticky top-0 z-50 bg-negro/90 backdrop-blur">
+    <header
+      className={`sticky top-0 z-50 transition-shadow duration-300 ${
+        scrolled ? "shadow-[0_4px_24px_rgba(0,0,0,0.65)]" : ""
+      }`}
+    >
       <div className="mx-auto max-w-[1280px] px-3 py-3">
-        <nav className="flex items-center justify-between rounded-full border-2 border-amarillo bg-negro px-4 py-2 shadow-[0_0_18px_rgba(244,197,24,0.35)]">
-          {/* Desktop links left */}
-          <ul className="hidden flex-1 items-center justify-around md:flex">
-            {LINKS.slice(0, 2).map((l) => (
-              <li key={l.href}>
-                <a href={l.href} className="font-display text-sm tracking-widest text-white hover:text-amarillo">
-                  {l.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-
-          {/* Center logo / cart */}
-          <a href={cartHref} target={SHOPIFY_CART_URL ? "_blank" : undefined} rel="noopener noreferrer" className="relative mx-3 flex items-center gap-2">
-            <img src={ASSETS.logoSmall} alt="S-π-C tienda" className="h-9 w-auto md:h-11" />
-            <span className="sr-only">Ir a la tienda</span>
-            <ShoppingBag className="hidden h-5 w-5 text-amarillo md:block" />
-          </a>
-
-          <ul className="hidden flex-1 items-center justify-around md:flex">
-            {LINKS.slice(2).map((l) => (
-              <li key={l.href}>
-                <a href={l.href} className="font-display text-sm tracking-widest text-white hover:text-amarillo">
-                  {l.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-
-          {/* Mobile toggle */}
+        {/* Pill */}
+        <nav className="flex items-center justify-between rounded-full border border-white/10 bg-negro/95 px-4 py-2 backdrop-blur md:px-6">
+          {/* Mobile: hamburger left */}
           <button
             type="button"
-            className="rounded-full p-2 text-amarillo md:hidden"
+            className="rounded-full p-2 text-white transition hover:text-amarillo md:hidden"
             onClick={() => setOpen((o) => !o)}
-            aria-label="Abrir menú"
+            aria-label={open ? "Cerrar menú" : "Abrir menú"}
           >
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
-        </nav>
 
-        {open && (
-          <ul className="mt-2 flex flex-col gap-1 rounded-2xl border border-amarillo/40 bg-negro p-3 md:hidden">
-            {LINKS.map((l) => (
+          {/* Desktop: left links */}
+          <ul className="hidden flex-1 items-center justify-center gap-8 md:flex">
+            {LINKS_LEFT.map((l) => (
               <li key={l.href}>
-                <a
-                  href={l.href}
-                  onClick={() => setOpen(false)}
-                  className="block rounded-lg px-3 py-2 font-display tracking-widest text-white hover:bg-amarillo/10"
-                >
+                <a href={l.href} className={`${linkBase} ${linkHover}`}>
                   {l.label}
                 </a>
               </li>
             ))}
           </ul>
+
+          {/* Center logo */}
+          <a
+            href="#"
+            className="flex flex-shrink-0 items-center justify-center md:mx-6"
+          >
+            <img
+              src={ASSETS.logoSmall}
+              alt="S-π-C"
+              className="h-10 w-auto md:h-14"
+            />
+          </a>
+
+          {/* Desktop: right links */}
+          <ul className="hidden flex-1 items-center justify-center gap-8 md:flex">
+            {LINKS_RIGHT.map((l) => (
+              <li key={l.href}>
+                <a href={l.href} className={`${linkBase} ${linkHover}`}>
+                  {l.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          {/* Mobile: cart icon right */}
+          <a
+            href="#"
+            className="rounded-full p-2 text-white transition hover:text-amarillo md:hidden"
+            aria-label="Carrito"
+          >
+            <ShoppingBag className="h-5 w-5" />
+          </a>
+        </nav>
+
+        {/* Mobile menu */}
+        {open && (
+          <div className="mt-2 overflow-hidden rounded-2xl border border-white/10 bg-negro/95 backdrop-blur md:hidden">
+            <ul className="flex flex-col divide-y divide-white/5">
+              {[...LINKS_LEFT, ...LINKS_RIGHT].map((l) => (
+                <li key={l.href}>
+                  <a
+                    href={l.href}
+                    onClick={() => setOpen(false)}
+                    className="block px-5 py-3 font-display tracking-widest text-white transition hover:bg-white/5 hover:text-amarillo"
+                  >
+                    {l.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
         )}
       </div>
     </header>
