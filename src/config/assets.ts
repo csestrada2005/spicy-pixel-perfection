@@ -1,9 +1,12 @@
 // All image assets live in /public/assets/. Replace files there; do not change keys.
+import logoNeonAsset from "@/assets/logo-spic-neon.png.asset.json";
+import logoSmallAsset from "@/assets/logo-spic-small.png.asset.json";
+
 const base = "/assets";
 
 export const ASSETS = {
-  logoNeon: `${base}/logo-spic-neon.png`,
-  logoSmall: `${base}/logo-spic-small.png`,
+  logoNeon: logoNeonAsset.url,
+  logoSmall: logoSmallAsset.url,
   heroFruit: `${base}/hero-fruit-explosion.png`,
   heroHandBag: `${base}/hero-hand-bag.png`,
   guyEating: `${base}/guy-eating.png`,
