@@ -86,7 +86,7 @@ export function Hero() {
           </a>
 
           {/* Mobile-only stack */}
-          <div className="https://www.youtube.com/watch?v=F3zM_o372Ww grid w-full grid-cols-1 gap-8 sm:grid-cols-2 md:hidden">
+          <div className="grid w-full grid-cols-1 gap-8 sm:grid-cols-2 md:hidden">
             {heroPicks.map((p) => (
               <div key={p.id} className="flex justify-center">
                 <ProductCard product={p} />
