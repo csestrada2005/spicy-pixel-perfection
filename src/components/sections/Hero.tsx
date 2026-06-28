@@ -35,20 +35,20 @@ export function Hero() {
         TU NUEVA ADICCIÓN
       </span>
 
-      {/* Chica echando gomitas — bigger, aligned to mouth */}
+      {/* Mano con bolsa derramando gomitas — más abajo, alineada a la boca */}
       <img
         src={ASSETS.heroHandBag}
         alt=""
         aria-hidden
-        className="pointer-events-none absolute left-[8%] top-[18%] z-[5] hidden w-[460px] rotate-[-6deg] md:block lg:left-[12%] lg:w-[560px]"
+        className="pointer-events-none absolute left-[14%] top-[34%] z-[5] hidden w-[480px] rotate-[-4deg] md:block lg:left-[16%] lg:top-[30%] lg:w-[580px]"
       />
 
-      {/* Orgullosamente mexicanos — note */}
+      {/* Orgullosamente mexicanos — arriba a la izquierda */}
       <img
         src={ASSETS.orgulloText}
         alt="Orgullosamente mexicanos creamos los dulces enchilados más intensos y adictivos"
         aria-hidden
-        className="pointer-events-none absolute bottom-[240px] left-4 z-[5] hidden w-[260px] -rotate-3 md:block lg:bottom-[260px] lg:left-8 lg:w-[300px]"
+        className="pointer-events-none absolute left-2 top-[42%] z-[6] hidden w-[260px] -rotate-3 md:block lg:left-6 lg:w-[300px]"
       />
 
       {/* Boca abierta — bottom, horizontal, larger */}
