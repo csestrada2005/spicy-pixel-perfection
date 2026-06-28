@@ -52,10 +52,11 @@
   --radius: 0.625rem;
 
   /* Brand */
-  --negro: #0a0a0a;
-  --amarillo: #f4c518;
-  --rojo: #e11414;
-  --azul-footer: #a9d8ea;
+  --negro: #000000;
+  --amarillo: #FFD400;
+  --rojo: #E11414;
+  --azul-footer: #A9D8EA;
+
   --neon-rojo: #ff2e2e;
   --neon-cyan: #19e0ff;
   --neon-magenta: #ff2bd6;
