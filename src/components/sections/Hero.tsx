@@ -117,7 +117,7 @@ export function Hero() {
               return (
                 <div
                   key={p.id}
-                  className={`relative w-[168px] ${xOffset} ${yGap}`}
+                  className={`relative w-[200px] ${xOffset} ${yGap}`}
                 >
                   <ProductCard product={p} compact />
                 </div>
