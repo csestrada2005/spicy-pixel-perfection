@@ -4,13 +4,14 @@ import logoSmallAsset from "@/assets/logo-spic-small.png.asset.json";
 import chilePatternBgAsset from "@/assets/bestsellers-pattern.png.asset.json";
 import chilePatternDarkAsset from "@/assets/chile-pattern-dark.jpg.asset.json";
 import chilePatternBlackAsset from "@/assets/chile-pattern-black.png.asset.json";
+import heroFruitAsset from "@/assets/hero-fruit-explosion.png.asset.json";
 
 const base = "/assets";
 
 export const ASSETS = {
   logoNeon: logoNeonAsset.url,
   logoSmall: logoSmallAsset.url,
-  heroFruit: `${base}/hero-fruit-explosion.png`,
+  heroFruit: heroFruitAsset.url,
   heroHandBag: `${base}/hero-hand-bag.png`,
   guyEating: `${base}/guy-eating.png`,
   bags: {
