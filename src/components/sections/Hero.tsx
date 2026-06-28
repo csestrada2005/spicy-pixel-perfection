@@ -117,9 +117,9 @@ export function Hero() {
               return (
                 <div
                   key={p.id}
-                  className={`relative w-[240px] ${xOffset} ${yGap}`}
+                  className={`relative w-[168px] ${xOffset} ${yGap}`}
                 >
-                  <ProductCard product={p} />
+                  <ProductCard product={p} compact />
                 </div>
               );
             })}
