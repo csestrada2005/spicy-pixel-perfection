@@ -19,11 +19,12 @@ export function Bestsellers() {
   return (
     <section
       id="galeria"
-      className="relative bg-rojo py-16"
+      className="relative py-16"
       style={{
+        backgroundColor: "var(--rojo)",
         backgroundImage: `url(${ASSETS.chilePatternBg})`,
         backgroundRepeat: "repeat",
-        backgroundSize: "400px auto",
+        backgroundSize: "320px 320px",
       }}
     >
       <div className="mx-auto max-w-[1280px] px-4">
