@@ -1,4 +1,4 @@
-import { Heart, MessageCircle, Send, Bookmark } from "lucide-react";
+import { Heart, MessageCircle, Send, Bookmark, MoreHorizontal } from "lucide-react";
 import { ASSETS } from "@/config/assets";
 
 const QUOTES = [
@@ -16,13 +16,55 @@ const QUOTES = [
   },
 ] as const;
 
-function IGPost({ src }: { src: string }) {
+type IGPostData =
+  | { kind: "text"; title: string }
+  | { kind: "image"; src: string };
+
+const IG_POSTS: IGPostData[] = [
+  { kind: "text", title: "PICA CHIDO\nSABE RICO" },
+  { kind: "text", title: "SWEET &\nCHILI MOOD" },
+  { kind: "image", src: ASSETS.bags.freshTangerine },
+];
+
+function IGPost({ post }: { post: IGPostData }) {
   return (
     <div className="overflow-hidden rounded-xl bg-white text-negro shadow-lg">
-      <img src={src} alt="" className="aspect-square w-full object-cover" />
+      {/* IG header */}
+      <div className="flex items-center justify-between px-3 py-2">
+        <div className="flex items-center gap-2">
+          <div className="h-8 w-8 rounded-full bg-gradient-to-br from-rojo via-amarillo to-rojo p-[2px]">
+            <div className="flex h-full w-full items-center justify-center rounded-full bg-white">
+              <span className="font-display text-[10px] text-negro">S-π-C</span>
+            </div>
+          </div>
+          <div className="leading-tight">
+            <div className="text-xs font-semibold">spic_mx</div>
+            <div className="text-[10px] text-neutral-500">CDMX, MX</div>
+          </div>
+        </div>
+        <MoreHorizontal className="h-4 w-4 text-neutral-500" />
+      </div>
+
+      {/* Square content */}
+      <div className="relative aspect-square w-full bg-rojo">
+        {post.kind === "text" ? (
+          <div className="flex h-full w-full flex-col items-center justify-center px-6 text-center">
+            <h3 className="font-display text-3xl leading-tight tracking-wide text-white whitespace-pre-line sm:text-4xl">
+              {post.title}
+            </h3>
+            <svg viewBox="0 0 120 20" className="mt-4 h-4 w-28 text-white" fill="none">
+              <path d="M2 10 Q 17 0 32 10 T 62 10 T 92 10 T 118 10" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+            </svg>
+          </div>
+        ) : (
+          <img src={post.src} alt="" className="h-full w-full object-contain p-4" />
+        )}
+      </div>
+
+      {/* IG footer */}
       <div className="flex items-center justify-between px-3 py-2">
         <div className="flex items-center gap-3">
-          <Heart className="h-5 w-5" />
+          <Heart className="h-5 w-5 fill-rojo text-rojo" />
           <MessageCircle className="h-5 w-5" />
           <Send className="h-5 w-5" />
         </div>
@@ -41,10 +83,11 @@ export function Reviews() {
         </h2>
 
         <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
-          {ASSETS.ig.map((src, i) => (
-            <IGPost key={i} src={src} />
+          {IG_POSTS.map((post, i) => (
+            <IGPost key={i} post={post} />
           ))}
         </div>
+
 
         <div className="mt-14 grid grid-cols-1 gap-10 md:grid-cols-3">
           {QUOTES.map((q, i) => (
