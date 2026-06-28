@@ -31,7 +31,7 @@ export function ProductCard({ product }: { product: Product }) {
         <img
           src={product.image}
           alt={product.flavor}
-          className="h-44 w-auto object-contain drop-shadow-md"
+          className={`w-auto object-contain drop-shadow-md ${product.id === "fresh-lemon" ? "h-[300px]" : "h-44"}`}
           loading="lazy"
         />
       </div>
