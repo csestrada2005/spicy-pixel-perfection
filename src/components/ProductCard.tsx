@@ -1,7 +1,7 @@
 import { ShoppingCart } from "lucide-react";
 import type { Product } from "@/config/products";
-import chiliRed from "@/assets/chili-red.png";
-import chiliEmpty from "@/assets/chili-empty.png";
+import chiliRedAsset from "@/assets/chili-red.png.asset.json";
+import chiliEmptyAsset from "@/assets/chili-empty.png.asset.json";
 
 function SpicyMeter({ level }: { level: number }) {
   const total = 5;
@@ -12,7 +12,7 @@ function SpicyMeter({ level }: { level: number }) {
         return (
           <img
             key={i}
-            src={active ? chiliRed : chiliEmpty}
+            src={active ? chiliRedAsset.url : chiliEmptyAsset.url}
             alt={active ? "Chile picante" : "Chile sin picante"}
             className="h-7 w-auto"
             loading="lazy"
