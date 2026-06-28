@@ -31,7 +31,7 @@ export const ASSETS = {
     cherryLemon: cherryLemonFramedAsset.url,
     strawMelon: strawMelonFramedAsset.url,
     mangoPasion: mangoPasionFramedAsset.url,
-    freshTangerine: `${base}/bag-fresh-tangerine.png`,
+    freshTangerine: freshTangerineFramedAsset.url,
     pinkLemonade: `${base}/bag-pink-lemonade.png`,
     mixedBerries: mixedBerriesFramedAsset.url,
   },
