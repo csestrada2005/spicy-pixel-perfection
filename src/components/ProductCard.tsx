@@ -23,15 +23,15 @@ function SpicyMeter({ level }: { level: number }) {
   );
 }
 
-export function ProductCard({ product }: { product: Product }) {
+export function ProductCard({ product, compact }: { product: Product; compact?: boolean }) {
   const href = product.shopifyUrl || "#tienda";
   return (
-    <div className="relative w-full max-w-[320px] bg-amarillo p-5 pb-10 text-negro shadow-[8px_8px_0_0_rgba(0,0,0,0.85)]">
-      <div className="relative flex h-44 items-center justify-center overflow-visible">
+    <div className={`relative w-full bg-amarillo text-negro shadow-[8px_8px_0_0_rgba(0,0,0,0.85)] ${compact ? "max-w-[224px] p-3 pb-6" : "max-w-[320px] p-5 pb-10"}`}>
+      <div className={`relative flex items-center justify-center overflow-visible ${compact ? "h-32" : "h-44"}`}>
         <img
           src={product.image}
           alt={product.flavor}
-          className={`w-auto object-contain drop-shadow-md ${product.id === "fresh-lemon" ? "absolute left-1/2 top-1/2 h-[420px] -translate-x-1/2 -translate-y-1/2" : "h-44"}`}
+          className={`w-auto object-contain drop-shadow-md ${product.id === "fresh-lemon" ? "absolute left-1/2 top-1/2 h-[420px] -translate-x-1/2 -translate-y-1/2" : compact ? "h-44" : "h-44"}`}
           loading="lazy"
         />
       </div>
