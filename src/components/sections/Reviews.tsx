@@ -30,12 +30,13 @@ export function Reviews() {
 
         <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
           {IG_POSTS.map((src, i) => (
-            <img
-              key={i}
-              src={src}
-              alt={`Instagram post ${i + 1}`}
-              className="w-full rounded-xl object-cover shadow-lg"
-            />
+            <div key={i} className="aspect-[4/5] w-full overflow-hidden rounded-xl shadow-lg">
+              <img
+                src={src}
+                alt={`Instagram post ${i + 1}`}
+                className="h-full w-full object-cover"
+              />
+            </div>
           ))}
         </div>
 
