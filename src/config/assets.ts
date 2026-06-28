@@ -29,7 +29,7 @@ export const ASSETS = {
     pinaColada: pinaColadaFramedAsset.url,
     cherryLemon: cherryLemonFramedAsset.url,
     strawMelon: strawMelonFramedAsset.url,
-    mangoPasion: `${base}/bag-mango-pasion.png`,
+    mangoPasion: mangoPasionFramedAsset.url,
     freshTangerine: `${base}/bag-fresh-tangerine.png`,
     pinkLemonade: `${base}/bag-pink-lemonade.png`,
     mixedBerries: mixedBerriesFramedAsset.url,
