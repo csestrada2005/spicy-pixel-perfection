@@ -20,7 +20,7 @@ export const ASSETS = {
   guyEating: bocaAbiertaAsset.url,
   orgulloText: orgulloTextAsset.url,
   bags: {
-    freshLemon: `${base}/bag-fresh-lemon.png`,
+    freshLemon: freshLemonFramedAsset.url,
     pinaColada: `${base}/bag-pina-colada.png`,
     cherryLemon: `${base}/bag-cherry-lemon.png`,
     strawMelon: `${base}/bag-straw-melon.png`,
