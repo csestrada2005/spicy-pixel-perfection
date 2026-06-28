@@ -17,7 +17,7 @@ export function Hero() {
         src={ASSETS.heroFruit}
         alt=""
         aria-hidden
-        className="pointer-events-none absolute -left-16 -top-10 w-[90%] max-w-[680px] opacity-40 md:left-[-4%] md:top-[-6%] md:w-[55%] md:opacity-60"
+        className="pointer-events-none absolute -left-[10%] top-[2%] w-[120%] max-w-none opacity-90 md:left-[-8%] md:top-[4%] md:w-[70%]"
       />
 
       {/* Vertical neon "TU NUEVA ADICCIÓN" */}
