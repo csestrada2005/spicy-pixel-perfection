@@ -51,12 +51,12 @@ export function Hero() {
         className="pointer-events-none absolute bottom-[200px] left-4 z-[5] hidden w-[260px] -rotate-3 md:block lg:bottom-[220px] lg:left-8 lg:w-[300px]"
       />
 
-      {/* Boca abierta — bottom, rotated horizontal, smaller */}
+      {/* Boca abierta — bottom, horizontal, smaller */}
       <img
         src={ASSETS.guyEating}
         alt=""
         aria-hidden
-        className="pointer-events-none absolute -bottom-[110px] left-[2%] z-10 hidden w-[340px] max-w-none -rotate-90 md:block lg:left-[6%] lg:w-[380px]"
+        className="pointer-events-none absolute bottom-0 left-[10%] z-10 hidden w-[420px] max-w-none md:block lg:left-[14%] lg:w-[480px]"
       />
 
       {/* UNA BOMBA PICANTE — over guy */}
