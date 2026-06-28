@@ -8,7 +8,7 @@ export function Hero() {
   return (
     <section
       id="sabores"
-      className="relative min-h-screen w-full overflow-hidden bg-negro pb-[460px] md:pb-[520px]"
+      className="relative min-h-screen w-full overflow-hidden bg-negro"
     >
       {/* ===== ABSOLUTE ACCENT LAYER ===== */}
 
@@ -17,45 +17,45 @@ export function Hero() {
         src={ASSETS.heroFruit}
         alt=""
         aria-hidden
-        className="pointer-events-none absolute -left-[10%] top-[2%] w-[120%] max-w-none opacity-90 md:left-[-8%] md:top-[4%] md:w-[70%]"
+        className="pointer-events-none absolute -left-[10%] top-[2%] z-0 w-[120%] max-w-none opacity-90 md:left-[-8%] md:top-[4%] md:w-[70%]"
       />
 
       {/* Vertical neon "TU NUEVA ADICCIÓN" */}
       <span
-        className="font-display neon-text-magenta pointer-events-none absolute left-1/2 top-[58%] hidden -translate-x-1/2 text-3xl tracking-[0.25em] md:block lg:text-4xl"
+        className="font-display neon-text-magenta pointer-events-none absolute left-1/2 top-[58%] z-0 hidden -translate-x-1/2 text-3xl tracking-[0.25em] md:block lg:text-4xl"
         style={{ writingMode: "vertical-rl", transform: "translateX(-50%) rotate(180deg)" }}
         aria-hidden
       >
         TU NUEVA ADICCIÓN
       </span>
 
-      {/* Chica echando gomitas — top-left, arm coming from outside */}
+      {/* Chica echando gomitas */}
       <img
         src={ASSETS.heroHandBag}
         alt=""
         aria-hidden
-        className="pointer-events-none absolute left-[-60px] top-[48%] hidden w-[360px] rotate-[-12deg] md:block lg:w-[440px]"
+        className="pointer-events-none absolute left-[-60px] top-[48%] z-[5] hidden w-[360px] rotate-[-12deg] md:block lg:w-[440px]"
       />
 
-      {/* Orgullosamente mexicanos — note image, below chica on left */}
+      {/* Orgullosamente mexicanos — note */}
       <img
         src={ASSETS.orgulloText}
         alt="Orgullosamente mexicanos creamos los dulces enchilados más intensos y adictivos"
         aria-hidden
-        className="pointer-events-none absolute bottom-[180px] left-4 hidden w-[260px] -rotate-3 md:block lg:bottom-[200px] lg:left-8 lg:w-[300px]"
+        className="pointer-events-none absolute bottom-[200px] left-4 z-[5] hidden w-[260px] -rotate-3 md:block lg:bottom-[220px] lg:left-8 lg:w-[300px]"
       />
 
-      {/* Boca abierta — bottom full-width, guy yelling */}
+      {/* Boca abierta — bottom, z-10 so the Piña Colada card crops it */}
       <img
         src={ASSETS.guyEating}
         alt=""
         aria-hidden
-        className="pointer-events-none absolute bottom-0 left-1/4 w-[360px] max-w-none md:left-[28%] md:w-[520px] lg:w-[620px]"
+        className="pointer-events-none absolute bottom-0 left-[18%] z-10 hidden w-[520px] max-w-none md:block lg:left-[22%] lg:w-[620px]"
       />
 
-      {/* UNA BOMBA PICANTE — bottom-left, rotated, next to boca */}
+      {/* UNA BOMBA PICANTE — over guy */}
       <span
-        className="font-display neon-text-rojo pointer-events-none absolute bottom-10 left-2 z-20 text-2xl leading-none md:bottom-16 md:left-6 md:text-4xl lg:text-5xl"
+        className="font-display neon-text-rojo pointer-events-none absolute bottom-24 left-2 z-20 text-2xl leading-none md:bottom-32 md:left-6 md:text-4xl lg:bottom-40 lg:text-5xl"
         style={{ transform: "rotate(-20deg)" }}
         aria-hidden
       >
@@ -63,7 +63,7 @@ export function Hero() {
       </span>
 
       {/* ===== MAIN GRID ===== */}
-      <div className="relative z-10 mx-auto grid max-w-[1280px] grid-cols-1 gap-12 px-5 pt-10 md:grid-cols-2 md:gap-10 md:px-8 md:pt-16">
+      <div className="relative z-[15] mx-auto grid max-w-[1280px] grid-cols-1 gap-12 px-5 pt-10 pb-24 md:grid-cols-2 md:gap-10 md:px-8 md:pt-16 md:pb-32">
         {/* LEFT COLUMN */}
         <div className="relative flex flex-col items-start gap-6 md:gap-8">
           <img
@@ -79,7 +79,7 @@ export function Hero() {
             ORDENAR AHORA
           </a>
 
-          {/* Mobile-only stack: products + chica + orgullo + bomba/boca */}
+          {/* Mobile-only stack */}
           <div className="grid w-full grid-cols-1 gap-8 sm:grid-cols-2 md:hidden">
             {heroPicks.map((p) => (
               <div key={p.id} className="flex justify-center">
@@ -102,15 +102,18 @@ export function Hero() {
           />
         </div>
 
-        {/* RIGHT COLUMN — desktop product chaos grid */}
+        {/* RIGHT COLUMN — desktop staggered product chaos */}
         <div className="relative hidden md:block">
-          <div className="grid grid-cols-2 gap-x-6 gap-y-10 pt-6 lg:gap-x-10">
+          <div className="grid grid-cols-2 gap-x-6 lg:gap-x-10">
             {heroPicks.map((p, i) => {
-              const offsets = ["mt-0", "mt-16", "-mt-4", "mt-12"];
+              // staggered offsets: tl, tr-down, bl-up, br-down(deep) so Piña Colada (i=3) covers chest
+              const offsets = ["mt-0", "mt-24", "mt-2", "mt-32"];
+              // Piña Colada (last) lifted in z so it crops the guy
+              const z = i === 3 ? "z-20" : "z-[15]";
               return (
                 <div
                   key={p.id}
-                  className={`flex justify-center ${offsets[i]}`}
+                  className={`flex justify-center ${offsets[i]} ${z} relative`}
                 >
                   <ProductCard product={p} />
                 </div>
