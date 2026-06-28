@@ -25,7 +25,7 @@ export const ASSETS = {
   orgulloText: orgulloTextAsset.url,
   bags: {
     freshLemon: freshLemonFramedAsset.url,
-    pinaColada: `${base}/bag-pina-colada.png`,
+    pinaColada: pinaColadaFramedAsset.url,
     cherryLemon: cherryLemonFramedAsset.url,
     strawMelon: strawMelonFramedAsset.url,
     mangoPasion: `${base}/bag-mango-pasion.png`,
