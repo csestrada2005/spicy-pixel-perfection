@@ -10,6 +10,7 @@ import chicaGomitasAsset from "@/assets/chica-gomitas.png.asset.json";
 import orgulloTextAsset from "@/assets/orgullo-text.png.asset.json";
 import freshLemonFramedAsset from "@/assets/bag-fresh-lemon-framed-transparent.png.asset.json";
 import mixedBerriesFramedAsset from "@/assets/bag-mixed-berries-framed-transparent.png.asset.json";
+import cherryLemonFramedAsset from "@/assets/bag-cherry-lemon-framed-transparent.png.asset.json";
 
 const base = "/assets";
 
@@ -23,7 +24,7 @@ export const ASSETS = {
   bags: {
     freshLemon: freshLemonFramedAsset.url,
     pinaColada: `${base}/bag-pina-colada.png`,
-    cherryLemon: `${base}/bag-cherry-lemon.png`,
+    cherryLemon: cherryLemonFramedAsset.url,
     strawMelon: `${base}/bag-straw-melon.png`,
     mangoPasion: `${base}/bag-mango-pasion.png`,
     freshTangerine: `${base}/bag-fresh-tangerine.png`,
