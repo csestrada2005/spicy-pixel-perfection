@@ -20,7 +20,7 @@ export function Bestsellers() {
           backgroundSize: "360px 480px",
         }}
       />
-      <div className="mx-auto max-w-[1280px] px-4">
+      <div className="relative z-10 mx-auto max-w-[1280px] px-4">
         <h2
           className="font-display text-center text-4xl tracking-wider text-white sm:text-6xl"
           style={{
