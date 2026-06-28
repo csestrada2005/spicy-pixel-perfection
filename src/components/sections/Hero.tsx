@@ -35,12 +35,12 @@ export function Hero() {
         TU NUEVA ADICCIÓN
       </span>
 
-      {/* Chica echando gomitas */}
+      {/* Chica echando gomitas — bigger, aligned to mouth */}
       <img
         src={ASSETS.heroHandBag}
         alt=""
         aria-hidden
-        className="pointer-events-none absolute left-[-60px] top-[48%] z-[5] hidden w-[360px] rotate-[-12deg] md:block lg:w-[440px]"
+        className="pointer-events-none absolute left-[8%] top-[18%] z-[5] hidden w-[460px] rotate-[-6deg] md:block lg:left-[12%] lg:w-[560px]"
       />
 
       {/* Orgullosamente mexicanos — note */}
@@ -48,15 +48,15 @@ export function Hero() {
         src={ASSETS.orgulloText}
         alt="Orgullosamente mexicanos creamos los dulces enchilados más intensos y adictivos"
         aria-hidden
-        className="pointer-events-none absolute bottom-[200px] left-4 z-[5] hidden w-[260px] -rotate-3 md:block lg:bottom-[220px] lg:left-8 lg:w-[300px]"
+        className="pointer-events-none absolute bottom-[240px] left-4 z-[5] hidden w-[260px] -rotate-3 md:block lg:bottom-[260px] lg:left-8 lg:w-[300px]"
       />
 
-      {/* Boca abierta — bottom, horizontal, smaller */}
+      {/* Boca abierta — bottom, horizontal, larger */}
       <img
         src={ASSETS.guyEating}
         alt=""
         aria-hidden
-        className="pointer-events-none absolute bottom-0 left-[10%] z-10 hidden w-[420px] max-w-none md:block lg:left-[12%] lg:w-[480px]"
+        className="pointer-events-none absolute bottom-0 left-[8%] z-10 hidden w-[560px] max-w-none md:block lg:left-[10%] lg:w-[640px]"
       />
 
       {/* UNA BOMBA PICANTE — over guy */}
