@@ -108,17 +108,19 @@ export function Hero() {
           />
         </div>
 
-        {/* RIGHT COLUMN — desktop staggered product chaos */}
+        {/* RIGHT COLUMN — staggered zigzag (single column with alternating x offset) */}
         <div className="relative hidden md:block">
-          <div className="grid grid-cols-2 gap-x-6 gap-y-16 lg:gap-x-10">
+          <div className="flex flex-col items-center">
             {heroPicks.map((p, i) => {
-              // staggered offsets: left-col normal, right-col pushed down
-              const offset = i % 2 === 1 ? "mt-24" : "mt-0";
-              const z = i === 3 ? "z-20" : "z-[15]";
+              // Zigzag: even index -> left, odd -> right
+              const xOffset = i % 2 === 0 ? "-translate-x-16" : "translate-x-16";
+              // Strong vertical overlap after the first card
+              const yOverlap = i === 0 ? "mt-0" : "-mt-16";
               return (
                 <div
                   key={p.id}
-                  className={`flex justify-center ${offset} ${z} relative`}
+                  className={`relative ${xOffset} ${yOverlap}`}
+                  style={{ zIndex: 20 + i }}
                 >
                   <ProductCard product={p} />
                 </div>
