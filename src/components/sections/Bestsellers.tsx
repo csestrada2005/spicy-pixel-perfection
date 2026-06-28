@@ -30,39 +30,42 @@ export function Bestsellers() {
         >
           CONOCE NUESTROS BESTSELLERS
         </h2>
+      </div>
 
-        <div className="relative mt-14">
-          {/* Doble flecha neón cyan detrás de las cards, atraviesa de lado a lado */}
-          <div
-            aria-hidden
-            className="pointer-events-none absolute left-0 right-0 top-1/2 z-0 hidden -translate-y-1/2 px-2 md:block"
-            style={{
-              filter:
-                "drop-shadow(0 0 6px var(--neon-cyan)) drop-shadow(0 0 14px var(--neon-cyan)) drop-shadow(0 0 28px var(--neon-cyan))",
-            }}
+      {/* Full-width card area so the arrow can span edge-to-edge */}
+      <div className="relative mt-14">
+        {/* Doble flecha neón cyan detrás de las cards, atraviesa de lado a lado */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 top-1/2 z-0 hidden -translate-y-1/2 md:block"
+          style={{
+            filter:
+              "drop-shadow(0 0 6px var(--neon-cyan)) drop-shadow(0 0 14px var(--neon-cyan)) drop-shadow(0 0 28px var(--neon-cyan))",
+          }}
+        >
+          <svg
+            viewBox="0 0 1000 60"
+            preserveAspectRatio="none"
+            className="h-16 w-full"
           >
-            <svg
-              viewBox="0 0 1000 60"
-              preserveAspectRatio="none"
-              className="h-16 w-full"
+            <g
+              fill="none"
+              stroke="var(--neon-cyan)"
+              strokeWidth="6"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             >
-              <g
-                fill="none"
-                stroke="var(--neon-cyan)"
-                strokeWidth="6"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <line x1="40" y1="30" x2="960" y2="30" />
-                <polyline points="70,5 30,30 70,55" />
-                <polyline points="930,5 970,30 930,55" />
-              </g>
-            </svg>
-          </div>
+              <line x1="40" y1="30" x2="960" y2="30" />
+              <polyline points="70,5 30,30 70,55" />
+              <polyline points="930,5 970,30 930,55" />
+            </g>
+          </svg>
+        </div>
 
+        <div className="relative z-10 mx-auto max-w-[1280px] px-4">
           <div
             ref={trackRef}
-            className="no-scrollbar relative z-10 flex snap-x snap-mandatory gap-8 overflow-x-auto px-1 pb-10 md:grid md:grid-cols-3 md:overflow-visible md:pb-12"
+            className="no-scrollbar flex snap-x snap-mandatory gap-8 overflow-x-auto px-1 pb-10 md:grid md:grid-cols-3 md:overflow-visible md:pb-12"
           >
             {items.map((p) => (
               <div
