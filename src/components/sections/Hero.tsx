@@ -119,7 +119,7 @@ export function Hero() {
               return (
                 <div
                   key={p.id}
-                  className={`relative ${xOffset} ${yOverlap}`}
+                  className={`relative w-[240px] ${xOffset} ${yOverlap}`}
                   style={{ zIndex: 20 + i }}
                 >
                   <ProductCard product={p} />
