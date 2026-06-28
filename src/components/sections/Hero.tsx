@@ -112,15 +112,12 @@ export function Hero() {
         <div className="relative hidden md:block">
           <div className="flex flex-col items-center">
             {heroPicks.map((p, i) => {
-              // Zigzag: even index -> left, odd -> right
-              const xOffset = i % 2 === 0 ? "-translate-x-16" : "translate-x-16";
-              // Strong vertical overlap after the first card
-              const yOverlap = i === 0 ? "mt-0" : "-mt-16";
+              const xOffset = i % 2 === 0 ? "-translate-x-12" : "translate-x-12";
+              const yGap = i === 0 ? "mt-0" : "mt-8";
               return (
                 <div
                   key={p.id}
-                  className={`relative w-[240px] ${xOffset} ${yOverlap}`}
-                  style={{ zIndex: 20 + i }}
+                  className={`relative w-[240px] ${xOffset} ${yGap}`}
                 >
                   <ProductCard product={p} />
                 </div>
