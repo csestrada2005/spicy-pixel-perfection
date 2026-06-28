@@ -35,12 +35,12 @@ export function Hero() {
         TU NUEVA ADICCIÓN
       </span>
 
-      {/* Mano con bolsa derramando gomitas — pegada al borde izquierdo y bajada */}
+      {/* Chica echando gomitas — top-left, arm coming from outside */}
       <img
         src={ASSETS.heroHandBag}
         alt=""
         aria-hidden
-        className="pointer-events-none absolute left-0 top-[52%] z-[5] hidden w-[480px] rotate-[-4deg] md:block lg:left-0 lg:top-[50%] lg:w-[580px]"
+        className="pointer-events-none absolute left-[-60px] top-[48%] hidden w-[360px] rotate-[-12deg] md:block lg:w-[440px]"
       />
 
       {/* Orgullosamente mexicanos — arriba a la izquierda */}
