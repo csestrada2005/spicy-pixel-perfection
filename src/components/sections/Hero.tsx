@@ -69,7 +69,7 @@ export function Hero() {
       </span>
 
       {/* ===== MAIN GRID ===== */}
-      <div className="relative z-[15] mx-auto grid max-w-[1280px] grid-cols-1 gap-12 px-5 pt-10 pb-24 md:grid-cols-2 md:gap-10 md:px-8 md:pt-16 md:pb-32">
+      <div className="relative z-[15] mx-auto grid max-w-[1280px] grid-cols-1 gap-12 px-5 pt-10 pb-24 md:grid-cols-2 md:gap-10 md:px-8 md:pt-16 md:pb-4">
         {/* LEFT COLUMN */}
         <div className="relative flex flex-col items-start gap-6 md:gap-8">
           <img
@@ -86,7 +86,7 @@ export function Hero() {
           </a>
 
           {/* Mobile-only stack */}
-          <div className="grid w-full grid-cols-1 gap-8 sm:grid-cols-2 md:hidden">
+          <div className="https://www.youtube.com/watch?v=F3zM_o372Ww grid w-full grid-cols-1 gap-8 sm:grid-cols-2 md:hidden">
             {heroPicks.map((p) => (
               <div key={p.id} className="flex justify-center">
                 <ProductCard product={p} />
@@ -113,7 +113,7 @@ export function Hero() {
           <div className="flex flex-col items-center">
             {heroPicks.map((p, i) => {
               const xOffset = i % 2 === 0 ? "-translate-x-12" : "translate-x-12";
-              const yGap = i === 0 ? "mt-0" : "mt-8";
+              const yGap = i === 0 ? "mt-0" : "mt-16";
               return (
                 <div
                   key={p.id}
