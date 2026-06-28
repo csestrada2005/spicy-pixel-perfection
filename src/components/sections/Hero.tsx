@@ -35,12 +35,12 @@ export function Hero() {
         TU NUEVA ADICCIÓN
       </span>
 
-      {/* Mano con bolsa derramando gomitas — más abajo, alineada a la boca */}
+      {/* Mano con bolsa derramando gomitas — pegada al borde izquierdo y bajada */}
       <img
         src={ASSETS.heroHandBag}
         alt=""
         aria-hidden
-        className="pointer-events-none absolute left-[14%] top-[34%] z-[5] hidden w-[480px] rotate-[-4deg] md:block lg:left-[16%] lg:top-[30%] lg:w-[580px]"
+        className="pointer-events-none absolute left-0 top-[40%] z-[5] hidden w-[480px] rotate-[-4deg] md:block lg:left-0 lg:top-[38%] lg:w-[580px]"
       />
 
       {/* Orgullosamente mexicanos — arriba a la izquierda */}
