@@ -48,7 +48,7 @@ export function Hero() {
         src={ASSETS.orgulloText}
         alt="Orgullosamente mexicanos creamos los dulces enchilados más intensos y adictivos"
         aria-hidden
-        className="pointer-events-none absolute left-2 top-[36%] z-[6] hidden w-[360px] -rotate-3 md:block lg:left-6 lg:w-[420px]"
+        className="pointer-events-none absolute left-6 top-[36%] z-[6] hidden w-[414px] -rotate-3 md:block lg:left-12 lg:w-[483px]"
       />
 
       {/* Boca abierta — bottom, horizontal, larger */}
