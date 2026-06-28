@@ -1,8 +1,7 @@
-import { Heart, MessageCircle, Send, Bookmark, MoreHorizontal } from "lucide-react";
 import { ASSETS } from "@/config/assets";
-import igCitrus from "@/assets/ig-post-citrus.png.asset.json";
-import igDuo from "@/assets/ig-post-duo.png.asset.json";
-import igMango from "@/assets/ig-post-mango.png.asset.json";
+import igCitrus from "@/assets/ig-citrus-v2.png.asset.json";
+import igMango from "@/assets/ig-mango-v2.png.asset.json";
+import igDuo from "@/assets/ig-duo-v2.png.asset.json";
 
 const QUOTES = [
   {
@@ -19,43 +18,7 @@ const QUOTES = [
   },
 ] as const;
 
-const IG_POSTS = [igCitrus.url, igDuo.url, igMango.url] as const;
-
-function IGPost({ src }: { src: string }) {
-  return (
-    <div className="overflow-hidden rounded-[28px] bg-white text-negro shadow-lg">
-      <div className="flex items-center justify-between px-4 py-3">
-        <div className="flex items-center gap-3">
-          <div className="h-10 w-10 rounded-full border-2 border-[#FF8A00] bg-white p-[2px]">
-            <div className="flex h-full w-full items-center justify-center rounded-full bg-white">
-              <span className="font-display text-[11px] text-negro">S-π-C</span>
-            </div>
-          </div>
-          <div className="leading-tight">
-            <div className="text-sm font-semibold">spic_mx</div>
-            <div className="text-xs text-neutral-500">CDMX, MX</div>
-          </div>
-        </div>
-        <MoreHorizontal className="h-5 w-5 text-neutral-500" />
-      </div>
-
-      <div className="aspect-square w-full bg-white p-3 pt-0">
-        <div className="h-full w-full overflow-hidden rounded-[24px] bg-neutral-100">
-          <img src={src} alt="Post de Instagram de Spicy" className="h-full w-full object-cover object-center" />
-        </div>
-      </div>
-
-      <div className="flex items-center justify-between px-4 py-3 pt-1">
-        <div className="flex items-center gap-3">
-          <Heart className="h-6 w-6 fill-rojo text-rojo" />
-          <MessageCircle className="h-6 w-6" />
-          <Send className="h-6 w-6" />
-        </div>
-        <Bookmark className="h-6 w-6" />
-      </div>
-    </div>
-  );
-}
+const IG_POSTS = [igCitrus.url, igMango.url, igDuo.url] as const;
 
 export function Reviews() {
   return (
@@ -66,10 +29,16 @@ export function Reviews() {
         </h2>
 
         <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
-          {IG_POSTS.map((post, i) => (
-            <IGPost key={i} src={post} />
+          {IG_POSTS.map((src, i) => (
+            <img
+              key={i}
+              src={src}
+              alt={`Post de Instagram ${i + 1}`}
+              className="aspect-[3/4] w-full rounded-[28px] object-contain bg-white shadow-lg"
+            />
           ))}
         </div>
+
 
         <div className="mt-14 grid grid-cols-1 gap-10 md:grid-cols-3">
           {QUOTES.map((q, i) => (
