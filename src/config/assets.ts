@@ -1,7 +1,7 @@
 // All image assets live in /public/assets/. Replace files there; do not change keys.
 import logoNeonAsset from "@/assets/logo-spic-neon.png.asset.json";
 import logoSmallAsset from "@/assets/logo-spic-small.png.asset.json";
-import chilePatternBgAsset from "@/assets/chile-pattern-bg.png.asset.json";
+import chilePatternBgAsset from "@/assets/bestsellers-pattern.png.asset.json";
 
 const base = "/assets";
 
