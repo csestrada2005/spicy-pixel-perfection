@@ -2,6 +2,7 @@
 import logoNeonAsset from "@/assets/logo-spic-neon.png.asset.json";
 import logoSmallAsset from "@/assets/logo-spic-small.png.asset.json";
 import chilePatternBgAsset from "@/assets/bestsellers-pattern.png.asset.json";
+import chilePatternDarkAsset from "@/assets/chile-pattern-dark.jpg.asset.json";
 
 const base = "/assets";
 
