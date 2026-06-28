@@ -35,6 +35,7 @@
   /* Brand palette */
   --color-negro: var(--negro);
   --color-amarillo: var(--amarillo);
+  --color-amarillo-suave: var(--amarillo-suave);
   --color-rojo: var(--rojo);
   --color-azul-footer: var(--azul-footer);
   --color-neon-rojo: var(--neon-rojo);
