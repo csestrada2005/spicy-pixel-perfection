@@ -3,7 +3,13 @@ import { PRODUCTS } from "@/config/products";
 import { ProductCard } from "@/components/ProductCard";
 
 export function Hero() {
-  const heroPicks = PRODUCTS.slice(0, 4); // Fresh Lemon, Piña Colada, Cherry Lemon, Straw Melon
+  const heroPicks = [
+    PRODUCTS[0], // Fresh Lemon
+    PRODUCTS[1], // Piña Colada (morada)
+    PRODUCTS[2], // Cherry Lemon
+    PRODUCTS[3], // Straw Melon
+    { ...PRODUCTS[1], id: "pina-colada-yellow", name: "PIÑA COLADA" }, // Piña Colada (amarilla)
+  ];
 
   return (
     <section
@@ -104,16 +110,15 @@ export function Hero() {
 
         {/* RIGHT COLUMN — desktop staggered product chaos */}
         <div className="relative hidden md:block">
-          <div className="grid grid-cols-2 gap-x-6 lg:gap-x-10">
+          <div className="grid grid-cols-2 gap-x-6 gap-y-16 lg:gap-x-10">
             {heroPicks.map((p, i) => {
-              // staggered offsets: tl, tr-down, bl-up, br-down(deep) so Piña Colada (i=3) covers chest
-              const offsets = ["mt-0", "mt-24", "mt-2", "mt-32"];
-              // Piña Colada (last) lifted in z so it crops the guy
+              // staggered offsets: left-col normal, right-col pushed down
+              const offset = i % 2 === 1 ? "mt-24" : "mt-0";
               const z = i === 3 ? "z-20" : "z-[15]";
               return (
                 <div
                   key={p.id}
-                  className={`flex justify-center ${offsets[i]} ${z} relative`}
+                  className={`flex justify-center ${offset} ${z} relative`}
                 >
                   <ProductCard product={p} />
                 </div>
