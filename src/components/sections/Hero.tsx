@@ -29,12 +29,12 @@ export function Hero() {
         TU NUEVA ADICCIÓN
       </span>
 
-      {/* Hand bag coming from the side */}
+      {/* Chica echando gomitas — floating mid-left */}
       <img
         src={ASSETS.heroHandBag}
         alt=""
         aria-hidden
-        className="pointer-events-none absolute right-[-30px] top-[55%] hidden w-[180px] rotate-[12deg] md:block lg:w-[230px]"
+        className="pointer-events-none absolute left-[-40px] top-[42%] hidden w-[280px] rotate-[-8deg] md:block lg:w-[340px]"
       />
 
       {/* ===== MAIN GRID ===== */}
@@ -54,7 +54,7 @@ export function Hero() {
             ORDENAR AHORA
           </a>
 
-          {/* Mobile-only: products inserted here, between CTA and neon frame */}
+          {/* Mobile-only: products inserted here, between CTA and orgullo image */}
           <div className="grid w-full grid-cols-1 gap-8 sm:grid-cols-2 md:hidden">
             {heroPicks.map((p) => (
               <div key={p.id} className="flex justify-center">
@@ -63,15 +63,23 @@ export function Hero() {
             ))}
           </div>
 
-          {/* Neon framed about block */}
-          <div className="neon-border-cyan relative mt-2 max-w-md rounded-xl bg-negro/70 p-5 text-sm leading-relaxed text-white md:mt-4 md:text-base">
-            Orgullosamente mexicanos 🌶️🇲🇽 creamos los dulces enchilados más
-            intensos y adictivos. Cada bocado está cargado de chile, chamoy y
-            sabor auténtico.
-          </div>
+          {/* Mobile-only: chica gomitas */}
+          <img
+            src={ASSETS.heroHandBag}
+            alt=""
+            aria-hidden
+            className="mx-auto w-[240px] rotate-[-8deg] md:hidden"
+          />
 
-          {/* Bomba picante + guy eating */}
-          <div className="relative mt-6 flex items-end gap-2 md:mt-10">
+          {/* Orgullosamente mexicanos — note image */}
+          <img
+            src={ASSETS.orgulloText}
+            alt="Orgullosamente mexicanos creamos los dulces enchilados más intensos y adictivos"
+            className="relative mt-2 w-[260px] max-w-full md:mt-32 md:w-[300px] lg:w-[340px]"
+          />
+
+          {/* Bomba picante + boca abierta */}
+          <div className="relative mt-2 flex items-end gap-2 md:mt-6">
             <span
               className="font-display neon-text-rojo text-2xl leading-none md:text-4xl"
               style={{ transform: "rotate(-15deg)" }}
@@ -82,10 +90,11 @@ export function Hero() {
               src={ASSETS.guyEating}
               alt=""
               aria-hidden
-              className="h-28 w-auto md:h-40"
+              className="h-40 w-auto md:h-56"
             />
           </div>
         </div>
+
 
         {/* RIGHT COLUMN — desktop product chaos grid */}
         <div className="relative hidden md:block">
