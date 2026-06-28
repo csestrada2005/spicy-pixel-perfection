@@ -23,7 +23,7 @@ function SpicyMeter({ level }: { level: number }) {
   );
 }
 
-export function ProductCard({ product }: { product: Product }) {
+export function ProductCard({ product, compact }: { product: Product; compact?: boolean }) {
   const href = product.shopifyUrl || "#tienda";
   return (
     <div className="relative w-full max-w-[320px] bg-amarillo p-5 pb-10 text-negro shadow-[8px_8px_0_0_rgba(0,0,0,0.85)]">
