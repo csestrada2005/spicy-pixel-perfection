@@ -31,7 +31,7 @@ export function ProductCard({ product, compact }: { product: Product; compact?: 
         <img
           src={product.image}
           alt={product.flavor}
-          className={`w-auto object-contain drop-shadow-md ${product.id === "fresh-lemon" ? "absolute left-1/2 top-[42%] h-[420px] -translate-x-1/2 -translate-y-1/2" : product.id === "mixed-berries" ? "absolute left-1/2 top-[36%] h-[420px] -translate-x-1/2 -translate-y-1/2" : product.id === "cherry-lemon" ? "absolute left-1/2 top-[32%] h-[420px] -translate-x-1/2 -translate-y-1/2" : compact ? "h-44" : "h-44"}`}
+          className={`w-auto object-contain drop-shadow-md ${product.id === "fresh-lemon" ? "absolute left-1/2 top-[42%] h-[420px] -translate-x-1/2 -translate-y-1/2" : product.id === "mixed-berries" ? "absolute left-1/2 top-[36%] h-[420px] -translate-x-1/2 -translate-y-1/2" : product.id === "cherry-lemon" ? "absolute left-1/2 top-[28%] h-[420px] -translate-x-1/2 -translate-y-1/2" : compact ? "h-44" : "h-44"}`}
           loading="lazy"
         />
       </div>
