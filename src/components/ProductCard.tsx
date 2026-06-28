@@ -26,7 +26,7 @@ function SpicyMeter({ level }: { level: number }) {
 export function ProductCard({ product, compact }: { product: Product; compact?: boolean }) {
   const href = product.shopifyUrl || "#tienda";
   return (
-    <div className={`relative w-full bg-amarillo text-negro shadow-[8px_8px_0_0_rgba(0,0,0,0.85)] ${compact ? "max-w-[224px] p-3 pb-6" : "max-w-[320px] p-5 pb-10"}`}>
+    <div className={`relative w-full rounded-2xl bg-amarillo text-negro shadow-[3px_3px_0px_#F4C518] ${compact ? "max-w-[224px] p-3 pb-6" : "max-w-[320px] p-5 pb-10"}`}>
       <div className={`relative flex items-center justify-center overflow-visible ${compact ? "h-32" : "h-44"}`}>
         <img
           src={product.image}
