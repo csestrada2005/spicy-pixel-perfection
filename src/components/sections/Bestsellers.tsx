@@ -1,5 +1,4 @@
 import { useRef } from "react";
-import { ArrowLeft, ArrowRight } from "lucide-react";
 import { ASSETS } from "@/config/assets";
 import { PRODUCTS } from "@/config/products";
 import { ProductCard } from "@/components/ProductCard";
@@ -9,12 +8,6 @@ export function Bestsellers() {
   const items = PRODUCTS.filter((p) =>
     ["mango-pasion", "fresh-tangerine", "pink-lemonade"].includes(p.id),
   );
-
-  const scroll = (dir: 1 | -1) => {
-    const el = trackRef.current;
-    if (!el) return;
-    el.scrollBy({ left: dir * el.clientWidth * 0.8, behavior: "smooth" });
-  };
 
   return (
     <section
@@ -39,34 +32,37 @@ export function Bestsellers() {
         </h2>
 
         <div className="relative mt-14">
-          <button
-            type="button"
-            onClick={() => scroll(-1)}
-            aria-label="Anterior"
-            className="absolute -left-2 top-1/2 z-10 hidden -translate-y-1/2 text-[var(--neon-cyan)] md:block"
+          {/* Doble flecha neón cyan detrás de las cards, atraviesa de lado a lado */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute left-0 right-0 top-1/2 z-0 hidden -translate-y-1/2 px-2 md:block"
             style={{
               filter:
-                "drop-shadow(0 0 4px var(--neon-cyan)) drop-shadow(0 0 10px var(--neon-cyan)) drop-shadow(0 0 18px var(--neon-cyan))",
+                "drop-shadow(0 0 6px var(--neon-cyan)) drop-shadow(0 0 14px var(--neon-cyan)) drop-shadow(0 0 28px var(--neon-cyan))",
             }}
           >
-            <ArrowLeft className="h-16 w-16" strokeWidth={2.5} />
-          </button>
-          <button
-            type="button"
-            onClick={() => scroll(1)}
-            aria-label="Siguiente"
-            className="absolute -right-2 top-1/2 z-10 hidden -translate-y-1/2 text-[var(--neon-cyan)] md:block"
-            style={{
-              filter:
-                "drop-shadow(0 0 4px var(--neon-cyan)) drop-shadow(0 0 10px var(--neon-cyan)) drop-shadow(0 0 18px var(--neon-cyan))",
-            }}
-          >
-            <ArrowRight className="h-16 w-16" strokeWidth={2.5} />
-          </button>
+            <svg
+              viewBox="0 0 1000 60"
+              preserveAspectRatio="none"
+              className="h-16 w-full"
+            >
+              <g
+                fill="none"
+                stroke="var(--neon-cyan)"
+                strokeWidth="6"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <line x1="40" y1="30" x2="960" y2="30" />
+                <polyline points="70,5 30,30 70,55" />
+                <polyline points="930,5 970,30 930,55" />
+              </g>
+            </svg>
+          </div>
 
           <div
             ref={trackRef}
-            className="no-scrollbar flex snap-x snap-mandatory gap-8 overflow-x-auto px-1 pb-10 md:grid md:grid-cols-3 md:overflow-visible md:pb-12"
+            className="no-scrollbar relative z-10 flex snap-x snap-mandatory gap-8 overflow-x-auto px-1 pb-10 md:grid md:grid-cols-3 md:overflow-visible md:pb-12"
           >
             {items.map((p) => (
               <div
