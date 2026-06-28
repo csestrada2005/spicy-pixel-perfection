@@ -56,7 +56,7 @@ export function Hero() {
         src={ASSETS.guyEating}
         alt=""
         aria-hidden
-        className="pointer-events-none absolute bottom-0 left-[10%] z-10 hidden w-[420px] max-w-none md:block lg:left-[14%] lg:w-[480px]"
+        className="pointer-events-none absolute bottom-0 left-[10%] z-10 hidden w-[420px] max-w-none md:block lg:left-[12%] lg:w-[480px]"
       />
 
       {/* UNA BOMBA PICANTE — over guy */}
