@@ -40,7 +40,7 @@ export function Hero() {
         src={ASSETS.heroHandBag}
         alt=""
         aria-hidden
-        className="pointer-events-none absolute left-[-60px] top-[48%] hidden w-[360px] rotate-[-12deg] md:block lg:w-[440px]"
+        className="pointer-events-none absolute left-[-60px] top-[48%] hidden w-[432px] rotate-[-12deg] md:block lg:w-[528px]"
       />
 
       {/* Orgullosamente mexicanos — arriba a la izquierda */}
