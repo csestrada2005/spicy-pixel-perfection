@@ -69,7 +69,7 @@ export function Reviews() {
 
         <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
           {IG_POSTS.map((post, i) => (
-            <IGPost key={i} post={post} />
+            <IGPost key={i} src={post} />
           ))}
         </div>
 
