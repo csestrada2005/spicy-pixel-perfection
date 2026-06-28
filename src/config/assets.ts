@@ -5,7 +5,7 @@ import chilePatternBgAsset from "@/assets/bestsellers-pattern.png.asset.json";
 import chilePatternDarkAsset from "@/assets/chile-pattern-dark.jpg.asset.json";
 import chilePatternBlackAsset from "@/assets/chile-pattern-black.png.asset.json";
 import heroFruitAsset from "@/assets/hero-fruit-explosion.png.asset.json";
-import bocaAbiertaAsset from "@/assets/boca-abierta.png.asset.json";
+import bocaAbiertaAsset from "@/assets/boca-abierta-horizontal.png.asset.json";
 import chicaGomitasAsset from "@/assets/chica-gomitas.png.asset.json";
 import orgulloTextAsset from "@/assets/orgullo-text.png.asset.json";
 
