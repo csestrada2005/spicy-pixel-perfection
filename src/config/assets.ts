@@ -14,6 +14,7 @@ import cherryLemonFramedAsset from "@/assets/bag-cherry-lemon-framed-transparent
 import strawMelonFramedAsset from "@/assets/bag-straw-melon-framed-transparent.png.asset.json";
 import pinaColadaFramedAsset from "@/assets/bag-pina-colada-framed-transparent.png.asset.json";
 import mangoPasionFramedAsset from "@/assets/bag-mango-pasion-framed-transparent.png.asset.json";
+import freshTangerineFramedAsset from "@/assets/bag-fresh-tangerine-framed-transparent.png.asset.json";
 
 const base = "/assets";
 
