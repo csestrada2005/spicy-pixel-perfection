@@ -19,11 +19,15 @@ export function Bestsellers() {
   return (
     <section
       id="galeria"
-      className="relative bg-rojo py-14"
-      style={{ backgroundImage: `url(${ASSETS.chilePatternBg})`, backgroundSize: "cover" }}
+      className="relative bg-rojo py-16"
+      style={{
+        backgroundImage: `url(${ASSETS.chilePatternBg})`,
+        backgroundRepeat: "repeat",
+        backgroundSize: "400px auto",
+      }}
     >
       <div className="mx-auto max-w-[1280px] px-4">
-        <h2 className="font-display text-center text-3xl tracking-wider text-white drop-shadow-[2px_2px_0_rgba(0,0,0,0.5)] sm:text-5xl">
+        <h2 className="font-display text-center text-4xl tracking-wider text-negro sm:text-6xl">
           CONOCE NUESTROS BESTSELLERS
         </h2>
 
@@ -32,7 +36,7 @@ export function Bestsellers() {
             type="button"
             onClick={() => scroll(-1)}
             aria-label="Anterior"
-            className="absolute -left-2 top-1/2 z-10 hidden -translate-y-1/2 rounded-full bg-negro/80 p-2 text-amarillo ring-2 ring-amarillo md:block"
+            className="absolute -left-2 top-1/2 z-10 hidden -translate-y-1/2 bg-negro p-2 text-amarillo md:block"
           >
             <ChevronLeft className="h-6 w-6" />
           </button>
@@ -40,17 +44,20 @@ export function Bestsellers() {
             type="button"
             onClick={() => scroll(1)}
             aria-label="Siguiente"
-            className="absolute -right-2 top-1/2 z-10 hidden -translate-y-1/2 rounded-full bg-negro/80 p-2 text-amarillo ring-2 ring-amarillo md:block"
+            className="absolute -right-2 top-1/2 z-10 hidden -translate-y-1/2 bg-negro p-2 text-amarillo md:block"
           >
             <ChevronRight className="h-6 w-6" />
           </button>
 
           <div
             ref={trackRef}
-            className="no-scrollbar flex snap-x snap-mandatory gap-6 overflow-x-auto px-1 pb-8"
+            className="no-scrollbar flex snap-x snap-mandatory gap-6 overflow-x-auto px-1 pb-4 md:grid md:grid-cols-3 md:overflow-visible"
           >
             {items.map((p) => (
-              <div key={p.id} className="min-w-[75%] shrink-0 snap-start sm:min-w-[45%] md:min-w-[31%]">
+              <div
+                key={p.id}
+                className="min-w-[66%] shrink-0 snap-start md:min-w-0"
+              >
                 <div className="flex justify-center">
                   <ProductCard product={p} />
                 </div>
