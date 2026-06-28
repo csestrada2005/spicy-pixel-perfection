@@ -27,11 +27,11 @@ export function ProductCard({ product }: { product: Product }) {
   const href = product.shopifyUrl || "#tienda";
   return (
     <div className="relative w-full max-w-[320px] bg-amarillo p-5 pb-10 text-negro shadow-[8px_8px_0_0_rgba(0,0,0,0.85)]">
-      <div className="flex items-center justify-center pt-2">
+      <div className="relative flex h-44 items-center justify-center overflow-visible">
         <img
           src={product.image}
           alt={product.flavor}
-          className={`w-auto object-contain drop-shadow-md ${product.id === "fresh-lemon" ? "h-[300px]" : "h-44"}`}
+          className={`w-auto object-contain drop-shadow-md ${product.id === "fresh-lemon" ? "absolute left-1/2 top-1/2 h-[420px] -translate-x-1/2 -translate-y-1/2" : "h-44"}`}
           loading="lazy"
         />
       </div>
