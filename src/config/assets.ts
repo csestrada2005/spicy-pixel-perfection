@@ -33,7 +33,7 @@ export const ASSETS = {
     strawMelon: strawMelonFramedAsset.url,
     mangoPasion: mangoPasionFramedAsset.url,
     freshTangerine: freshTangerineFramedAsset.url,
-    pinkLemonade: `${base}/bag-pink-lemonade.png`,
+    pinkLemonade: pinkLemonadeFramedAsset.url,
     mixedBerries: mixedBerriesFramedAsset.url,
   },
   chileDivider: `${base}/chile-divider.png`,
