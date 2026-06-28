@@ -13,6 +13,7 @@ import mixedBerriesFramedAsset from "@/assets/bag-mixed-berries-framed-transpare
 import cherryLemonFramedAsset from "@/assets/bag-cherry-lemon-framed-transparent.png.asset.json";
 import strawMelonFramedAsset from "@/assets/bag-straw-melon-framed-transparent.png.asset.json";
 import pinaColadaFramedAsset from "@/assets/bag-pina-colada-framed-transparent.png.asset.json";
+import mangoPasionFramedAsset from "@/assets/bag-mango-pasion-framed-transparent.png.asset.json";
 
 const base = "/assets";
 
@@ -28,7 +29,7 @@ export const ASSETS = {
     pinaColada: pinaColadaFramedAsset.url,
     cherryLemon: cherryLemonFramedAsset.url,
     strawMelon: strawMelonFramedAsset.url,
-    mangoPasion: `${base}/bag-mango-pasion.png`,
+    mangoPasion: mangoPasionFramedAsset.url,
     freshTangerine: `${base}/bag-fresh-tangerine.png`,
     pinkLemonade: `${base}/bag-pink-lemonade.png`,
     mixedBerries: mixedBerriesFramedAsset.url,
