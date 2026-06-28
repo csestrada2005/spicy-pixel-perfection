@@ -32,7 +32,12 @@ export function Reviews() {
 
         <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
           {IG_POSTS.map((post, i) => (
-            <IGPost key={i} src={post} />
+            <img
+              key={i}
+              src={post}
+              alt=""
+              className="aspect-square w-full rounded-2xl object-cover"
+            />
           ))}
         </div>
 
