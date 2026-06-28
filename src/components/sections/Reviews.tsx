@@ -1,5 +1,8 @@
 import { Heart, MessageCircle, Send, Bookmark, MoreHorizontal } from "lucide-react";
 import { ASSETS } from "@/config/assets";
+import igCitrus from "@/assets/ig-post-citrus.png.asset.json";
+import igDuo from "@/assets/ig-post-duo.png.asset.json";
+import igMango from "@/assets/ig-post-mango.png.asset.json";
 
 const QUOTES = [
   {
@@ -16,17 +19,9 @@ const QUOTES = [
   },
 ] as const;
 
-type IGPostData =
-  | { kind: "text"; title: string }
-  | { kind: "image"; src: string };
+const IG_POSTS = [igCitrus.url, igDuo.url, igMango.url];
 
-const IG_POSTS: IGPostData[] = [
-  { kind: "text", title: "PICA CHIDO\nSABE RICO" },
-  { kind: "text", title: "SWEET &\nCHILI MOOD" },
-  { kind: "image", src: ASSETS.bags.freshTangerine },
-];
-
-function IGPost({ post }: { post: IGPostData }) {
+function IGPost({ src }: { src: string }) {
   return (
     <div className="overflow-hidden rounded-xl bg-white text-negro shadow-lg">
       {/* IG header */}
@@ -45,20 +40,9 @@ function IGPost({ post }: { post: IGPostData }) {
         <MoreHorizontal className="h-4 w-4 text-neutral-500" />
       </div>
 
-      {/* Square content */}
-      <div className="relative aspect-square w-full bg-rojo">
-        {post.kind === "text" ? (
-          <div className="flex h-full w-full flex-col items-center justify-center px-6 text-center">
-            <h3 className="font-display text-3xl leading-tight tracking-wide text-white whitespace-pre-line sm:text-4xl">
-              {post.title}
-            </h3>
-            <svg viewBox="0 0 120 20" className="mt-4 h-4 w-28 text-white" fill="none">
-              <path d="M2 10 Q 17 0 32 10 T 62 10 T 92 10 T 118 10" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
-            </svg>
-          </div>
-        ) : (
-          <img src={post.src} alt="" className="h-full w-full object-contain p-4" />
-        )}
+      {/* Square content — contain to keep aspect without cropping */}
+      <div className="relative aspect-square w-full bg-negro">
+        <img src={src} alt="" className="absolute inset-0 h-full w-full object-contain" />
       </div>
 
       {/* IG footer */}
@@ -73,6 +57,7 @@ function IGPost({ post }: { post: IGPostData }) {
     </div>
   );
 }
+
 
 export function Reviews() {
   return (
