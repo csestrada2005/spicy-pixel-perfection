@@ -2,6 +2,7 @@
 import logoNeonAsset from "@/assets/logo-spic-neon.png.asset.json";
 import logoSmallAsset from "@/assets/logo-spic-small.png.asset.json";
 import chilePatternBgAsset from "@/assets/bestsellers-pattern.png.asset.json";
+import chilePatternDarkAsset from "@/assets/chile-pattern-dark.jpg.asset.json";
 
 const base = "/assets";
 
@@ -23,6 +24,7 @@ export const ASSETS = {
   },
   chileDivider: `${base}/chile-divider.png`,
   chilePatternBg: chilePatternBgAsset.url,
+  chilePatternDark: chilePatternDarkAsset.url,
   fruitBorder: `${base}/fruit-border.png`,
   ig: [`${base}/ig-post-1.png`, `${base}/ig-post-2.png`, `${base}/ig-post-3.png`],
   avatars: [`${base}/avatar-1.png`, `${base}/avatar-2.png`, `${base}/avatar-3.png`],

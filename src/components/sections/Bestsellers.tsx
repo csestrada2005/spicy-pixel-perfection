@@ -10,16 +10,16 @@ export function Bestsellers() {
   );
 
   return (
-    <section
-      id="galeria"
-      className="relative py-16"
-      style={{
-        backgroundColor: "var(--rojo)",
-        backgroundImage: `url(${ASSETS.chilePatternBg})`,
-        backgroundRepeat: "repeat",
-        backgroundSize: "320px 320px",
-      }}
-    >
+    <section id="galeria" className="relative overflow-hidden py-16 bg-[#E11414]">
+      {/* Patrón de chiles repetido con opacidad sutil sobre fondo rojo */}
+      <div
+        aria-hidden
+        className="absolute inset-0 bg-repeat opacity-[0.18]"
+        style={{
+          backgroundImage: `url(${ASSETS.chilePatternDark})`,
+          backgroundSize: "320px 320px",
+        }}
+      />
       <div className="mx-auto max-w-[1280px] px-4">
         <h2
           className="font-display text-center text-4xl tracking-wider text-white sm:text-6xl"
