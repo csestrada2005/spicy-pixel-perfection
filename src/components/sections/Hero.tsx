@@ -3,7 +3,13 @@ import { PRODUCTS } from "@/config/products";
 import { ProductCard } from "@/components/ProductCard";
 
 export function Hero() {
-  const heroPicks = PRODUCTS.slice(0, 4); // Fresh Lemon, Piña Colada, Cherry Lemon, Straw Melon
+  const heroPicks = [
+    PRODUCTS[0], // Fresh Lemon
+    PRODUCTS[1], // Piña Colada (morada)
+    PRODUCTS[2], // Cherry Lemon
+    PRODUCTS[3], // Straw Melon
+    { ...PRODUCTS[1], id: "pina-colada-yellow", name: "PIÑA COLADA" }, // Piña Colada (amarilla)
+  ];
 
   return (
     <section
