@@ -15,8 +15,9 @@ export const ASSETS = {
   logoNeon: logoNeonAsset.url,
   logoSmall: logoSmallAsset.url,
   heroFruit: heroFruitAsset.url,
-  heroHandBag: `${base}/hero-hand-bag.png`,
-  guyEating: `${base}/guy-eating.png`,
+  heroHandBag: chicaGomitasAsset.url,
+  guyEating: bocaAbiertaAsset.url,
+  orgulloText: orgulloTextAsset.url,
   bags: {
     freshLemon: `${base}/bag-fresh-lemon.png`,
     pinaColada: `${base}/bag-pina-colada.png`,
