@@ -5,7 +5,7 @@ import { ProductCard } from "@/components/ProductCard";
 export function Hero() {
   const heroPicks = [
     PRODUCTS[0], // Fresh Lemon
-    { ...PRODUCTS[1], name: "MIXED BERRIES" }, // Mixed Berries
+    PRODUCTS.find((p) => p.id === "mixed-berries")!, // Mixed Berries
     PRODUCTS[2], // Cherry Lemon
     PRODUCTS[3], // Straw Melon
     { ...PRODUCTS[1], id: "pina-colada-yellow", name: "PIÑA COLADA" }, // Piña Colada (amarilla)
