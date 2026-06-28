@@ -8,6 +8,7 @@ import heroFruitAsset from "@/assets/hero-fruit-explosion.png.asset.json";
 import bocaAbiertaAsset from "@/assets/boca-abierta-horizontal.png.asset.json";
 import chicaGomitasAsset from "@/assets/chica-gomitas.png.asset.json";
 import orgulloTextAsset from "@/assets/orgullo-text.png.asset.json";
+import freshLemonFramedAsset from "@/assets/bag-fresh-lemon-framed.png.asset.json";
 
 const base = "/assets";
 
