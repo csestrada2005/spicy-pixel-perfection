@@ -8,7 +8,6 @@ import heroFruitAsset from "@/assets/hero-fruit-explosion.png.asset.json";
 import bocaAbiertaAsset from "@/assets/boca-abierta-horizontal.png.asset.json";
 import chicaGomitasAsset from "@/assets/chica-gomitas.png.asset.json";
 import orgulloTextAsset from "@/assets/orgullo-text.png.asset.json";
-import heroHandBagAsset from "@/assets/hero-hand-bag-v3.png.asset.json";
 
 const base = "/assets";
 
@@ -16,7 +15,7 @@ export const ASSETS = {
   logoNeon: logoNeonAsset.url,
   logoSmall: logoSmallAsset.url,
   heroFruit: heroFruitAsset.url,
-  heroHandBag: heroHandBagAsset.url,
+  heroHandBag: chicaGomitasAsset.url,
   guyEating: bocaAbiertaAsset.url,
   orgulloText: orgulloTextAsset.url,
   bags: {
