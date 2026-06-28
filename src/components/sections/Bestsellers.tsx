@@ -11,13 +11,13 @@ export function Bestsellers() {
 
   return (
     <section id="galeria" className="relative overflow-hidden py-16 bg-[#E11414]">
-      {/* Patrón de chiles repetido con opacidad sutil sobre fondo rojo */}
+      {/* Patrón de chiles negros (alpha mask) en mosaico sobre fondo rojo */}
       <div
         aria-hidden
-        className="absolute inset-0 bg-repeat opacity-[0.18]"
+        className="absolute inset-0 bg-repeat"
         style={{
-          backgroundImage: `url(${ASSETS.chilePatternDark})`,
-          backgroundSize: "320px 320px",
+          backgroundImage: `url(${ASSETS.chilePatternBlack})`,
+          backgroundSize: "360px 480px",
         }}
       />
       <div className="mx-auto max-w-[1280px] px-4">
