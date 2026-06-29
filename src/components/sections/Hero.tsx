@@ -1,3 +1,4 @@
+import { useRef, useEffect } from "react";
 import { ASSETS } from "@/config/assets";
 import { PRODUCTS } from "@/config/products";
 import { ProductCard } from "@/components/ProductCard";
@@ -11,6 +12,15 @@ export function Hero() {
     { ...PRODUCTS[1], id: "pina-colada-yellow", name: "PIÑA COLADA" }, // Piña Colada (amarilla)
   ];
 
+  const fruitVideoRef = useRef<HTMLVideoElement>(null);
+  useEffect(() => {
+    const v = fruitVideoRef.current;
+    if (!v) return;
+    const reduce = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) { v.pause(); return; }
+    v.play().catch(() => {});
+  }, []);
+
   return (
     <section
       id="sabores"
@@ -19,11 +29,16 @@ export function Hero() {
       {/* ===== ABSOLUTE ACCENT LAYER ===== */}
 
       {/* Fruit explosion behind logo */}
-      <img
-        src={ASSETS.heroFruit}
-        alt=""
-        aria-hidden
+      <video
+        ref={fruitVideoRef}
         className="pointer-events-none absolute -left-[10%] top-[2%] z-0 w-[120%] max-w-none opacity-90 md:left-[-8%] md:top-[4%] md:w-[70%]"
+        src="/hero-explosion-loop.mp4"
+        poster="/hero-explosion-poster.jpg"
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        aria-hidden
       />
 
       {/* Vertical neon "TU NUEVA ADICCIÓN" */}
