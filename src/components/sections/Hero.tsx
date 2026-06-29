@@ -28,7 +28,7 @@ export function Hero() {
 
       {/* Vertical neon "TU NUEVA ADICCIÓN" */}
       <span
-        className="font-display neon-text-magenta pointer-events-none absolute left-1/2 top-[58%] z-0 hidden -translate-x-1/2 text-3xl tracking-[0.25em] md:block lg:text-4xl"
+        className="font-display neon-text-magenta animate-flicker pointer-events-none absolute left-1/2 top-[58%] z-0 hidden -translate-x-1/2 text-3xl tracking-[0.25em] md:block lg:text-4xl"
         style={{ writingMode: "vertical-rl", transform: "translateX(-50%) rotate(180deg)" }}
         aria-hidden
       >
@@ -61,7 +61,7 @@ export function Hero() {
 
       {/* UNA BOMBA PICANTE — over guy */}
       <span
-        className="font-display neon-text-rojo pointer-events-none absolute bottom-24 left-2 z-20 text-2xl leading-none md:bottom-32 md:left-6 md:text-4xl lg:bottom-40 lg:text-5xl"
+        className="font-display neon-text-rojo animate-flicker pointer-events-none absolute bottom-24 left-2 z-20 text-2xl leading-none md:bottom-32 md:left-6 md:text-4xl lg:bottom-40 lg:text-5xl"
         style={{ transform: "rotate(-20deg)" }}
         aria-hidden
       >
