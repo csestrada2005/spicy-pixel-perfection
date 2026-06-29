@@ -1,12 +1,14 @@
 import { ArrowRight, Facebook, Instagram, Twitter } from "lucide-react";
 import { ASSETS } from "@/config/assets";
+import { Reveal } from "@/components/Reveal";
 
 export function Footer() {
   return (
     <footer id="unete" className="bg-negro">
       <div className="mx-auto max-w-[1280px] px-4 pb-12">
-        <div className="rounded-3xl bg-azul-footer p-8 text-negro md:p-12">
-          <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
+        <Reveal>
+          <div className="rounded-3xl bg-azul-footer p-8 text-negro md:p-12">
+            <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
             {/* Subscribe */}
             <div className="md:col-span-1">
               <h3 className="font-display text-3xl leading-tight tracking-wide text-[#0c2340] sm:text-4xl">

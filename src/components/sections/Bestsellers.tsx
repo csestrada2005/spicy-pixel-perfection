@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { ASSETS } from "@/config/assets";
 import { PRODUCTS } from "@/config/products";
 import { ProductCard } from "@/components/ProductCard";
+import { Reveal } from "@/components/Reveal";
 
 export function Bestsellers() {
   const trackRef = useRef<HTMLDivElement>(null);
@@ -67,15 +68,12 @@ export function Bestsellers() {
             ref={trackRef}
             className="no-scrollbar flex snap-x snap-mandatory gap-8 overflow-x-auto px-1 pb-10 md:grid md:grid-cols-3 md:overflow-visible md:pb-12"
           >
-            {items.map((p) => (
-              <div
-                key={p.id}
-                className="min-w-[66%] shrink-0 snap-start md:min-w-0"
-              >
+            {items.map((p, i) => (
+              <Reveal key={p.id} delay={i * 120} className="min-w-[66%] shrink-0 snap-start md:min-w-0">
                 <div className="flex justify-center">
                   <ProductCard product={p} />
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
