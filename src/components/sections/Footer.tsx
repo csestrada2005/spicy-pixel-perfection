@@ -64,6 +64,7 @@ export function Footer() {
             </div>
           </div>
         </div>
+        </Reveal>
 
         <p className="mt-6 text-center text-xs text-white/60">
           © {new Date().getFullYear()} S-π-C Spicy. Hecho en México con chile.
