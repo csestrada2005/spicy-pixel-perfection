@@ -113,7 +113,7 @@ export function NavBar() {
               </svg>
               {/* tienda label */}
               <span
-                className="absolute inset-0 flex items-center justify-center text-2xl md:text-3xl italic"
+                className="animate-flicker absolute inset-0 flex items-center justify-center text-2xl md:text-3xl italic"
                 style={{
                   fontFamily: "'Caveat', cursive",
                   color: CYAN,

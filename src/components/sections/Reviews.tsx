@@ -24,7 +24,7 @@ export function Reviews() {
   return (
     <section id="reviews" className="bg-negro py-16">
       <div className="mx-auto max-w-[1280px] px-4">
-        <h2 className="font-display neon-text-amarillo text-center text-3xl tracking-wider sm:text-5xl">
+        <h2 className="font-display neon-text-amarillo animate-flicker text-center text-3xl tracking-wider sm:text-5xl">
           LO QUE DICEN EN REDES !
         </h2>
 
