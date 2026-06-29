@@ -59,6 +59,17 @@ export function Hero() {
         className="pointer-events-none absolute bottom-0 left-[8%] z-10 hidden w-[560px] max-w-none md:block lg:left-[10%] lg:w-[640px]"
       />
 
+      {/* Ráfaga de calor sobre la boca-abierta */}
+      <div
+        aria-hidden
+        className="animate-heat pointer-events-none absolute bottom-10 left-[14%] z-[9] hidden h-72 w-72 rounded-full md:block"
+        style={{
+          background:
+            "radial-gradient(circle, rgba(255,46,46,0.5), rgba(255,138,30,0.25) 40%, transparent 70%)",
+          animationDelay: "0.8s",
+        }}
+      />
+
       {/* UNA BOMBA PICANTE — over guy */}
       <span
         className="font-display neon-text-rojo animate-flicker pointer-events-none absolute bottom-24 left-2 z-20 text-2xl leading-none md:bottom-32 md:left-6 md:text-4xl lg:bottom-40 lg:text-5xl"
@@ -75,7 +86,7 @@ export function Hero() {
           <img
             src={ASSETS.logoNeon}
             alt="S-π-C Spicy"
-            className="relative z-10 w-[280px] max-w-full drop-shadow-[0_0_18px_rgba(255,46,46,0.5)] md:w-[460px]"
+            className="animate-power-on relative z-10 w-[280px] max-w-full drop-shadow-[0_0_18px_rgba(255,46,46,0.5)] md:w-[460px]"
           />
 
           <a href="#tienda" className="group font-display animate-cta-pulse rounded-full bg-amarillo px-10 py-3 text-lg tracking-[0.2em] text-negro transition-transform hover:scale-105">
@@ -107,7 +118,7 @@ export function Hero() {
 
         {/* RIGHT COLUMN — staggered zigzag (single column with alternating x offset) */}
         <div className="relative hidden md:block">
-          <div className="flex flex-col items-center">
+          <div className="animate-fade-in flex flex-col items-center" style={{ animationDelay: "0.4s" }}>
             {heroPicks.map((p, i) => {
               const xOffset = i % 2 === 0 ? "-translate-x-12" : "translate-x-12";
               const yGap = i === 0 ? "mt-0" : "mt-16";
