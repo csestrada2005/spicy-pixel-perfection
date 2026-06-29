@@ -57,9 +57,9 @@ export function Footer() {
                 <li><a href="#" className="hover:underline">Rastrear Pedido</a></li>
               </ul>
               <div className="mt-6 flex items-center gap-4 text-negro">
-                <a href="#" aria-label="Facebook" className="hover:opacity-70"><Facebook className="h-6 w-6" /></a>
-                <a href="#" aria-label="Instagram" className="hover:opacity-70"><Instagram className="h-6 w-6" /></a>
-                <a href="#" aria-label="Twitter" className="hover:opacity-70"><Twitter className="h-6 w-6" /></a>
+                <a href="#" aria-label="Facebook" className="inline-flex transition-transform duration-150 hover:-translate-y-0.5 hover:scale-110 hover:text-[#E11414]"><Facebook className="h-6 w-6" /></a>
+                <a href="#" aria-label="Instagram" className="inline-flex transition-transform duration-150 hover:-translate-y-0.5 hover:scale-110 hover:text-[#E11414]"><Instagram className="h-6 w-6" /></a>
+                <a href="#" aria-label="Twitter" className="inline-flex transition-transform duration-150 hover:-translate-y-0.5 hover:scale-110 hover:text-[#E11414]"><Twitter className="h-6 w-6" /></a>
               </div>
             </div>
           </div>

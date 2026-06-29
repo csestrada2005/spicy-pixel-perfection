@@ -78,11 +78,8 @@ export function Hero() {
             className="relative z-10 w-[280px] max-w-full drop-shadow-[0_0_18px_rgba(255,46,46,0.5)] md:w-[460px]"
           />
 
-          <a
-            href="#tienda"
-            className="font-display rounded-full bg-amarillo px-10 py-3 text-lg tracking-[0.2em] text-negro shadow-[0_0_20px_rgba(244,197,24,0.7)] transition hover:scale-105"
-          >
-            ORDENAR AHORA
+          <a href="#tienda" className="group font-display animate-cta-pulse rounded-full bg-amarillo px-10 py-3 text-lg tracking-[0.2em] text-negro transition-transform hover:scale-105">
+            <span className="inline-block group-hover:animate-shake">ORDENAR AHORA</span>
           </a>
 
           {/* Mobile-only stack */}
