@@ -87,9 +87,9 @@ export function Hero() {
 
           {/* Mobile-only stack */}
           <div className="grid w-full grid-cols-1 gap-8 sm:grid-cols-2 md:hidden">
-            {heroPicks.map((p) => (
+            {heroPicks.map((p, i) => (
               <div key={p.id} className="flex justify-center">
-                <ProductCard product={p} compact />
+                <ProductCard product={p} compact index={i} />
               </div>
             ))}
           </div>
@@ -119,7 +119,7 @@ export function Hero() {
                   key={p.id}
                   className={`relative w-[200px] ${xOffset} ${yGap}`}
                 >
-                  <ProductCard product={p} compact />
+                  <ProductCard product={p} compact index={i} />
                 </div>
               );
             })}

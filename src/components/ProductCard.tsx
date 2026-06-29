@@ -23,7 +23,7 @@ function SpicyMeter({ level }: { level: number }) {
   );
 }
 
-export function ProductCard({ product, compact }: { product: Product; compact?: boolean }) {
+export function ProductCard({ product, compact, index }: { product: Product; compact?: boolean; index?: number }) {
   const href = product.shopifyUrl || "#tienda";
   return (
     <div className={`relative w-full rounded-2xl bg-amarillo-suave text-negro shadow-[6px_6px_0px_#CA8A04] ${compact ? "max-w-[224px] p-3 pb-5" : "max-w-[340px] p-5 pb-8"}`}>
