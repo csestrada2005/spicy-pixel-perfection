@@ -31,7 +31,13 @@ export function Hero() {
       {/* Fruit explosion behind logo */}
       <video
         ref={fruitVideoRef}
-        className="pointer-events-none absolute -left-[10%] top-[2%] z-0 w-[120%] max-w-none opacity-90 md:left-[-8%] md:top-[4%] md:w-[70%]"
+        className="pointer-events-none absolute -left-[10%] top-[2%] z-0 w-[120%] max-w-none opacity-90 md:left-[-10%] md:top-[2%] md:w-[84%]"
+        style={{
+          WebkitMaskImage:
+            "radial-gradient(115% 95% at 50% 33%, #000 42%, rgba(0,0,0,0.6) 62%, transparent 82%)",
+          maskImage:
+            "radial-gradient(115% 95% at 50% 33%, #000 42%, rgba(0,0,0,0.6) 62%, transparent 82%)",
+        }}
         src="/hero-explosion-loop.mp4"
         poster="/hero-explosion-poster.jpg"
         muted
