@@ -6,8 +6,9 @@ import chiliEmptyAsset from "@/assets/chili-empty.png.asset.json";
 
 function SpicyMeter({ level }: { level: number }) {
   const total = 5;
+  const { ref, inView } = useInView();
   return (
-    <div className="flex items-center justify-center gap-1.5" aria-label={`Picante ${level} de ${total}`}>
+    <div ref={ref} className="flex items-center justify-center gap-1.5" aria-label={`Picante ${level} de ${total}`}>
       {Array.from({ length: total }).map((_, i) => {
         const active = i < level;
         return (
@@ -15,7 +16,8 @@ function SpicyMeter({ level }: { level: number }) {
             key={i}
             src={active ? chiliRedAsset.url : chiliEmptyAsset.url}
             alt={active ? "Chile picante" : "Chile sin picante"}
-            className="h-7 w-auto"
+            className={`h-7 w-auto ${active ? (inView ? "animate-chili-pop" : "opacity-0") : ""}`}
+            style={active ? { animationDelay: `${i * 0.08}s` } : undefined}
             loading="lazy"
           />
         );
