@@ -27,7 +27,10 @@ export function ProductCard({ product, compact, index }: { product: Product; com
   const href = product.shopifyUrl || "#tienda";
   return (
     <div className={`relative w-full rounded-2xl bg-amarillo-suave text-negro shadow-[6px_6px_0px_#CA8A04] ${compact ? "max-w-[224px] p-3 pb-5" : "max-w-[340px] p-5 pb-8"}`}>
-      <div className={`relative flex items-center justify-center overflow-visible ${compact ? "h-32" : "h-44"}`}>
+      <div
+        className={`animate-float relative flex items-center justify-center overflow-visible ${compact ? "h-32" : "h-44"}`}
+        style={{ animationDelay: `${(index ?? 0) * 0.5}s` }}
+      >
         <img
           src={product.image}
           alt={product.flavor}
