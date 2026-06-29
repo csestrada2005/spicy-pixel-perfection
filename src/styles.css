@@ -178,3 +178,61 @@
   scrollbar-width: none;
   &::-webkit-scrollbar { display: none; }
 }
+
+/* ===== ANIMACIONES S-π-C — agregado, no modificar lo de arriba ===== */
+@keyframes spic-flicker {
+  0%,100%{opacity:1} 8%{opacity:.82} 9%{opacity:1} 21%{opacity:.66} 23%{opacity:1}
+  55%{opacity:1} 56%{opacity:.86} 57%{opacity:1} 70%{opacity:.95} 72%{opacity:1}
+}
+@utility animate-flicker { animation: spic-flicker 4.5s linear infinite; will-change: opacity; }
+
+@keyframes spic-float { 0%,100%{transform:translateY(0) rotate(0)} 50%{transform:translateY(-12px) rotate(-1.5deg)} }
+@utility animate-float { animation: spic-float 5s ease-in-out infinite; will-change: transform; }
+
+@keyframes spic-glow-pulse { 0%,100%{opacity:.82} 50%{opacity:1} }
+@utility animate-glow-pulse { animation: spic-glow-pulse 2.2s ease-in-out infinite; }
+
+@keyframes spic-dash { to { stroke-dashoffset: -28; } }
+@utility animate-dash { animation: spic-dash 1.1s linear infinite; }
+
+@keyframes spic-cta-pulse {
+  0%,100%{ box-shadow: 0 0 16px rgba(244,197,24,.55); }
+  50%{ box-shadow: 0 0 30px rgba(244,197,24,.95); }
+}
+@utility animate-cta-pulse { animation: spic-cta-pulse 1.8s ease-in-out infinite; }
+
+@keyframes spic-shake {
+  0%,100%{transform:translate(0,0)} 20%{transform:translate(-1px,1px)}
+  40%{transform:translate(1px,-1px)} 60%{transform:translate(-1px,-1px)} 80%{transform:translate(1px,1px)}
+}
+@utility animate-shake { animation: spic-shake .4s linear; }
+
+@keyframes spic-chili-pop {
+  0%{transform:scale(0) rotate(-20deg);opacity:0}
+  70%{transform:scale(1.15) rotate(4deg);opacity:1}
+  100%{transform:scale(1) rotate(0);opacity:1}
+}
+@utility animate-chili-pop { animation: spic-chili-pop .4s cubic-bezier(.34,1.56,.64,1) both; }
+
+@keyframes spic-stamp { 0%{transform:scale(1.25);opacity:0} 60%{transform:scale(.97);opacity:1} 100%{transform:scale(1);opacity:1} }
+@utility animate-stamp { animation: spic-stamp .5s cubic-bezier(.2,.8,.2,1) both; }
+
+@keyframes spic-heat { 0%{transform:scale(.6);opacity:0} 30%{opacity:.5} 100%{transform:scale(1.6);opacity:0} }
+@utility animate-heat { animation: spic-heat 1.1s ease-out both; }
+
+@keyframes spic-power-on {
+  0%{opacity:0} 10%{opacity:.4} 12%{opacity:.05} 20%{opacity:.7} 22%{opacity:.1}
+  35%{opacity:1} 37%{opacity:.5} 40%{opacity:1} 100%{opacity:1}
+}
+@utility animate-power-on { animation: spic-power-on 1.3s linear both; }
+
+@keyframes spic-fade-in { from{opacity:0} to{opacity:1} }
+@utility animate-fade-in { animation: spic-fade-in .6s ease both; }
+
+@utility animate-marquee-reverse { animation: marquee 28s linear infinite reverse; }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-flicker,.animate-float,.animate-glow-pulse,.animate-dash,.animate-cta-pulse,
+  .animate-shake,.animate-chili-pop,.animate-stamp,.animate-heat,.animate-power-on,
+  .animate-fade-in,.animate-marquee,.animate-marquee-reverse { animation: none !important; }
+}
