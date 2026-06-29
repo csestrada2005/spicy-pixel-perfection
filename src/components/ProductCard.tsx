@@ -1,4 +1,5 @@
 import { ShoppingCart } from "lucide-react";
+import { useInView } from "@/hooks/use-in-view";
 import type { Product } from "@/config/products";
 import chiliRedAsset from "@/assets/chili-red.png.asset.json";
 import chiliEmptyAsset from "@/assets/chili-empty.png.asset.json";

@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { useInView } from "@/hooks/use-in-view";
 import { ASSETS } from "@/config/assets";
 import { PRODUCTS } from "@/config/products";
 import { ProductCard } from "@/components/ProductCard";
@@ -6,6 +7,7 @@ import { Reveal } from "@/components/Reveal";
 
 export function Bestsellers() {
   const trackRef = useRef<HTMLDivElement>(null);
+  const { ref: titleRef, inView: titleIn } = useInView();
   const items = PRODUCTS.filter((p) =>
     ["mango-pasion", "fresh-tangerine", "pink-lemonade"].includes(p.id),
   );
@@ -23,7 +25,8 @@ export function Bestsellers() {
       />
       <div className="relative z-10 mx-auto max-w-[1280px] px-4">
         <h2
-          className="font-display text-center text-4xl tracking-wider text-white sm:text-6xl"
+          ref={titleRef}
+          className={`font-display text-center text-4xl tracking-wider text-white sm:text-6xl ${titleIn ? "animate-stamp" : "opacity-0"}`}
           style={{
             textShadow:
               "4px 4px 0 #FFD400, 5px 5px 0 #FFD400, 6px 6px 0 #FFD400",
@@ -38,7 +41,7 @@ export function Bestsellers() {
         {/* Doble flecha neón cyan detrás de las cards, atraviesa de lado a lado */}
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-x-0 top-1/2 z-0 hidden -translate-y-1/2 md:block"
+          className="animate-glow-pulse pointer-events-none absolute inset-x-0 top-1/2 z-0 hidden -translate-y-1/2 md:block"
           style={{
             filter:
               "drop-shadow(0 0 6px var(--neon-cyan)) drop-shadow(0 0 14px var(--neon-cyan)) drop-shadow(0 0 28px var(--neon-cyan))",
@@ -56,7 +59,7 @@ export function Bestsellers() {
               strokeLinecap="round"
               strokeLinejoin="round"
             >
-              <line x1="40" y1="30" x2="960" y2="30" />
+              <line x1="40" y1="30" x2="960" y2="30" strokeDasharray="16 12" className="animate-dash" />
               <polyline points="70,5 30,30 70,55" />
               <polyline points="930,5 970,30 930,55" />
             </g>
