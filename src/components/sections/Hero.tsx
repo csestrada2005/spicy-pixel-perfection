@@ -2,7 +2,7 @@ import { ASSETS } from "@/config/assets";
 import { HeroBackdrop } from "@/components/HeroBackdrop";
 import { PRODUCTS } from "@/config/products";
 import { ProductCard } from "@/components/ProductCard";
-import { FallingGummies } from "@/components/FallingGummies";
+
 
 export function Hero() {
   const heroPicks = [
@@ -40,7 +40,7 @@ export function Hero() {
         aria-hidden
         className="pointer-events-none absolute left-[-60px] top-[38%] hidden w-[518px] rotate-[-12deg] md:block lg:top-[36%] lg:w-[634px]"
       />
-      <FallingGummies />
+      
 
       {/* Orgullosamente mexicanos — arriba a la izquierda */}
       <img
