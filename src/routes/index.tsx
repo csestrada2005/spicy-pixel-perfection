@@ -3,6 +3,7 @@ import { NavBar } from "@/components/sections/NavBar";
 import { Hero } from "@/components/sections/Hero";
 import { Marquee } from "@/components/sections/Marquee";
 import { Bestsellers } from "@/components/sections/Bestsellers";
+import { NeonBanner } from "@/components/sections/NeonBanner";
 import { ChileDivider, FruitBorder } from "@/components/sections/Dividers";
 import { Reviews } from "@/components/sections/Reviews";
 import { Footer } from "@/components/sections/Footer";
@@ -26,6 +27,7 @@ function Index() {
       <Hero />
       <Marquee />
       <Bestsellers />
+      <NeonBanner />
       <ChileDivider />
       <Reviews />
       <FruitBorder />
