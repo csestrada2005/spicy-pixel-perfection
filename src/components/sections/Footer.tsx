@@ -16,7 +16,7 @@ export function Footer() {
                 <br />
                 AL CLUB
               </h3>
-              <img src={ASSETS.logoSmall} alt="S-π-C" className="mt-3 h-10 w-auto" />
+              <img src="/logo-real.webp" alt="S-π-C Spicy" className="mt-3 h-16 w-auto rounded-xl shadow-md" />
 
               <form
                 onSubmit={(e) => e.preventDefault()}
