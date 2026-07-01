@@ -164,14 +164,14 @@ export function NavBar() {
             <ul className="flex flex-col">
               {[...LINKS_LEFT, ...LINKS_RIGHT].map((l) => (
                 <li key={l.href} className="border-b last:border-b-0" style={{ borderColor: `${RED}33` }}>
-                  <a
+                  <NavLink
                     href={l.href}
                     onClick={() => setOpen(false)}
                     className="block px-5 py-3 font-sans font-extrabold tracking-[0.18em]"
                     style={{ color: RED }}
                   >
                     {l.label}
-                  </a>
+                  </NavLink>
                 </li>
               ))}
             </ul>
