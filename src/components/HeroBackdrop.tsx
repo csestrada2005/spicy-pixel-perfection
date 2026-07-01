@@ -111,15 +111,6 @@ export function HeroBackdrop() {
             backgroundSize: "220% 220%",
           }}
         />
-        {/* Sweeping vertical highlight */}
-        <div
-          className="animate-hero-sweep absolute inset-0 mix-blend-screen opacity-25"
-          style={{
-            backgroundImage:
-              "linear-gradient(180deg, transparent 42%, rgba(255,240,200,0.35) 50%, transparent 58%)",
-            backgroundSize: "220% 220%",
-          }}
-        />
 
         {/* Bottom fade: funde el borde del splash al negro (mata la línea) */}
         <div

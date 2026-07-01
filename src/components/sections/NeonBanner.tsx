@@ -11,7 +11,7 @@ export function NeonBanner() {
             src={neonBanner.url}
             alt=""
             aria-hidden
-            className="h-14 w-auto md:h-20 shrink-0 -mx-2"
+            className="h-20 w-auto md:h-32 shrink-0 -mx-2"
           />
         ))}
         {items.map((_, i) => (
