@@ -3,7 +3,7 @@ import { Heart, MessageCircle, Send, Bookmark, MoreHorizontal, Music2 } from "lu
 import igGoodSpices from "@/assets/ig-good-spices.png.asset.json";
 import igRedGummies from "@/assets/ig-red-gummies.png.asset.json";
 import igPinaColada from "@/assets/ig-pina-colada.png.asset.json";
-import logoSmall from "@/assets/logo-spic-small.png.asset.json";
+
 
 const POSTS = [
   { img: igGoodSpices.url, song: "Anna Graceman, TLN · Lemonade", likes: 132 },
