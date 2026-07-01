@@ -37,7 +37,7 @@ export function Bestsellers() {
       </div>
 
       {/* Full-width card area so the arrow can span edge-to-edge */}
-      <div className="relative mt-14">
+      <div className="relative mt-20 md:mt-28">
         {/* Doble flecha neón cyan detrás de las cards, atraviesa de lado a lado */}
         <div
           aria-hidden
@@ -74,7 +74,7 @@ export function Bestsellers() {
             {items.map((p, i) => (
               <Reveal key={p.id} delay={i * 120} className="min-w-[66%] shrink-0 snap-start md:min-w-0">
                 <div className="flex justify-center">
-                  <ProductCard product={p} />
+                  <ProductCard product={p} hideBuy />
                 </div>
               </Reveal>
             ))}

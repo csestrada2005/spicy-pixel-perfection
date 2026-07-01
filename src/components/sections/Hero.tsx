@@ -85,7 +85,7 @@ export function Hero() {
           <img
             src={ASSETS.logoNeon}
             alt="S-π-C Spicy"
-            className="animate-power-on relative z-10 w-[280px] max-w-full drop-shadow-[0_0_18px_rgba(255,46,46,0.5)] md:w-[460px]"
+            className="animate-power-on animate-flicker relative z-10 w-[280px] max-w-full drop-shadow-[0_0_18px_rgba(255,46,46,0.5)] md:w-[460px]"
           />
 
           <a href="#tienda" className="group font-display animate-cta-pulse rounded-full bg-amarillo px-10 py-3 text-lg tracking-[0.2em] text-negro transition-transform hover:scale-105">
@@ -120,7 +120,7 @@ export function Hero() {
           <div className="animate-fade-in flex flex-col items-center" style={{ animationDelay: "0.4s" }}>
             {heroPicks.map((p, i) => {
               const xOffset = i === 4 ? "-translate-x-20" : i % 2 === 0 ? "-translate-x-12" : "translate-x-12";
-              const yGap = i === 0 ? "mt-0" : "mt-16";
+              const yGap = i === 0 ? "mt-0" : i === 4 ? "mt-24" : "mt-16";
               return (
                 <div
                   key={p.id}

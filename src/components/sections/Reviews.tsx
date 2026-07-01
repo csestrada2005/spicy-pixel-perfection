@@ -31,7 +31,7 @@ const QUOTES = [
 
 function IgCard({ img, song, likes }: { img: string; song: string; likes: number }) {
   return (
-    <a href="https://instagram.com/s.pi.c_spicy" target="_blank" rel="noopener noreferrer" className="block w-full overflow-hidden rounded-[28px] bg-white text-black shadow-lg">
+    <a href="https://instagram.com/s.pi.c_spicy" target="_blank" rel="noopener noreferrer" className="block w-full overflow-hidden rounded-[28px] bg-white text-black shadow-lg transition-all duration-300 hover:-translate-y-2 hover:rotate-[-0.5deg] hover:shadow-[0_0_0_2px_var(--neon-cyan),0_0_24px_rgba(25,224,255,0.6),0_20px_40px_rgba(0,0,0,0.5)] cursor-pointer">
       {/* Header */}
       <div className="flex items-center justify-between px-3 py-2">
         <div className="flex items-center gap-2">
