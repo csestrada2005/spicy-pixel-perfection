@@ -55,7 +55,7 @@ export function Hero() {
         src={ASSETS.guyEating}
         alt=""
         aria-hidden
-        className="animate-yell pointer-events-none absolute bottom-0 left-[8%] z-10 hidden w-[560px] max-w-none md:block lg:left-[10%] lg:w-[640px]"
+        className="animate-yell pointer-events-none absolute bottom-[-40px] left-[8%] z-10 hidden w-[560px] max-w-none md:block lg:left-[10%] lg:w-[640px]"
       />
 
       {/* Ráfaga de calor sobre la boca-abierta */}
@@ -119,7 +119,7 @@ export function Hero() {
         <div className="relative hidden md:block">
           <div className="animate-fade-in flex flex-col items-center" style={{ animationDelay: "0.4s" }}>
             {heroPicks.map((p, i) => {
-              const xOffset = i % 2 === 0 ? "-translate-x-12" : "translate-x-12";
+              const xOffset = i === 4 ? "-translate-x-20" : i % 2 === 0 ? "-translate-x-12" : "translate-x-12";
               const yGap = i === 0 ? "mt-0" : "mt-16";
               return (
                 <div
