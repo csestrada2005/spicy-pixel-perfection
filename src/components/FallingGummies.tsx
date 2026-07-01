@@ -4,9 +4,7 @@ const GUMMIES = Array.from({ length: 12 });
 
 export function FallingGummies() {
   return (
-    
-
-
+    <div className="pointer-events-none absolute inset-0 overflow-hidden">
       {GUMMIES.map((_, i) => {
         const left = (i * 41) % 100;
         const delay = ((i * 0.37) % 3.2).toFixed(2);
