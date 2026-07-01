@@ -235,7 +235,8 @@
   .animate-flicker,.animate-float,.animate-glow-pulse,.animate-dash,.animate-cta-pulse,
   .animate-shake,.animate-chili-pop,.animate-stamp,.animate-heat,.animate-power-on,
   .animate-fade-in,.animate-marquee,.animate-marquee-reverse,
-  .animate-hero-glow,.animate-hero-breathe,.animate-hero-sweep { animation: none !important; }
+  .animate-hero-glow,.animate-hero-breathe,.animate-hero-sweep,.animate-yell,.animate-bg-drift { animation: none !important; }
+  .animate-gummy-fall { display: none !important; }
 }
 
 /* ===== HERO BACKDROP (splash code-native) ===== */
@@ -257,3 +258,24 @@
   100%{background-position:-35% -35%}
 }
 @utility animate-hero-sweep { animation: spic-hero-sweep 7s ease-in-out infinite; }
+
+/* ===== Gomitas cayendo + grito + fondo bestsellers ===== */
+@keyframes spic-gummy-fall {
+  0% { transform: translate(0, -20px) scale(.9); opacity: 0; }
+  12% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { transform: translate(var(--drift, 0px), 360px) scale(1); opacity: 0; }
+}
+@utility animate-gummy-fall { animation: spic-gummy-fall 3s linear infinite; }
+
+@keyframes spic-yell {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.025) rotate(.4deg); }
+}
+@utility animate-yell { animation: spic-yell 1.5s ease-in-out infinite; }
+
+@keyframes spic-bg-drift {
+  0% { background-position: 0px 0px; }
+  100% { background-position: 360px -480px; }
+}
+@utility animate-bg-drift { animation: spic-bg-drift 24s linear infinite; }
