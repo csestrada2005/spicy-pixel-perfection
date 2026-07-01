@@ -11,21 +11,8 @@ export function HeroBackdrop() {
     if (reduce) return;
 
     const root = rootRef.current;
-    const layer = parallaxRef.current;
     const cv = canvasRef.current;
 
-    const onMove = (e: MouseEvent) => {
-      if (!root || !layer) return;
-      const r = root.getBoundingClientRect();
-      if (e.clientY < r.top || e.clientY > r.bottom) {
-        layer.style.transform = "";
-        return;
-      }
-      const x = (e.clientX - r.left) / r.width - 0.5;
-      const y = (e.clientY - r.top) / r.height - 0.5;
-      layer.style.transform = `translate(${(x * 16).toFixed(1)}px, ${(y * 16).toFixed(1)}px)`;
-    };
-    window.addEventListener("mousemove", onMove, { passive: true });
 
     let raf = 0;
     let onResize: (() => void) | null = null;
@@ -78,7 +65,6 @@ export function HeroBackdrop() {
     }
 
     return () => {
-      window.removeEventListener("mousemove", onMove);
       if (onResize) window.removeEventListener("resize", onResize);
       if (raf) cancelAnimationFrame(raf);
     };
@@ -96,8 +82,7 @@ export function HeroBackdrop() {
         }}
       />
 
-      {/* Parallax layer holds the breathing splash */}
-      <div ref={parallaxRef} className="absolute inset-0 will-change-transform">
+      <div className="absolute inset-0">
         <div className="animate-hero-breathe absolute inset-0 flex items-center justify-center">
           <div
             className="absolute left-1/2 top-[12%] w-[135%] max-w-none -translate-x-1/2 -translate-y-1/2 md:w-[105%]"
