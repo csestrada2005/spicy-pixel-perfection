@@ -28,7 +28,6 @@ function Index() {
       <Marquee />
       <Bestsellers />
       <NeonBanner />
-      <ChileDivider />
       <Reviews />
       <FruitBorder />
       <Footer />
