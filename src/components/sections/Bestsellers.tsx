@@ -13,7 +13,7 @@ export function Bestsellers() {
   );
 
   return (
-    <section id="galeria" className="relative overflow-hidden py-16 bg-[#E11414]">
+    <section id="galeria" className="relative overflow-hidden pt-16 pb-4 bg-[#E11414]">
       {/* Patrón de chiles negros (alpha mask) en mosaico sobre fondo rojo */}
       <div
         aria-hidden
