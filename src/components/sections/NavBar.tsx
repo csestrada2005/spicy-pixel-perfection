@@ -31,7 +31,7 @@ export function NavBar() {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-shadow duration-300 ${
+      className={`fixed inset-x-0 top-0 z-50 transition-shadow duration-300 ${
         scrolled ? "shadow-[0_4px_24px_rgba(0,0,0,0.65)]" : ""
       }`}
     >
