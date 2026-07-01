@@ -102,15 +102,6 @@ export function HeroBackdrop() {
           </div>
         </div>
 
-        {/* Sweeping specular highlight */}
-        <div
-          className="animate-hero-sweep absolute inset-0 mix-blend-screen opacity-40"
-          style={{
-            backgroundImage:
-              "linear-gradient(115deg, transparent 40%, rgba(255,220,150,0.35) 50%, transparent 60%)",
-            backgroundSize: "220% 220%",
-          }}
-        />
 
         {/* Bottom fade: funde el borde del splash al negro (mata la línea) */}
         <div
