@@ -121,7 +121,7 @@ export function Hero() {
             {heroPicks.map((p, i) => {
               const xOffset = i === 4 ? "-translate-x-20" : i % 2 === 0 ? "-translate-x-12" : "translate-x-12";
               const yGap = i === 0 ? "mt-0" : "mt-16";
-              const yShift = i === 4 ? "translate-y-32" : "";
+              const yShift = i === 4 ? "translate-y-30" : "";
               return (
                 <div
                   key={p.id}
