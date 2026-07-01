@@ -31,12 +31,12 @@ const QUOTES = [
 
 function IgCard({ img, song, likes }: { img: string; song: string; likes: number }) {
   return (
-    <div className="w-full overflow-hidden rounded-[28px] bg-white text-black shadow-lg">
+    <a href="https://instagram.com/s.pi.c_spicy" target="_blank" rel="noopener noreferrer" className="block w-full overflow-hidden rounded-[28px] bg-white text-black shadow-lg">
       {/* Header */}
       <div className="flex items-center justify-between px-3 py-2">
         <div className="flex items-center gap-2">
           <div className="h-8 w-8 overflow-hidden rounded-full ring-1 ring-black/10">
-            <img src={logoSmall.url} alt="" className="h-full w-full object-cover" />
+            <img src="/logo-square.png" alt="" className="h-full w-full object-cover" />
           </div>
           <div className="leading-tight">
             <p className="text-[13px] font-semibold">s.pi.c_spicy</p>
@@ -63,7 +63,7 @@ function IgCard({ img, song, likes }: { img: string; song: string; likes: number
         <Bookmark className="h-6 w-6 text-neutral-800" />
       </div>
       <p className="px-3 pb-3 text-[12px] font-semibold">{likes.toLocaleString()} likes</p>
-    </div>
+    </a>
   );
 }
 
