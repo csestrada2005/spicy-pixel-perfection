@@ -91,39 +91,24 @@ export function HeroBackdrop() {
             <img
               src={SPLASH}
               alt=""
-              className="h-full w-full object-contain opacity-90"
+              className="h-full w-full object-contain opacity-95"
               style={{
-                filter: "blur(1px) saturate(1.15) contrast(1.05)",
                 WebkitMaskImage:
-                  "radial-gradient(closest-side, #000 60%, transparent 100%)",
+                  "radial-gradient(closest-side, #000 78%, transparent 100%)",
                 maskImage:
-                  "radial-gradient(closest-side, #000 60%, transparent 100%)",
-              }}
-            />
-            {/* Noise overlay to hide upscaling artefacts */}
-            <div
-              aria-hidden
-              className="pointer-events-none absolute inset-0 opacity-20 mix-blend-overlay"
-              style={{
-                backgroundImage:
-                  "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.6 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>\")",
-                backgroundSize: "160px 160px",
+                  "radial-gradient(closest-side, #000 78%, transparent 100%)",
               }}
             />
           </div>
         </div>
 
-        {/* Sweeping specular highlight (masked so it fades before the hero bottom) */}
+        {/* Sweeping specular highlight */}
         <div
           className="animate-hero-sweep absolute inset-0 mix-blend-screen opacity-40"
           style={{
             backgroundImage:
               "linear-gradient(115deg, transparent 40%, rgba(255,220,150,0.35) 50%, transparent 60%)",
             backgroundSize: "220% 220%",
-            WebkitMaskImage:
-              "linear-gradient(to bottom, #000 0%, #000 55%, transparent 88%)",
-            maskImage:
-              "linear-gradient(to bottom, #000 0%, #000 55%, transparent 88%)",
           }}
         />
 
