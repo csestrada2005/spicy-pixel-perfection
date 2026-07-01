@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Menu, X, ShoppingBag } from "lucide-react";
 
 const LINKS_LEFT = [
-  { label: "SABORES", href: "#sabores" },
+  { label: "SABORES", href: "/productos" },
   { label: "GALERIA", href: "#galeria" },
 ];
 const LINKS_RIGHT = [

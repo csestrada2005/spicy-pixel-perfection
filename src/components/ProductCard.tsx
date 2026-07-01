@@ -26,8 +26,16 @@ function SpicyMeter({ level }: { level: number }) {
   );
 }
 
-export function ProductCard({ product, compact, index, hideBuy, buyBelow }: { product: Product; compact?: boolean; index?: number; hideBuy?: boolean; buyBelow?: boolean }) {
+export function ProductCard({ product, compact, index, hideBuy, buyBelow, uniformImage }: { product: Product & { notSpicy?: boolean; netWeight?: string }; compact?: boolean; index?: number; hideBuy?: boolean; buyBelow?: boolean; uniformImage?: boolean }) {
   const href = product.shopifyUrl || "#tienda";
+  // No-picantes (catálogo): 0 chiles en el medidor. PRODUCTS no trae notSpicy,
+  // así que su comportamiento no cambia.
+  const level = product.notSpicy ? 0 : product.spicyLevel;
+  // El catálogo nuevo usa tamaño uniforme y evita el posicionamiento por-id
+  // (algunos ids del catálogo coinciden con los viejos, p.ej. mixed-berries).
+  const imgClass = uniformImage
+    ? "h-44 w-auto object-contain drop-shadow-md"
+    : `w-auto object-contain drop-shadow-md ${product.id === "fresh-lemon" ? "absolute left-1/2 top-[42%] h-[420px] -translate-x-1/2 -translate-y-1/2" : product.id === "pina-colada" || product.id === "pina-colada-yellow" ? "absolute left-1/2 top-[18%] h-[420px] -translate-x-1/2 -translate-y-1/2" : product.id === "mixed-berries" ? "absolute left-1/2 top-[36%] h-[420px] -translate-x-1/2 -translate-y-1/2" : product.id === "cherry-lemon" ? "absolute left-1/2 top-[22%] h-[300px] -translate-x-1/2 -translate-y-1/2" : product.id === "straw-melon" ? "absolute left-1/2 top-[24%] h-[340px] -translate-x-1/2 -translate-y-1/2" : product.id === "mango-pasion" ? "absolute left-1/2 top-[24%] h-[256px] -translate-x-1/2 -translate-y-1/2" : product.id === "fresh-tangerine" ? "absolute left-1/2 top-[24%] h-[256px] -translate-x-1/2 -translate-y-1/2" : product.id === "pink-lemonade" ? "absolute left-1/2 top-[24%] h-[256px] -translate-x-1/2 -translate-y-1/2" : compact ? "h-44" : "h-44"}`;
   return (
     <div className="relative w-full">
       <div className={`group hover:z-20 transition-[transform,box-shadow] duration-200 ease-out hover:-translate-y-1.5 hover:rotate-[-1deg] hover:shadow-[10px_10px_0px_#CA8A04,0_0_26px_rgba(225,20,20,0.35)] relative w-full rounded-2xl bg-amarillo-suave text-negro shadow-[6px_6px_0px_#CA8A04] ${compact ? "max-w-[224px] p-3 pb-5" : "max-w-[340px] p-5 pb-8"}`}>
@@ -38,14 +46,20 @@ export function ProductCard({ product, compact, index, hideBuy, buyBelow }: { pr
           <img
             src={product.image}
             alt={product.flavor}
-            className={`w-auto object-contain drop-shadow-md ${product.id === "fresh-lemon" ? "absolute left-1/2 top-[42%] h-[420px] -translate-x-1/2 -translate-y-1/2" : product.id === "pina-colada" || product.id === "pina-colada-yellow" ? "absolute left-1/2 top-[18%] h-[420px] -translate-x-1/2 -translate-y-1/2" : product.id === "mixed-berries" ? "absolute left-1/2 top-[36%] h-[420px] -translate-x-1/2 -translate-y-1/2" : product.id === "cherry-lemon" ? "absolute left-1/2 top-[22%] h-[300px] -translate-x-1/2 -translate-y-1/2" : product.id === "straw-melon" ? "absolute left-1/2 top-[24%] h-[340px] -translate-x-1/2 -translate-y-1/2" : product.id === "mango-pasion" ? "absolute left-1/2 top-[24%] h-[256px] -translate-x-1/2 -translate-y-1/2" : product.id === "fresh-tangerine" ? "absolute left-1/2 top-[24%] h-[256px] -translate-x-1/2 -translate-y-1/2" : product.id === "pink-lemonade" ? "absolute left-1/2 top-[24%] h-[256px] -translate-x-1/2 -translate-y-1/2" : compact ? "h-44" : "h-44"}`}
+            className={imgClass}
             loading="lazy"
           />
         </div>
         <h3 className="font-display mt-4 text-center text-2xl tracking-wide">{product.name}</h3>
+        {product.netWeight && (
+          <p className="mt-0.5 text-center text-xs font-semibold uppercase tracking-widest text-negro/60">{product.netWeight}</p>
+        )}
         <div className="mt-3">
-          <SpicyMeter level={product.spicyLevel} />
+          <SpicyMeter level={level} />
         </div>
+        {product.notSpicy && (
+          <p className="mt-2 text-center text-[11px] font-bold uppercase tracking-widest text-negro/70">Sin chile</p>
+        )}
         <p className="mt-3 text-center text-xl font-bold">{product.priceLabel}</p>
 
         {!hideBuy && !buyBelow && (
