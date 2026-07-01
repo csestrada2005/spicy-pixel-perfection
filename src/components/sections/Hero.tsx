@@ -2,6 +2,7 @@ import { ASSETS } from "@/config/assets";
 import { HeroBackdrop } from "@/components/HeroBackdrop";
 import { PRODUCTS } from "@/config/products";
 import { ProductCard } from "@/components/ProductCard";
+import { FallingGummies } from "@/components/FallingGummies";
 
 export function Hero() {
   const heroPicks = [
