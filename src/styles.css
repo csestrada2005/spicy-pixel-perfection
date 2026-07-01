@@ -234,5 +234,26 @@
 @media (prefers-reduced-motion: reduce) {
   .animate-flicker,.animate-float,.animate-glow-pulse,.animate-dash,.animate-cta-pulse,
   .animate-shake,.animate-chili-pop,.animate-stamp,.animate-heat,.animate-power-on,
-  .animate-fade-in,.animate-marquee,.animate-marquee-reverse { animation: none !important; }
+  .animate-fade-in,.animate-marquee,.animate-marquee-reverse,
+  .animate-hero-glow,.animate-hero-breathe,.animate-hero-sweep { animation: none !important; }
 }
+
+/* ===== HERO BACKDROP (splash code-native) ===== */
+@keyframes spic-hero-glow {
+  0%,100%{opacity:.72; transform:translate(-50%,-50%) scale(1)}
+  50%{opacity:1; transform:translate(-50%,-50%) scale(1.08)}
+}
+@utility animate-hero-glow { animation: spic-hero-glow 6s ease-in-out infinite; }
+
+@keyframes spic-hero-breathe {
+  0%,100%{transform:scale(1) rotate(0deg)}
+  50%{transform:scale(1.035) rotate(.6deg)}
+}
+@utility animate-hero-breathe { animation: spic-hero-breathe 9s ease-in-out infinite; will-change: transform; }
+
+@keyframes spic-hero-sweep {
+  0%{background-position:135% 135%}
+  55%{background-position:-35% -35%}
+  100%{background-position:-35% -35%}
+}
+@utility animate-hero-sweep { animation: spic-hero-sweep 7s ease-in-out infinite; }
