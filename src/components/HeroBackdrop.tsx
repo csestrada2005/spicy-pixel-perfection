@@ -101,7 +101,7 @@ export function HeroBackdrop() {
       <div ref={parallaxRef} className="absolute inset-0 will-change-transform">
         <div className="animate-hero-breathe absolute inset-0 flex items-center justify-center">
           <div
-            className="absolute left-1/2 top-[44%] w-[135%] max-w-none -translate-x-1/2 -translate-y-1/2 md:w-[105%]"
+            className="absolute left-1/2 top-[12%] w-[135%] max-w-none -translate-x-1/2 -translate-y-1/2 md:w-[105%]"
             style={{ aspectRatio: "973 / 796" }}
           >
             <img
