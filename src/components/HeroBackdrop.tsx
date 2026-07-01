@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-const SPLASH = "/hero-splash.webp";
+const SPLASH = "/hero-splash-wide.webp";
 
 export function HeroBackdrop() {
   const rootRef = useRef<HTMLDivElement>(null);
@@ -89,7 +89,7 @@ export function HeroBackdrop() {
     <div ref={rootRef} aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
       {/* Radial glow behind the splash */}
       <div
-        className="animate-hero-glow absolute left-1/2 top-1/2 h-[80%] w-[80%]"
+        className="animate-hero-glow absolute left-1/2 top-1/2 aspect-square w-[52%] -translate-x-1/2 -translate-y-1/2"
         style={{
           background:
             "radial-gradient(circle, rgba(255,60,30,0.55), rgba(255,138,30,0.25) 40%, transparent 70%)",
@@ -100,17 +100,22 @@ export function HeroBackdrop() {
       {/* Parallax layer holds the breathing splash */}
       <div ref={parallaxRef} className="absolute inset-0 will-change-transform">
         <div className="animate-hero-breathe absolute inset-0 flex items-center justify-center">
-          <img
-            src={SPLASH}
-            alt=""
-            className="max-h-[92%] w-auto object-contain opacity-95"
-            style={{
-              WebkitMaskImage:
-                "radial-gradient(closest-side, #000 78%, transparent 100%)",
-              maskImage:
-                "radial-gradient(closest-side, #000 78%, transparent 100%)",
-            }}
-          />
+          <div
+            className="absolute left-1/2 top-[44%] w-[135%] max-w-none -translate-x-1/2 -translate-y-1/2 md:w-[105%]"
+            style={{ aspectRatio: "973 / 796" }}
+          >
+            <img
+              src={SPLASH}
+              alt=""
+              className="h-full w-full object-contain opacity-95"
+              style={{
+                WebkitMaskImage:
+                  "radial-gradient(closest-side, #000 78%, transparent 100%)",
+                maskImage:
+                  "radial-gradient(closest-side, #000 78%, transparent 100%)",
+              }}
+            />
+          </div>
         </div>
 
         {/* Sweeping specular highlight */}
