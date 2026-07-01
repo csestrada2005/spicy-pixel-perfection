@@ -69,7 +69,7 @@ function IgCard({ img, song, likes }: { img: string; song: string; likes: number
 
 export function Reviews() {
   return (
-    <section id="reviews" className="bg-negro py-16">
+    <section id="reviews" className="bg-negro pt-4 pb-16">
       <div className="mx-auto max-w-[1280px] px-4">
         <h2 className="font-display neon-text-amarillo animate-flicker text-center text-3xl tracking-wider sm:text-5xl">
           LO QUE DICEN EN REDES !
