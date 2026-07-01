@@ -74,7 +74,7 @@ export function Bestsellers() {
             {items.map((p, i) => (
               <Reveal key={p.id} delay={i * 120} className="min-w-[66%] shrink-0 snap-start md:min-w-0">
                 <div className="flex justify-center">
-                  <ProductCard product={p} hideBuy />
+                  <ProductCard product={p} buyBelow />
                 </div>
               </Reveal>
             ))}
