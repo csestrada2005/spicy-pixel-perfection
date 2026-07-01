@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-const SPLASH = "/hero-splash-wide.webp";
+const SPLASH = "/hero-splash-wide-hq.webp";
 
 export function HeroBackdrop() {
   const rootRef = useRef<HTMLDivElement>(null);
