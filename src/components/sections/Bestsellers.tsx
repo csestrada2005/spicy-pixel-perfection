@@ -17,7 +17,7 @@ export function Bestsellers() {
       {/* Patrón de chiles negros (alpha mask) en mosaico sobre fondo rojo */}
       <div
         aria-hidden
-        className="absolute inset-0 bg-repeat"
+        className="animate-bg-drift absolute inset-0 bg-repeat"
         style={{
           backgroundImage: `url(${ASSETS.chilePatternBlack})`,
           backgroundSize: "360px 480px",
