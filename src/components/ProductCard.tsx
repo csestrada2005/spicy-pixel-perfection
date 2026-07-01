@@ -26,7 +26,7 @@ function SpicyMeter({ level }: { level: number }) {
   );
 }
 
-export function ProductCard({ product, compact, index }: { product: Product; compact?: boolean; index?: number }) {
+export function ProductCard({ product, compact, index, hideBuy }: { product: Product; compact?: boolean; index?: number; hideBuy?: boolean }) {
   const href = product.shopifyUrl || "#tienda";
   return (
     <div className={`group hover:z-20 transition-[transform,box-shadow] duration-200 ease-out hover:-translate-y-1.5 hover:rotate-[-1deg] hover:shadow-[10px_10px_0px_#CA8A04,0_0_26px_rgba(225,20,20,0.35)] relative w-full rounded-2xl bg-amarillo-suave text-negro shadow-[6px_6px_0px_#CA8A04] ${compact ? "max-w-[224px] p-3 pb-5" : "max-w-[340px] p-5 pb-8"}`}>
@@ -47,19 +47,21 @@ export function ProductCard({ product, compact, index }: { product: Product; com
       </div>
       <p className="mt-3 text-center text-xl font-bold">{product.priceLabel}</p>
 
-      <a
-        href={href}
-        target={product.shopifyUrl ? "_blank" : undefined}
-        rel="noopener noreferrer"
-        aria-label={`Comprar ${product.flavor}`}
-        className="font-display pointer-events-none absolute left-full top-1/2 z-20 ml-3 -translate-y-1/2 translate-x-2 whitespace-nowrap text-xl tracking-widest opacity-0 transition-all duration-200 group-hover:pointer-events-auto group-hover:translate-x-0 group-hover:opacity-100"
-        style={{
-          color: "#fff",
-          textShadow: "0 0 4px #19e0ff, 0 0 12px #19e0ff, 0 0 24px rgba(25,224,255,0.7)",
-        }}
-      >
-        COMPRAR
-      </a>
+      {!hideBuy && (
+        <a
+          href={href}
+          target={product.shopifyUrl ? "_blank" : undefined}
+          rel="noopener noreferrer"
+          aria-label={`Comprar ${product.flavor}`}
+          className="font-display pointer-events-none absolute left-full top-1/2 z-20 ml-3 -translate-y-1/2 translate-x-2 whitespace-nowrap text-xl tracking-widest opacity-0 transition-all duration-200 group-hover:pointer-events-auto group-hover:translate-x-0 group-hover:opacity-100"
+          style={{
+            color: "#fff",
+            textShadow: "0 0 4px #19e0ff, 0 0 12px #19e0ff, 0 0 24px rgba(25,224,255,0.7)",
+          }}
+        >
+          COMPRAR
+        </a>
+      )}
     </div>
   );
 }
