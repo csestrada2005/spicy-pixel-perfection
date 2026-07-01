@@ -235,7 +235,8 @@
   .animate-flicker,.animate-float,.animate-glow-pulse,.animate-dash,.animate-cta-pulse,
   .animate-shake,.animate-chili-pop,.animate-stamp,.animate-heat,.animate-power-on,
   .animate-fade-in,.animate-marquee,.animate-marquee-reverse,
-  .animate-hero-glow,.animate-hero-breathe,.animate-hero-sweep { animation: none !important; }
+  .animate-hero-glow,.animate-hero-breathe,.animate-hero-sweep,.animate-yell,.animate-bg-drift { animation: none !important; }
+  .animate-gummy-fall { display: none !important; }
 }
 
 /* ===== HERO BACKDROP (splash code-native) ===== */
