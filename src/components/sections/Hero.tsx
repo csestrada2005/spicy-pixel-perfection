@@ -120,7 +120,7 @@ export function Hero() {
           <div className="animate-fade-in flex flex-col items-center" style={{ animationDelay: "0.4s" }}>
             {heroPicks.map((p, i) => {
               const xOffset = i === 4 ? "-translate-x-20" : i % 2 === 0 ? "-translate-x-12" : "translate-x-12";
-              const yGap = i === 0 ? "mt-0" : i === 4 ? "mt-64" : "mt-16";
+              const yGap = i === 0 ? "mt-0" : i === 4 ? "mt-44" : "mt-16";
               return (
                 <div
                   key={p.id}
