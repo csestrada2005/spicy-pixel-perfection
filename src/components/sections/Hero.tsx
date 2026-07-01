@@ -120,11 +120,12 @@ export function Hero() {
           <div className="animate-fade-in flex flex-col items-center" style={{ animationDelay: "0.4s" }}>
             {heroPicks.map((p, i) => {
               const xOffset = i === 4 ? "-translate-x-20" : i % 2 === 0 ? "-translate-x-12" : "translate-x-12";
-              const yGap = i === 0 ? "mt-0" : i === 4 ? "mt-28" : "mt-16";
+              const yGap = i === 0 ? "mt-0" : "mt-16";
+              const yShift = i === 4 ? "translate-y-32" : "";
               return (
                 <div
                   key={p.id}
-                  className={`relative w-[200px] ${xOffset} ${yGap}`}
+                  className={`relative w-[200px] ${xOffset} ${yShift} ${yGap}`}
                 >
                   <ProductCard product={p} compact index={i} />
                 </div>
