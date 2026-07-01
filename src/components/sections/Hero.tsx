@@ -55,7 +55,7 @@ export function Hero() {
         src={ASSETS.guyEating}
         alt=""
         aria-hidden
-        className="animate-yell pointer-events-none absolute bottom-0 left-[8%] z-10 hidden w-[560px] max-w-none md:block lg:left-[10%] lg:w-[640px]"
+        className="animate-yell pointer-events-none absolute bottom-[-40px] left-[8%] z-10 hidden w-[560px] max-w-none md:block lg:left-[10%] lg:w-[640px]"
       />
 
       {/* Ráfaga de calor sobre la boca-abierta */}
