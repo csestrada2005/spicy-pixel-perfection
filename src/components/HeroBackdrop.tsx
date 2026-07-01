@@ -4,7 +4,6 @@ const SPLASH = "/hero-splash-wide.webp";
 
 export function HeroBackdrop() {
   const rootRef = useRef<HTMLDivElement>(null);
-  const parallaxRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
