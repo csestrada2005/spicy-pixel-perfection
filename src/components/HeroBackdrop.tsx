@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-const SPLASH = "/hero-splash-wide.webp";
+const SPLASH = "/hero-splash-wide-hq.webp";
 
 export function HeroBackdrop() {
   const rootRef = useRef<HTMLDivElement>(null);
@@ -85,7 +85,7 @@ export function HeroBackdrop() {
       <div className="absolute inset-0">
         <div className="animate-hero-breathe absolute inset-0 flex items-center justify-center">
           <div
-            className="absolute left-1/2 top-[12%] w-[135%] max-w-none -translate-x-1/2 -translate-y-1/2 md:w-[105%]"
+            className="absolute left-1/2 top-[18%] w-[135%] max-w-none -translate-x-1/2 -translate-y-1/2 md:w-[105%]"
             style={{ aspectRatio: "973 / 796" }}
           >
             <img
@@ -110,6 +110,12 @@ export function HeroBackdrop() {
               "linear-gradient(115deg, transparent 40%, rgba(255,220,150,0.35) 50%, transparent 60%)",
             backgroundSize: "220% 220%",
           }}
+        />
+
+        {/* Bottom fade: funde el borde del splash al negro (mata la línea) */}
+        <div
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-[60%]"
+          style={{ background: "linear-gradient(to bottom, transparent, #000)" }}
         />
       </div>
 
