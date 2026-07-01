@@ -119,7 +119,7 @@ export function Hero() {
         <div className="relative hidden md:block">
           <div className="animate-fade-in flex flex-col items-center" style={{ animationDelay: "0.4s" }}>
             {heroPicks.map((p, i) => {
-              const xOffset = i === 4 ? "-translate-x-20" : i % 2 === 0 ? "-translate-x-12" : "translate-x-12";
+              const xOffset = i === 4 ? "-translate-x-20 translate-y-10" : i % 2 === 0 ? "-translate-x-12" : "translate-x-12";
               const yGap = i === 0 ? "mt-0" : "mt-16";
               return (
                 <div
