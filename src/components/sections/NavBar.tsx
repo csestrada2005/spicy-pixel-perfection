@@ -1,5 +1,22 @@
 import { useState, useEffect } from "react";
 import { Menu, X, ShoppingBag } from "lucide-react";
+import { Link } from "@tanstack/react-router";
+
+function NavLink({ href, className, style, onClick, children }: { href: string; className?: string; style?: React.CSSProperties; onClick?: () => void; children: React.ReactNode }) {
+  const internal = href.startsWith("/") && !href.startsWith("//");
+  if (internal) {
+    return (
+      <Link to={href} className={className} style={style} onClick={onClick} preload="intent">
+        {children}
+      </Link>
+    );
+  }
+  return (
+    <a href={href} className={className} style={style} onClick={onClick}>
+      {children}
+    </a>
+  );
+}
 
 const LINKS_LEFT = [
   { label: "SABORES", href: "/productos" },
@@ -59,9 +76,9 @@ export function NavBar() {
           <ul className="hidden flex-1 items-center justify-around gap-6 md:flex">
             {LINKS_LEFT.map((l) => (
               <li key={l.href}>
-                <a href={l.href} className={linkClass} style={linkStyle}>
+                <NavLink href={l.href} className={linkClass} style={linkStyle}>
                   {l.label}
-                </a>
+                </NavLink>
               </li>
             ))}
           </ul>
@@ -73,9 +90,9 @@ export function NavBar() {
           <ul className="hidden flex-1 items-center justify-around gap-6 md:flex">
             {LINKS_RIGHT.map((l) => (
               <li key={l.href}>
-                <a href={l.href} className={linkClass} style={linkStyle}>
+                <NavLink href={l.href} className={linkClass} style={linkStyle}>
                   {l.label}
-                </a>
+                </NavLink>
               </li>
             ))}
           </ul>
@@ -147,14 +164,14 @@ export function NavBar() {
             <ul className="flex flex-col">
               {[...LINKS_LEFT, ...LINKS_RIGHT].map((l) => (
                 <li key={l.href} className="border-b last:border-b-0" style={{ borderColor: `${RED}33` }}>
-                  <a
+                  <NavLink
                     href={l.href}
                     onClick={() => setOpen(false)}
                     className="block px-5 py-3 font-sans font-extrabold tracking-[0.18em]"
                     style={{ color: RED }}
                   >
                     {l.label}
-                  </a>
+                  </NavLink>
                 </li>
               ))}
             </ul>
