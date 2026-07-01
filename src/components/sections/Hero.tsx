@@ -85,7 +85,7 @@ export function Hero() {
           <img
             src={ASSETS.logoNeon}
             alt="S-π-C Spicy"
-            className="animate-power-on relative z-10 w-[280px] max-w-full drop-shadow-[0_0_18px_rgba(255,46,46,0.5)] md:w-[460px]"
+            className="animate-power-on animate-flicker relative z-10 w-[280px] max-w-full drop-shadow-[0_0_18px_rgba(255,46,46,0.5)] md:w-[460px]"
           />
 
           <a href="#tienda" className="group font-display animate-cta-pulse rounded-full bg-amarillo px-10 py-3 text-lg tracking-[0.2em] text-negro transition-transform hover:scale-105">
