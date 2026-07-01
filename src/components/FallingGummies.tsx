@@ -22,11 +22,13 @@ export function FallingGummies() {
         };
         (style as Record<string, unknown>)["--drift"] = `${drift}px`;
         return (
-          
+          <div
+            key={i}
+            className="animate-gummy-fall absolute rounded-full"
+            style={style}
+          />
         );
       })}
-    
-
-
+    </div>
   );
 }
