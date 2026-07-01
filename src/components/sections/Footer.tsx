@@ -1,5 +1,5 @@
 import { ArrowRight, Facebook, Instagram, Twitter } from "lucide-react";
-import { ASSETS } from "@/config/assets";
+
 import { Reveal } from "@/components/Reveal";
 
 export function Footer() {
