@@ -77,7 +77,7 @@ export function Hero() {
       </span>
 
       {/* ===== MAIN GRID ===== */}
-      <div className="relative z-[15] mx-auto grid max-w-[1280px] grid-cols-1 gap-12 px-5 pt-10 pb-24 md:grid-cols-2 md:gap-10 md:px-8 md:pt-16 md:pb-4">
+      <div className="relative z-[15] mx-auto grid max-w-[1280px] grid-cols-1 gap-12 px-5 pt-28 pb-24 md:grid-cols-2 md:gap-10 md:px-8 md:pt-36 md:pb-4">
         {/* LEFT COLUMN */}
         <div className="relative flex flex-col items-start gap-6 md:gap-8">
           <img
