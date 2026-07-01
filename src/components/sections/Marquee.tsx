@@ -4,7 +4,7 @@ const TEXT =
 export function Marquee() {
   const items = Array.from({ length: 6 }, () => TEXT).join("   ★   ");
   return (
-    <div className="group relative w-full overflow-hidden bg-rojo py-3">
+    <div className="group relative -mt-2 w-full overflow-hidden bg-rojo py-5">
       <div
         className="flex w-max whitespace-nowrap font-display text-lg tracking-widest text-white md:text-2xl group-hover:[animation-play-state:paused]"
         style={{ animation: "marquee 60s linear infinite reverse" }}
