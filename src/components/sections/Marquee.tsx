@@ -13,26 +13,6 @@ export function Marquee() {
         <span className="px-6" aria-hidden>{items}</span>
       </div>
 
-      {/* Sweep diagonal sincronizado con el hero */}
-      <div
-        aria-hidden
-        className="animate-hero-sweep pointer-events-none absolute inset-0 mix-blend-screen opacity-40"
-        style={{
-          backgroundImage:
-            "linear-gradient(115deg, transparent 40%, rgba(255,220,150,0.55) 50%, transparent 60%)",
-          backgroundSize: "220% 220%",
-        }}
-      />
-      {/* Sweep vertical sincronizado */}
-      <div
-        aria-hidden
-        className="animate-hero-sweep pointer-events-none absolute inset-0 mix-blend-screen opacity-30"
-        style={{
-          backgroundImage:
-            "linear-gradient(180deg, transparent 42%, rgba(255,240,200,0.45) 50%, transparent 58%)",
-          backgroundSize: "220% 220%",
-        }}
-      />
     </div>
   );
 }
