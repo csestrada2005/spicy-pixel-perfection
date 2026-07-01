@@ -1,5 +1,22 @@
 import { useState, useEffect } from "react";
 import { Menu, X, ShoppingBag } from "lucide-react";
+import { Link } from "@tanstack/react-router";
+
+function NavLink({ href, className, style, onClick, children }: { href: string; className?: string; style?: React.CSSProperties; onClick?: () => void; children: React.ReactNode }) {
+  const internal = href.startsWith("/") && !href.startsWith("//");
+  if (internal) {
+    return (
+      <Link to={href} className={className} style={style} onClick={onClick} preload="intent">
+        {children}
+      </Link>
+    );
+  }
+  return (
+    <a href={href} className={className} style={style} onClick={onClick}>
+      {children}
+    </a>
+  );
+}
 
 const LINKS_LEFT = [
   { label: "SABORES", href: "/productos" },
