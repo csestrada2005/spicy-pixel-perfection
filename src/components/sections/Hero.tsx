@@ -1,5 +1,5 @@
-import { useRef, useEffect } from "react";
 import { ASSETS } from "@/config/assets";
+import { HeroBackdrop } from "@/components/HeroBackdrop";
 import { PRODUCTS } from "@/config/products";
 import { ProductCard } from "@/components/ProductCard";
 
