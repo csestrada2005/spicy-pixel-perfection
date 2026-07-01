@@ -1,5 +1,5 @@
-import { useRef, useEffect } from "react";
 import { ASSETS } from "@/config/assets";
+import { HeroBackdrop } from "@/components/HeroBackdrop";
 import { PRODUCTS } from "@/config/products";
 import { ProductCard } from "@/components/ProductCard";
 
@@ -12,14 +12,6 @@ export function Hero() {
     { ...PRODUCTS[1], id: "pina-colada-yellow", name: "PIÑA COLADA" }, // Piña Colada (amarilla)
   ];
 
-  const fruitVideoRef = useRef<HTMLVideoElement>(null);
-  useEffect(() => {
-    const v = fruitVideoRef.current;
-    if (!v) return;
-    const reduce = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
-    if (reduce) { v.pause(); return; }
-    v.play().catch(() => {});
-  }, []);
 
   return (
     <section
@@ -28,24 +20,8 @@ export function Hero() {
     >
       {/* ===== ABSOLUTE ACCENT LAYER ===== */}
 
-      {/* Fruit explosion behind logo */}
-      <video
-        ref={fruitVideoRef}
-        className="pointer-events-none absolute -left-[10%] top-[2%] z-0 w-[120%] max-w-none opacity-90 md:left-[-10%] md:top-[2%] md:w-[84%]"
-        style={{
-          WebkitMaskImage:
-            "radial-gradient(115% 95% at 50% 33%, #000 42%, rgba(0,0,0,0.6) 62%, transparent 82%)",
-          maskImage:
-            "radial-gradient(115% 95% at 50% 33%, #000 42%, rgba(0,0,0,0.6) 62%, transparent 82%)",
-        }}
-        src="/hero-explosion-loop.mp4"
-        poster="/hero-explosion-poster.jpg"
-        muted
-        loop
-        playsInline
-        preload="metadata"
-        aria-hidden
-      />
+      {/* Fruit explosion backdrop (code-native) */}
+      <HeroBackdrop />
 
       {/* Vertical neon "TU NUEVA ADICCIÓN" */}
       <span
