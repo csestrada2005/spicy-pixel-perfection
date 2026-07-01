@@ -76,9 +76,9 @@ export function NavBar() {
           <ul className="hidden flex-1 items-center justify-around gap-6 md:flex">
             {LINKS_LEFT.map((l) => (
               <li key={l.href}>
-                <a href={l.href} className={linkClass} style={linkStyle}>
+                <NavLink href={l.href} className={linkClass} style={linkStyle}>
                   {l.label}
-                </a>
+                </NavLink>
               </li>
             ))}
           </ul>
