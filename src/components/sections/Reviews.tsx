@@ -1,5 +1,15 @@
 import { Reveal } from "@/components/Reveal";
-import igCitrus from "@/assets/ig-citrus-v2.png.asset.json";
+import { Heart, MessageCircle, Send, Bookmark, MoreHorizontal, Music2 } from "lucide-react";
+import igGoodSpices from "@/assets/ig-good-spices.png.asset.json";
+import igRedGummies from "@/assets/ig-red-gummies.png.asset.json";
+import igPinaColada from "@/assets/ig-pina-colada.png.asset.json";
+import logoSmall from "@/assets/logo-spic-small.png.asset.json";
+
+const POSTS = [
+  { img: igGoodSpices.url, song: "Anna Graceman, TLN · Lemonade", likes: 132 },
+  { img: igRedGummies.url, song: "Sound Gallery by Dmitry Taras · Tropi…", likes: 213 },
+  { img: igPinaColada.url, song: "Sunny Egg · Fresh", likes: 158 },
+] as const;
 
 const QUOTES = [
   {
@@ -19,7 +29,43 @@ const QUOTES = [
   },
 ] as const;
 
-const IG_POSTS = [igCitrus.url, igCitrus.url, igCitrus.url] as const;
+function IgCard({ img, song, likes }: { img: string; song: string; likes: number }) {
+  return (
+    <div className="w-full overflow-hidden rounded-[28px] bg-white text-black shadow-lg">
+      {/* Header */}
+      <div className="flex items-center justify-between px-3 py-2">
+        <div className="flex items-center gap-2">
+          <div className="h-8 w-8 overflow-hidden rounded-full ring-1 ring-black/10">
+            <img src={logoSmall.url} alt="" className="h-full w-full object-cover" />
+          </div>
+          <div className="leading-tight">
+            <p className="text-[13px] font-semibold">s.pi.c_spicy</p>
+            <p className="flex items-center gap-1 text-[11px] text-neutral-600">
+              <Music2 className="h-3 w-3" /> {song}
+            </p>
+          </div>
+        </div>
+        <MoreHorizontal className="h-5 w-5 text-neutral-700" />
+      </div>
+
+      {/* Image */}
+      <div className="aspect-square w-full overflow-hidden bg-neutral-100">
+        <img src={img} alt="" className="h-full w-full object-cover" />
+      </div>
+
+      {/* Footer */}
+      <div className="flex items-center justify-between px-3 py-2">
+        <div className="flex items-center gap-3 text-neutral-800">
+          <Heart className="h-6 w-6 fill-rojo text-rojo" />
+          <MessageCircle className="h-6 w-6" />
+          <Send className="h-6 w-6" />
+        </div>
+        <Bookmark className="h-6 w-6 text-neutral-800" />
+      </div>
+      <p className="px-3 pb-3 text-[12px] font-semibold">{likes.toLocaleString()} likes</p>
+    </div>
+  );
+}
 
 export function Reviews() {
   return (
@@ -30,15 +76,9 @@ export function Reviews() {
         </h2>
 
         <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
-          {IG_POSTS.map((src, i) => (
+          {POSTS.map((p, i) => (
             <Reveal key={i} delay={i * 120}>
-              <div className="aspect-[3/4] w-full overflow-hidden rounded-[28px] bg-white shadow-lg">
-                <img
-                  src={src}
-                  alt={`Post de Instagram ${i + 1}`}
-                  className="h-full w-full object-cover scale-125"
-                />
-              </div>
+              <IgCard {...p} />
             </Reveal>
           ))}
         </div>

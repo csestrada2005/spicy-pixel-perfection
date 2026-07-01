@@ -4,7 +4,7 @@ export function NeonBanner() {
   const items = Array.from({ length: 8 });
   return (
     <div className="group relative w-full overflow-hidden bg-negro py-4">
-      <div className="flex w-max animate-marquee-reverse group-hover:[animation-play-state:paused]">
+      <div className="flex w-max animate-marquee group-hover:[animation-play-state:paused]">
         {items.map((_, i) => (
           <img
             key={i}
