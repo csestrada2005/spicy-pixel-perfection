@@ -2,7 +2,19 @@ import { useState, useEffect } from "react";
 import { Menu, X, ShoppingBag } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 
-function NavLink({ href, className, style, onClick, children }: { href: string; className?: string; style?: React.CSSProperties; onClick?: () => void; children: React.ReactNode }) {
+function NavLink({
+  href,
+  className,
+  style,
+  onClick,
+  children,
+}: {
+  href: string;
+  className?: string;
+  style?: React.CSSProperties;
+  onClick?: () => void;
+  children: React.ReactNode;
+}) {
   const internal = href.startsWith("/") && !href.startsWith("//");
   if (internal) {
     return (
@@ -20,12 +32,16 @@ function NavLink({ href, className, style, onClick, children }: { href: string; 
 
 const LINKS_LEFT = [
   { label: "SABORES", href: "/productos" },
-  { label: "GALERIA", href: "#galeria" },
+  { label: "NOSOTROS", href: "/nosotros" },
+  { label: "GALERIA", href: "/galeria" },
 ];
 const LINKS_RIGHT = [
   { label: "REVIEWS", href: "#reviews" },
   { label: "ÚNETE", href: "#unete" },
 ];
+
+// Contador de carrito: placeholder por ahora, se conecta en Fase 4.
+const CART_COUNT = 0;
 
 const YELLOW = "#FFD400";
 const RED = "#E11414";
@@ -119,14 +135,7 @@ export function NavBar() {
                   strokeLinecap="round"
                 />
                 {/* body */}
-                <rect
-                  x="14"
-                  y="36"
-                  width="72"
-                  height="76"
-                  rx="6"
-                  fill={RED}
-                />
+                <rect x="14" y="36" width="72" height="76" rx="6" fill={RED} />
               </svg>
               {/* tienda label */}
               <span
@@ -144,14 +153,21 @@ export function NavBar() {
             </div>
           </a>
 
-          {/* Mobile: cart icon right */}
+          {/* Carrito con contador (placeholder — se conecta en Fase 4) */}
           <a
             href="#"
-            className="rounded-full p-2 md:hidden"
+            className="relative rounded-full p-2"
             style={{ color: RED }}
-            aria-label="Carrito"
+            aria-label={`Carrito (${CART_COUNT})`}
           >
-            <ShoppingBag className="h-5 w-5" />
+            <ShoppingBag className="h-5 w-5 md:h-6 md:w-6" />
+            <span
+              className="absolute -right-0.5 -top-0.5 grid h-4 w-4 min-w-4 place-items-center rounded-full px-1 text-[10px] font-black leading-none text-white md:h-5 md:w-5 md:text-[11px]"
+              style={{ backgroundColor: RED }}
+              aria-hidden
+            >
+              {CART_COUNT}
+            </span>
           </a>
         </nav>
 
@@ -163,7 +179,11 @@ export function NavBar() {
           >
             <ul className="flex flex-col">
               {[...LINKS_LEFT, ...LINKS_RIGHT].map((l) => (
-                <li key={l.href} className="border-b last:border-b-0" style={{ borderColor: `${RED}33` }}>
+                <li
+                  key={l.href}
+                  className="border-b last:border-b-0"
+                  style={{ borderColor: `${RED}33` }}
+                >
                   <NavLink
                     href={l.href}
                     onClick={() => setOpen(false)}
