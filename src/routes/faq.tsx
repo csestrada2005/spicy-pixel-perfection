@@ -8,7 +8,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { ASSETS } from "@/config/assets";
+import { ChileBackground } from "@/components/ChileBackground";
 
 export const Route = createFileRoute("/faq")({
   head: () => ({
@@ -58,14 +58,7 @@ function Faq() {
       <NavBar />
 
       <section className="relative overflow-hidden bg-[#E11414] pt-28 pb-16 md:pt-32">
-        <div
-          aria-hidden
-          className="animate-bg-drift absolute inset-0 bg-repeat opacity-90"
-          style={{
-            backgroundImage: `url(${ASSETS.chilePatternBlack})`,
-            backgroundSize: "360px 480px",
-          }}
-        />
+        <ChileBackground />
         <div className="relative z-10 mx-auto max-w-[900px] px-4 text-center">
           <h1
             className="animate-stamp font-display text-5xl tracking-wider text-white sm:text-7xl"

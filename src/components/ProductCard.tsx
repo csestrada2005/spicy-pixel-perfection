@@ -48,6 +48,7 @@ export function ProductCard({ product, compact, index, hideBuy, buyBelow, unifor
             alt={product.flavor}
             className={imgClass}
             loading="lazy"
+            decoding="async"
           />
         </div>
         <h3 className="font-display mt-4 text-center text-2xl tracking-wide">{product.name}</h3>

@@ -1,9 +1,9 @@
 import { useRef } from "react";
 import { useInView } from "@/hooks/use-in-view";
-import { ASSETS } from "@/config/assets";
 import { PRODUCTS } from "@/config/products";
 import { ProductCard } from "@/components/ProductCard";
 import { Reveal } from "@/components/Reveal";
+import { ChileBackground } from "@/components/ChileBackground";
 
 export function Bestsellers() {
   const trackRef = useRef<HTMLDivElement>(null);
@@ -15,14 +15,7 @@ export function Bestsellers() {
   return (
     <section id="galeria" className="relative overflow-hidden pt-16 pb-4 bg-[#E11414]">
       {/* Patrón de chiles negros (alpha mask) en mosaico sobre fondo rojo */}
-      <div
-        aria-hidden
-        className="animate-bg-drift absolute inset-0 bg-repeat"
-        style={{
-          backgroundImage: `url(${ASSETS.chilePatternBlack})`,
-          backgroundSize: "360px 480px",
-        }}
-      />
+      <ChileBackground opacity={1} />
       <div className="relative z-10 mx-auto max-w-[1280px] px-4">
         <h2
           ref={titleRef}

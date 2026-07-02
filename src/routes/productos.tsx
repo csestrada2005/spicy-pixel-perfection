@@ -1,10 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { NavBar } from "@/components/sections/NavBar";
 import { Footer } from "@/components/sections/Footer";
-import { ASSETS } from "@/config/assets";
 import { catalogByLine } from "@/config/catalog";
 import { ProductCard } from "@/components/ProductCard";
 import { Reveal } from "@/components/Reveal";
+import { ChileBackground } from "@/components/ChileBackground";
 
 export const Route = createFileRoute("/productos")({
   head: () => ({
@@ -25,14 +25,7 @@ function Productos() {
 
       <section className="relative overflow-hidden bg-[#E11414] pt-28 pb-24 md:pt-32">
         {/* Patrón de chiles negros en mosaico sobre fondo rojo (igual que Bestsellers) */}
-        <div
-          aria-hidden
-          className="animate-bg-drift absolute inset-0 bg-repeat"
-          style={{
-            backgroundImage: `url(${ASSETS.chilePatternBlack})`,
-            backgroundSize: "360px 480px",
-          }}
-        />
+        <ChileBackground opacity={1} />
 
         <div className="relative z-10 mx-auto max-w-[1280px] px-4">
           {/* Header de la página */}
@@ -53,7 +46,10 @@ function Productos() {
           {/* Secciones por línea */}
           <div className="mt-16 space-y-20 md:mt-20">
             {groups.map(({ line, products }) => (
-              <div key={line.id}>
+              <div
+                key={line.id}
+                style={{ contentVisibility: "auto", containIntrinsicSize: "800px" }}
+              >
                 {/* Encabezado de la línea */}
                 <div className="text-center">
                   <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2">

@@ -11,8 +11,8 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
-import { ASSETS } from "../config/assets";
 import { WhatsAppFab } from "../components/WhatsAppFab";
+import { ChileBackground } from "../components/ChileBackground";
 import { NavBar } from "../components/sections/NavBar";
 import { Footer } from "../components/sections/Footer";
 
@@ -23,14 +23,7 @@ function NotFoundComponent() {
     <main className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#E11414] px-4 pt-32 pb-24 text-white">
 
       {/* Patrón de chiles negros sobre fondo rojo (identidad de marca) */}
-      <div
-        aria-hidden
-        className="animate-bg-drift absolute inset-0 bg-repeat opacity-90"
-        style={{
-          backgroundImage: `url(${ASSETS.chilePatternBlack})`,
-          backgroundSize: "360px 480px",
-        }}
-      />
+      <ChileBackground />
       <div className="relative z-10 max-w-lg text-center">
         {/* Chile triste */}
         <div className="mx-auto text-7xl sm:text-8xl" aria-hidden>
