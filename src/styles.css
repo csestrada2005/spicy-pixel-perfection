@@ -275,7 +275,10 @@
 @utility animate-yell { animation: spic-yell 1.5s ease-in-out infinite; }
 
 @keyframes spic-bg-drift {
-  0% { background-position: 0px 0px; }
-  100% { background-position: 360px -480px; }
+  0%   { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-360px, -480px, 0); }
 }
-@utility animate-bg-drift { animation: spic-bg-drift 24s linear infinite; }
+@utility animate-bg-drift {
+  animation: spic-bg-drift 24s linear infinite;
+  will-change: transform;
+}
