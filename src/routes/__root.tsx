@@ -13,6 +13,8 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { ASSETS } from "../config/assets";
 import { WhatsAppFab } from "../components/WhatsAppFab";
+import { NavBar } from "../components/sections/NavBar";
+import { Footer } from "../components/sections/Footer";
 
 function NotFoundComponent() {
   return (
