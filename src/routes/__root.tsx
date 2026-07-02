@@ -13,10 +13,15 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { ASSETS } from "../config/assets";
 import { WhatsAppFab } from "../components/WhatsAppFab";
+import { NavBar } from "../components/sections/NavBar";
+import { Footer } from "../components/sections/Footer";
 
 function NotFoundComponent() {
   return (
-    <main className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#E11414] px-4 text-white">
+    <>
+    <NavBar />
+    <main className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#E11414] px-4 pt-32 pb-24 text-white">
+
       {/* Patrón de chiles negros sobre fondo rojo (identidad de marca) */}
       <div
         aria-hidden
@@ -61,8 +66,11 @@ function NotFoundComponent() {
         </div>
       </div>
     </main>
+    <Footer />
+    </>
   );
 }
+
 
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
