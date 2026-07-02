@@ -16,7 +16,10 @@ import { WhatsAppFab } from "../components/WhatsAppFab";
 
 function NotFoundComponent() {
   return (
-    <main className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#E11414] px-4 text-white">
+    <>
+    <NavBar />
+    <main className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#E11414] px-4 pt-32 pb-24 text-white">
+
       {/* Patrón de chiles negros sobre fondo rojo (identidad de marca) */}
       <div
         aria-hidden
