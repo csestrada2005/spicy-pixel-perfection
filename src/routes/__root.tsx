@@ -64,8 +64,11 @@ function NotFoundComponent() {
         </div>
       </div>
     </main>
+    <Footer />
+    </>
   );
 }
+
 
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
