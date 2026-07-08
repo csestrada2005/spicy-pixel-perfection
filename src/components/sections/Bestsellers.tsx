@@ -1,9 +1,11 @@
 import { useRef } from "react";
+import { Link } from "@tanstack/react-router";
 import { useInView } from "@/hooks/use-in-view";
 import { ProductCard, ProductCardSkeleton } from "@/components/ProductCard";
 import { Reveal } from "@/components/Reveal";
 import { ChileBackground } from "@/components/ChileBackground";
 import { useShopifyProducts } from "@/lib/shopify-catalog";
+
 
 // Handles destacados como bestsellers (ajusta desde Shopify si cambian).
 const BESTSELLER_HANDLES = [
@@ -84,8 +86,18 @@ export function Bestsellers() {
                 </Reveal>
               ))}
           </div>
+
+          <div className="mt-8 flex justify-center md:mt-12">
+            <Link
+              to="/productos"
+              className="font-display inline-flex items-center justify-center rounded-full bg-amarillo px-8 py-3 text-sm tracking-[0.2em] text-negro transition-transform duration-150 hover:-translate-y-0.5 hover:scale-105 sm:text-base"
+            >
+              VER TODOS LOS SABORES
+            </Link>
+          </div>
         </div>
       </div>
+
     </section>
   );
 }
