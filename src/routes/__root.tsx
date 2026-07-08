@@ -15,6 +15,8 @@ import { WhatsAppFab } from "../components/WhatsAppFab";
 import { ChileBackground } from "../components/ChileBackground";
 import { NavBar } from "../components/sections/NavBar";
 import { Footer } from "../components/sections/Footer";
+import { Toaster } from "sonner";
+import { useCartSync } from "../hooks/useCartSync";
 
 function NotFoundComponent() {
   return (
@@ -170,6 +172,7 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  useCartSync();
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -177,6 +180,11 @@ function RootComponent() {
       <Outlet />
       {/* Botón flotante global de WhatsApp */}
       <WhatsAppFab />
+      <Toaster
+        position="top-center"
+        richColors
+        toastOptions={{ style: { fontFamily: "Inter, sans-serif" } }}
+      />
     </QueryClientProvider>
   );
 }
