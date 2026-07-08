@@ -4,7 +4,7 @@ import { Marquee } from "@/components/sections/Marquee";
 import { Bestsellers } from "@/components/sections/Bestsellers";
 import { InstagramFeed } from "@/components/sections/InstagramFeed";
 import { NeonBanner } from "@/components/sections/NeonBanner";
-import { FruitBorder } from "@/components/sections/Dividers";
+
 import { Footer } from "@/components/sections/Footer";
 import { NavBar } from "@/components/sections/NavBar";
 
