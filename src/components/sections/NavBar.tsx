@@ -3,6 +3,7 @@ import { Menu, X, ShoppingBag } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { useCartStore } from "@/stores/cartStore";
 import { CartDrawer } from "@/components/CartDrawer";
+import { cartUI } from "@/lib/cart-toast";
 
 function NavLink({
   href,
