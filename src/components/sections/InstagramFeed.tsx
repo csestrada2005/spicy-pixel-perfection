@@ -11,7 +11,7 @@ const PREVIEW_IMAGES = [
 
 export function InstagramFeed() {
   return (
-    <section className="relative overflow-hidden bg-negro pt-2 pb-16 md:pt-4 md:pb-24">
+    <section className="relative overflow-hidden bg-negro pt-2 pb-4 md:pt-4 md:pb-24">
       <div className="relative z-10 mx-auto max-w-[1280px] px-4">
         <Reveal>
           <div className="text-center">
@@ -56,7 +56,7 @@ export function InstagramFeed() {
         </div>
 
         <Reveal delay={300}>
-          <div className="mt-10 flex justify-center">
+          <div className="mt-10 flex justify-center pb-2 md:pb-0">
             <a
               href={CONTACT.instagram}
               target="_blank"
