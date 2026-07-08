@@ -1,15 +1,12 @@
-import { ArrowRight, Instagram, MessageCircle } from "lucide-react";
-import { Link, useNavigate } from "@tanstack/react-router";
-import { useState } from "react";
+import { Instagram, MessageCircle } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 
 import { Reveal } from "@/components/Reveal";
 import { CONTACT } from "@/config/contact";
 
 const POLICIES = [
-  { label: "Envíos y entregas", href: "/politicas", hash: "envios" },
-  { label: "Cambios y devoluciones", href: "/politicas", hash: "devoluciones" },
-  { label: "Términos y condiciones", href: "/politicas", hash: "terminos" },
-  { label: "Aviso de privacidad", href: "/politicas", hash: "privacidad" },
+  { label: "Términos y condiciones", href: "/politicas" },
+  { label: "Aviso de privacidad", href: "/aviso-privacidad" },
 ];
 
 const EXPLORE = [
@@ -21,14 +18,6 @@ const EXPLORE = [
 ];
 
 export function Footer() {
-  const navigate = useNavigate();
-  const [email, setEmail] = useState("");
-
-  const submitEmail = (e: React.FormEvent) => {
-    e.preventDefault();
-    navigate({ to: "/unete" });
-  };
-
   return (
     <footer id="unete" className="bg-negro">
       <div className="mx-auto max-w-[1280px] px-4 pb-12">
@@ -42,30 +31,12 @@ export function Footer() {
                   <br />
                   AL CLUB
                 </h3>
-                <p className="mt-3 text-sm font-semibold text-negro/80">
-                  Sé el primero en los nuevos sabores — 10% off en tu primera caja.
-                </p>
-
-                <form
-                  onSubmit={submitEmail}
-                  className="mt-5 flex items-center gap-2 rounded-full bg-amarillo p-2 pl-5"
+                <Link
+                  to="/unete"
+                  className="mt-5 inline-flex items-center justify-center rounded-full bg-negro px-6 py-3 font-display text-sm tracking-widest text-amarillo transition-transform duration-150 hover:-translate-y-0.5"
                 >
-                  <input
-                    type="email"
-                    required
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="correo electrónico"
-                    className="flex-1 bg-transparent text-negro placeholder:text-negro/70 focus:outline-none"
-                  />
-                  <button
-                    type="submit"
-                    aria-label="Suscribirse"
-                    className="grid h-10 w-10 place-items-center rounded-full bg-negro text-amarillo transition hover:scale-105"
-                  >
-                    <ArrowRight className="h-5 w-5" />
-                  </button>
-                </form>
+                  ÚNETE
+                </Link>
               </div>
 
               {/* Explora */}
@@ -88,7 +59,6 @@ export function Footer() {
                 <ul className="mt-4 space-y-3 text-sm">
                   {POLICIES.map((l) => (
                     <li key={l.href}>
-                      {/* Rutas creadas en Fase 3 — enlace directo por ahora. */}
                       <a href={l.href} className="hover:underline">
                         {l.label}
                       </a>
@@ -114,11 +84,6 @@ export function Footer() {
                       className="hover:underline"
                     >
                       WhatsApp
-                    </a>
-                  </li>
-                  <li>
-                    <a href={`mailto:${CONTACT.email}`} className="hover:underline">
-                      {CONTACT.email}
                     </a>
                   </li>
                 </ul>
