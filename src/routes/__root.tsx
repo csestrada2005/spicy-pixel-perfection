@@ -110,32 +110,32 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "S-π-C Spicy — Dulces Enchilados" },
+      { title: "S-π-C Spicy — Dulces Enchilados Mexicanos" },
       {
         name: "description",
-        content: "Dulces enchilados mexicanos. Intensos, adictivos y cargados de chile.",
+        content: "Dulces enchilados intensos y adictivos. Cargados de chile, chamoy y sabor auténtico. Hechos a mano en México.",
       },
-      { property: "og:title", content: "S-π-C Spicy — Dulces Enchilados" },
+      { property: "og:title", content: "S-π-C Spicy — Dulces Enchilados Mexicanos" },
       {
         property: "og:description",
-        content: "Dulces enchilados mexicanos. Intensos, adictivos y cargados de chile.",
+        content: "Dulces enchilados intensos y adictivos. Cargados de chile, chamoy y sabor auténtico. Hechos a mano en México.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:title", content: "S-π-C Spicy — Dulces Enchilados" },
+      { name: "twitter:title", content: "S-π-C Spicy — Dulces Enchilados Mexicanos" },
       {
         name: "twitter:description",
-        content: "Dulces enchilados mexicanos. Intensos, adictivos y cargados de chile.",
+        content: "Dulces enchilados intensos y adictivos. Cargados de chile, chamoy y sabor auténtico. Hechos a mano en México.",
       },
       {
         property: "og:image",
         content:
-          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/acbed03e-ac9e-42c3-9ba7-60931359985c/id-preview-aac0170e--f07a74d3-4983-4b02-af5a-47cb6918d26a.lovable.app-1782939530573.png",
+          "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/2e059ff4-83f3-44cd-820a-5f207ae96738",
       },
       {
         name: "twitter:image",
         content:
-          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/acbed03e-ac9e-42c3-9ba7-60931359985c/id-preview-aac0170e--f07a74d3-4983-4b02-af5a-47cb6918d26a.lovable.app-1782939530573.png",
+          "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/2e059ff4-83f3-44cd-820a-5f207ae96738",
       },
     ],
     links: [

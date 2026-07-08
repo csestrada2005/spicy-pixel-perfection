@@ -17,10 +17,10 @@ export const Route = createFileRoute("/")({
         content:
           "Dulces enchilados intensos y adictivos. Cargados de chile, chamoy y sabor auténtico. Hechos a mano en México.",
       },
-      { property: "og:title", content: "S-π-C Spicy — Una Bomba Picante" },
+      { property: "og:title", content: "S-π-C Spicy — Dulces Enchilados Mexicanos" },
       {
         property: "og:description",
-        content: "Dulces enchilados mexicanos. Ordena tu nueva adicción.",
+        content: "Dulces enchilados intensos y adictivos. Cargados de chile, chamoy y sabor auténtico. Hechos a mano en México.",
       },
     ],
   }),
