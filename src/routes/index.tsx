@@ -36,7 +36,6 @@ function Index() {
       <Bestsellers />
       <NeonBanner />
       <InstagramFeed />
-      <FruitBorder />
       <Footer />
     </main>
   );
