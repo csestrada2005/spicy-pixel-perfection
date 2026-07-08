@@ -62,7 +62,12 @@ export function NavBar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => cartUI.subscribe(() => setCartOpen(true)), []);
+  useEffect(() => {
+    const unsub = cartUI.subscribe(() => setCartOpen(true));
+    return () => {
+      unsub();
+    };
+  }, []);
 
   const linkClass =
     "relative font-sans font-extrabold text-sm md:text-base tracking-[0.18em] transition-colors duration-150 after:pointer-events-none after:absolute after:-bottom-1 after:left-1/2 after:h-[3px] after:w-0 after:-translate-x-1/2 after:rounded-full after:bg-[#E11414] after:transition-[width] after:duration-200 hover:after:w-full";
