@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { Instagram, Mail, MessageCircle } from "lucide-react";
+import { Instagram, MessageCircle } from "lucide-react";
 import { NavBar } from "@/components/sections/NavBar";
 import { Footer } from "@/components/sections/Footer";
 import { Reveal } from "@/components/Reveal";
@@ -30,19 +30,14 @@ function Contacto() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: conectar backend (Formspree/Shopify/email).
-    // Stub: por ahora registramos en consola y abrimos el cliente de correo.
+    // TODO: conectar backend (Formspree/Shopify).
     console.log("Contacto S-π-C:", { nombre, email, mensaje });
-    const subject = encodeURIComponent(`Contacto S-π-C — ${nombre}`);
-    const body = encodeURIComponent(`${mensaje}\n\n— ${nombre} (${email})`);
-    window.location.href = `mailto:${CONTACT.email}?subject=${subject}&body=${body}`;
     setEnviado(true);
   };
 
   const contactLinks = [
     { label: "WhatsApp", href: CONTACT.whatsapp, Icon: MessageCircle },
     { label: "Instagram", href: CONTACT.instagram, Icon: Instagram },
-    { label: "Correo", href: `mailto:${CONTACT.email}`, Icon: Mail },
   ];
 
   return (
@@ -120,7 +115,7 @@ function Contacto() {
 
               {enviado && (
                 <p className="mt-3 text-center text-sm font-semibold text-negro/70">
-                  ¡Gracias! Abrimos tu correo para terminar de enviar. 🌶️
+                  ¡Gracias! Te contactamos pronto. 🌶️
                 </p>
               )}
             </form>
@@ -134,7 +129,7 @@ function Contacto() {
                 <a
                   key={label}
                   href={href}
-                  target={href.startsWith("mailto:") ? undefined : "_blank"}
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 rounded-2xl bg-[#1a1a1a] px-5 py-4 font-sans font-bold tracking-wide text-white shadow-[4px_4px_0px_#CA8A04] transition-transform duration-150 hover:-translate-y-0.5"
                 >

@@ -16,6 +16,7 @@ import { Route as NosotrosRouteImport } from './routes/nosotros'
 import { Route as GaleriaRouteImport } from './routes/galeria'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as ContactoRouteImport } from './routes/contacto'
+import { Route as AvisoPrivacidadRouteImport } from './routes/aviso-privacidad'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProductoHandleRouteImport } from './routes/producto.$handle'
 
@@ -54,6 +55,11 @@ const ContactoRoute = ContactoRouteImport.update({
   path: '/contacto',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AvisoPrivacidadRoute = AvisoPrivacidadRouteImport.update({
+  id: '/aviso-privacidad',
+  path: '/aviso-privacidad',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -67,6 +73,7 @@ const ProductoHandleRoute = ProductoHandleRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/aviso-privacidad': typeof AvisoPrivacidadRoute
   '/contacto': typeof ContactoRoute
   '/faq': typeof FaqRoute
   '/galeria': typeof GaleriaRoute
@@ -78,6 +85,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/aviso-privacidad': typeof AvisoPrivacidadRoute
   '/contacto': typeof ContactoRoute
   '/faq': typeof FaqRoute
   '/galeria': typeof GaleriaRoute
@@ -90,6 +98,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/aviso-privacidad': typeof AvisoPrivacidadRoute
   '/contacto': typeof ContactoRoute
   '/faq': typeof FaqRoute
   '/galeria': typeof GaleriaRoute
@@ -103,6 +112,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/aviso-privacidad'
     | '/contacto'
     | '/faq'
     | '/galeria'
@@ -114,6 +124,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/aviso-privacidad'
     | '/contacto'
     | '/faq'
     | '/galeria'
@@ -125,6 +136,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/aviso-privacidad'
     | '/contacto'
     | '/faq'
     | '/galeria'
@@ -137,6 +149,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AvisoPrivacidadRoute: typeof AvisoPrivacidadRoute
   ContactoRoute: typeof ContactoRoute
   FaqRoute: typeof FaqRoute
   GaleriaRoute: typeof GaleriaRoute
@@ -198,6 +211,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactoRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/aviso-privacidad': {
+      id: '/aviso-privacidad'
+      path: '/aviso-privacidad'
+      fullPath: '/aviso-privacidad'
+      preLoaderRoute: typeof AvisoPrivacidadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -217,6 +237,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AvisoPrivacidadRoute: AvisoPrivacidadRoute,
   ContactoRoute: ContactoRoute,
   FaqRoute: FaqRoute,
   GaleriaRoute: GaleriaRoute,
@@ -229,13 +250,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
