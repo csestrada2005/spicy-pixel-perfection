@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { Menu, X, ShoppingBag } from "lucide-react";
 import { Link } from "@tanstack/react-router";
+import { useCartStore } from "@/stores/cartStore";
+import { CartDrawer } from "@/components/CartDrawer";
 
 function NavLink({
   href,
@@ -40,9 +42,6 @@ const LINKS_RIGHT = [
   { label: "ÚNETE", href: "#unete" },
 ];
 
-// Contador de carrito: placeholder por ahora, se conecta en Fase 4.
-const CART_COUNT = 0;
-
 const YELLOW = "#FFD400";
 const RED = "#E11414";
 const CYAN = "#5BE9F2";
@@ -50,6 +49,10 @@ const CYAN = "#5BE9F2";
 export function NavBar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [cartOpen, setCartOpen] = useState(false);
+  const cartCount = useCartStore((s) =>
+    s.items.reduce((n, i) => n + i.quantity, 0),
+  );
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
@@ -69,15 +72,10 @@ export function NavBar() {
       }`}
     >
       <div className="mx-auto max-w-[1280px] px-3 pt-4 pb-2">
-        {/* Pill */}
         <nav
           className="relative flex items-center justify-between rounded-full px-4 py-3 md:px-8 md:py-3"
-          style={{
-            backgroundColor: YELLOW,
-            border: `2px solid ${RED}`,
-          }}
+          style={{ backgroundColor: YELLOW, border: `2px solid ${RED}` }}
         >
-          {/* Mobile: hamburger left */}
           <button
             type="button"
             className="rounded-full p-2 md:hidden"
@@ -88,7 +86,6 @@ export function NavBar() {
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
 
-          {/* Desktop: left links */}
           <ul className="hidden flex-1 items-center justify-around gap-6 md:flex">
             {LINKS_LEFT.map((l) => (
               <li key={l.href}>
@@ -99,10 +96,8 @@ export function NavBar() {
             ))}
           </ul>
 
-          {/* Spacer for central bag on desktop */}
           <div className="hidden w-28 shrink-0 md:block" aria-hidden />
 
-          {/* Desktop: right links */}
           <ul className="hidden flex-1 items-center justify-around gap-6 md:flex">
             {LINKS_RIGHT.map((l) => (
               <li key={l.href}>
@@ -113,20 +108,18 @@ export function NavBar() {
             ))}
           </ul>
 
-          {/* Central shopping bag — overflows pill top & bottom */}
-          <a
-            href="#"
+          <button
+            type="button"
+            onClick={() => setCartOpen(true)}
             aria-label="Tienda"
             className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center"
           >
             <div className="relative">
-              {/* Bag SVG */}
               <svg
                 viewBox="0 0 100 120"
                 className="h-[88px] w-[72px] md:h-[110px] md:w-[92px]"
                 aria-hidden
               >
-                {/* handle */}
                 <path
                   d="M35 38 Q35 14 50 14 Q65 14 65 38"
                   fill="none"
@@ -134,10 +127,8 @@ export function NavBar() {
                   strokeWidth="7"
                   strokeLinecap="round"
                 />
-                {/* body */}
                 <rect x="14" y="36" width="72" height="76" rx="6" fill={RED} />
               </svg>
-              {/* tienda label */}
               <span
                 className="animate-flicker absolute inset-0 flex items-center justify-center text-2xl md:text-3xl italic"
                 style={{
@@ -151,27 +142,28 @@ export function NavBar() {
                 tienda
               </span>
             </div>
-          </a>
+          </button>
 
-          {/* Carrito con contador (placeholder — se conecta en Fase 4) */}
-          <a
-            href="#"
+          <button
+            type="button"
+            onClick={() => setCartOpen(true)}
             className="relative rounded-full p-2"
             style={{ color: RED }}
-            aria-label={`Carrito (${CART_COUNT})`}
+            aria-label={`Carrito (${cartCount})`}
           >
             <ShoppingBag className="h-5 w-5 md:h-6 md:w-6" />
-            <span
-              className="absolute -right-0.5 -top-0.5 grid h-4 w-4 min-w-4 place-items-center rounded-full px-1 text-[10px] font-black leading-none text-white md:h-5 md:w-5 md:text-[11px]"
-              style={{ backgroundColor: RED }}
-              aria-hidden
-            >
-              {CART_COUNT}
-            </span>
-          </a>
+            {cartCount > 0 && (
+              <span
+                className="absolute -right-0.5 -top-0.5 grid h-4 w-4 min-w-4 place-items-center rounded-full px-1 text-[10px] font-black leading-none text-white md:h-5 md:w-5 md:text-[11px]"
+                style={{ backgroundColor: RED }}
+                aria-hidden
+              >
+                {cartCount}
+              </span>
+            )}
+          </button>
         </nav>
 
-        {/* Mobile menu */}
         {open && (
           <div
             className="mt-2 overflow-hidden rounded-2xl border-2 md:hidden"
@@ -198,6 +190,8 @@ export function NavBar() {
           </div>
         )}
       </div>
+
+      <CartDrawer open={cartOpen} onClose={() => setCartOpen(false)} />
     </header>
   );
 }
