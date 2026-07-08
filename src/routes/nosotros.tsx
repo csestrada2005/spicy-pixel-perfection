@@ -7,34 +7,33 @@ import { ChileBackground } from "@/components/ChileBackground";
 export const Route = createFileRoute("/nosotros")({
   head: () => ({
     meta: [
-      { title: "Nosotros · S-π-C" },
+      { title: "Nuestra Historia · S-π-C" },
       {
         name: "description",
         content:
-          "Nacimos en México para los que creen que lo dulce sabe mejor con un toque de chile. Conoce la historia de S-π-C.",
+          "S-π-C nació en una cocina mexicana obsesionada con el balance perfecto entre lo dulce y el chile. Conoce nuestra historia.",
       },
     ],
   }),
   component: Nosotros,
 });
 
-// DRAFT — copy reemplazable tras la junta.
 const VALORES = [
   {
-    title: "Hecho en México",
-    body: "Sabor mexicano de raíz, hecho a mano con orgullo.",
+    title: "Chile de verdad",
+    body: "Nada de sabores artificiales que no piquen. Si dice Spicy, pica.",
   },
   {
-    title: "Dulce + Enchilado",
-    body: "El punto exacto entre lo dulce y el golpe de chile.",
+    title: "Hecho a mano",
+    body: "Cada caja se enchila, se pesa y se sella en lotes pequeños.",
   },
   {
-    title: "Ingredientes que sí reconoces",
-    body: "Nada raro: fruta, chile y ganas de picar.",
+    title: "Recetas propias",
+    body: "Mezcla de chiles secretos, punto exacto entre dulce, ácido y golpe.",
   },
   {
-    title: "Sabor sin miedo",
-    body: "Hecho para quienes le suben al picante sin pedir permiso.",
+    title: "Sin miedo al picante",
+    body: "Producto para gente que ya sabe lo que quiere. No hay versión suave.",
   },
 ];
 
@@ -43,59 +42,73 @@ function Nosotros() {
     <main className="min-h-screen bg-negro text-white">
       <NavBar />
 
-      {/* Hero corto sobre fondo rojo con patrón de chiles */}
       <section className="relative overflow-hidden bg-[#E11414] pt-28 pb-20 md:pt-32">
-        <ChileBackground />
+        <ChileBackground opacity={1} />
         <div className="relative z-10 mx-auto max-w-[900px] px-4 text-center">
           <h1
-            className="animate-stamp font-display text-5xl tracking-wider text-white sm:text-7xl"
+            className="animate-stamp font-display text-4xl tracking-wider text-white sm:text-6xl md:text-7xl"
             style={{
               textShadow: "4px 4px 0 #FFD400, 5px 5px 0 #FFD400, 6px 6px 0 #FFD400",
             }}
           >
             SPICED WITH LOVE
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl font-sans text-base font-semibold leading-relaxed text-white/90 sm:text-lg">
-            S-π-C nació en México para los que creen que lo dulce sabe mejor con un toque de chile.{" "}
-            <span className="text-white/70">
-              [Historia real pendiente: cómo/por qué nació, año].
-            </span>
+          <p className="mx-auto mt-6 max-w-2xl text-base font-semibold leading-relaxed text-white/90 sm:text-lg">
+            Somos una marca mexicana obsesionada con una sola cosa: el equilibrio perfecto entre
+            lo dulce y el chile.
           </p>
         </div>
       </section>
 
-      {/* Historia + valores */}
-      <section className="mx-auto max-w-[1100px] px-4 py-16 md:py-20">
-        <Reveal>
-          <div className="mx-auto max-w-3xl text-center">
-            <h2 className="font-display text-3xl tracking-wide text-amarillo sm:text-4xl">
-              NUESTRA HISTORIA
-            </h2>
-            <p className="mt-5 font-sans text-base leading-relaxed text-white/80 sm:text-lg">
-              Todo empezó con una idea simple: que el dulce no tiene por qué ser aburrido.{" "}
-              <span className="text-white/60">
-                [Placeholder: aquí va la historia real de la marca — el origen, el año y el porqué
-                del chile].
-              </span>
-            </p>
-          </div>
-        </Reveal>
+      <section className="mx-auto max-w-[1000px] px-4 py-14 md:py-20">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
+          <Reveal>
+            <div className="rounded-2xl bg-amarillo-suave p-6 text-negro shadow-[6px_6px_0_#CA8A04]">
+              <h3 className="font-display text-xl tracking-wide">ORIGEN</h3>
+              <p className="mt-3 text-sm font-medium leading-relaxed text-negro/80">
+                Empezamos en una cocina de casa, mezclando chiles molidos con dulces que
+                comprábamos por kilo en el mercado. Los repartíamos entre amigos y familia,
+                hasta que se acabaron pidiendo por bolsa. Ese fue el clic.
+              </p>
+            </div>
+          </Reveal>
+          <Reveal delay={100}>
+            <div className="rounded-2xl bg-amarillo-suave p-6 text-negro shadow-[6px_6px_0_#CA8A04]">
+              <h3 className="font-display text-xl tracking-wide">PRODUCTO</h3>
+              <p className="mt-3 text-sm font-medium leading-relaxed text-negro/80">
+                Desarrollamos nuestra propia mezcla de chile en polvo — con ácido, sal y calor
+                justo — y la aplicamos a gomitas premium de sabores atrevidos. Nada
+                artificial en el picor: chile real, molido y mezclado en casa.
+              </p>
+            </div>
+          </Reveal>
+          <Reveal delay={200}>
+            <div className="rounded-2xl bg-amarillo-suave p-6 text-negro shadow-[6px_6px_0_#CA8A04]">
+              <h3 className="font-display text-xl tracking-wide">PROMESA</h3>
+              <p className="mt-3 text-sm font-medium leading-relaxed text-negro/80">
+                Cada caja Display se prepara en lotes pequeños. Sellamos el mismo día que se
+                enchila para que llegue al cliente igual de intenso que salió de nuestra mesa.
+                Si no pica, no lo mandamos.
+              </p>
+            </div>
+          </Reveal>
+        </div>
 
-        {/* Valores */}
-        <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-6">
           {VALORES.map((v, i) => (
             <Reveal key={v.title} delay={i * 80}>
-              <div className="h-full rounded-2xl bg-amarillo-suave p-6 text-negro shadow-[6px_6px_0px_#CA8A04]">
-                <h3 className="font-display text-xl tracking-wide">{v.title}</h3>
-                <p className="mt-2 text-sm font-medium text-negro/80">{v.body}</p>
+              <div className="h-full rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
+                <h4 className="font-display text-base tracking-wide text-amarillo">
+                  {v.title.toUpperCase()}
+                </h4>
+                <p className="mt-1 text-xs leading-relaxed text-white/80 sm:text-sm">{v.body}</p>
               </div>
             </Reveal>
           ))}
         </div>
 
-        {/* Cierre + CTA */}
         <Reveal>
-          <div className="mt-16 text-center">
+          <div className="mt-14 text-center">
             <p className="font-display text-2xl tracking-wide text-white sm:text-3xl">
               ¿List@ para picar?
             </p>
