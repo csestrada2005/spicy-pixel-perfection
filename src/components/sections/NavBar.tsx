@@ -10,24 +10,26 @@ function NavLink({
   className,
   style,
   onClick,
+  "aria-label": ariaLabel,
   children,
 }: {
   href: string;
   className?: string;
   style?: React.CSSProperties;
   onClick?: () => void;
+  "aria-label"?: string;
   children: React.ReactNode;
 }) {
   const internal = href.startsWith("/") && !href.startsWith("//");
   if (internal) {
     return (
-      <Link to={href} className={className} style={style} onClick={onClick} preload="intent">
+      <Link to={href} className={className} style={style} onClick={onClick} aria-label={ariaLabel} preload="intent">
         {children}
       </Link>
     );
   }
   return (
-    <a href={href} className={className} style={style} onClick={onClick}>
+    <a href={href} className={className} style={style} onClick={onClick} aria-label={ariaLabel}>
       {children}
     </a>
   );
