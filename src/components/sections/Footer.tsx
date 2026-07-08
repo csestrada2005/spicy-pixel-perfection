@@ -26,7 +26,7 @@ export function Footer() {
 
   const submitEmail = (e: React.FormEvent) => {
     e.preventDefault();
-    navigate({ to: "/unete", search: email ? { email } : undefined });
+    navigate({ to: "/unete" });
   };
 
   return (
