@@ -64,12 +64,22 @@ export function Hero() {
       />
 
       <span
-        className="font-display neon-text-rojo animate-flicker pointer-events-none absolute bottom-24 left-2 z-20 text-2xl leading-none md:bottom-32 md:left-6 md:text-4xl lg:bottom-40 lg:text-5xl"
+        className="font-display neon-text-rojo animate-flicker pointer-events-none absolute bottom-40 left-2 z-20 text-2xl leading-none md:bottom-32 md:left-6 md:text-4xl lg:bottom-40 lg:text-5xl"
         style={{ transform: "rotate(-20deg)" }}
         aria-hidden
       >
         UNA BOMBA<br />PICANTE!!!
       </span>
+
+      {/* Mobile-only neon "TU NUEVA ADICCIÓN" on the right */}
+      <span
+        className="font-display neon-text-magenta animate-flicker pointer-events-none absolute bottom-40 right-2 z-20 text-xl leading-none md:hidden"
+        style={{ transform: "rotate(12deg)" }}
+        aria-hidden
+      >
+        TU NUEVA<br />ADICCIÓN
+      </span>
+
 
       <div className="relative z-[15] mx-auto grid max-w-[1280px] grid-cols-1 gap-10 px-5 pt-24 pb-16 md:grid-cols-2 md:gap-10 md:px-8 md:pt-36 md:pb-4">
         <div className="relative flex flex-col items-start gap-6 md:gap-8">
