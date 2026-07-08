@@ -182,8 +182,10 @@ function RootComponent() {
       <WhatsAppFab />
       <Toaster
         position="top-center"
-        richColors
-        toastOptions={{ style: { fontFamily: "Inter, sans-serif" } }}
+        toastOptions={{
+          unstyled: true,
+          className: "!bg-transparent !border-0 !p-0 !shadow-none",
+        }}
       />
     </QueryClientProvider>
   );
