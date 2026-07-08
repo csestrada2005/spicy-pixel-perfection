@@ -49,6 +49,16 @@ export async function storefrontApiRequest<T = any>(
 
   const data = await response.json();
   if (data.errors) {
+    const paymentRequired = data.errors.some(
+      (e: { extensions?: { code?: string } }) => e.extensions?.code === "PAYMENT_REQUIRED",
+    );
+    if (paymentRequired) {
+      toast.error("Shopify: Se requiere plan de pago", {
+        description:
+          "La tienda necesita un plan activo de Shopify. Visita admin.shopify.com para actualizar.",
+      });
+      return;
+    }
     throw new Error(
       `Shopify: ${data.errors.map((e: { message: string }) => e.message).join(", ")}`,
     );
