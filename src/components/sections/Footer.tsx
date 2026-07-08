@@ -1,15 +1,15 @@
 import { ArrowRight, Instagram, MessageCircle } from "lucide-react";
-import { Link } from "@tanstack/react-router";
+import { Link, useNavigate } from "@tanstack/react-router";
+import { useState } from "react";
 
 import { Reveal } from "@/components/Reveal";
 import { CONTACT } from "@/config/contact";
 
-// Políticas — las páginas llegan en Fase 3. Los enlaces ya quedan listos.
 const POLICIES = [
-  { label: "Envíos y entregas", href: "/envios" },
-  { label: "Cambios y devoluciones", href: "/devoluciones" },
-  { label: "Términos y condiciones", href: "/terminos" },
-  { label: "Aviso de privacidad", href: "/privacidad" },
+  { label: "Envíos y entregas", href: "/politicas", hash: "envios" },
+  { label: "Cambios y devoluciones", href: "/politicas", hash: "devoluciones" },
+  { label: "Términos y condiciones", href: "/politicas", hash: "terminos" },
+  { label: "Aviso de privacidad", href: "/politicas", hash: "privacidad" },
 ];
 
 const EXPLORE = [
@@ -21,6 +21,14 @@ const EXPLORE = [
 ];
 
 export function Footer() {
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+
+  const submitEmail = (e: React.FormEvent) => {
+    e.preventDefault();
+    navigate({ to: "/unete" });
+  };
+
   return (
     <footer id="unete" className="bg-negro">
       <div className="mx-auto max-w-[1280px] px-4 pb-12">
@@ -35,16 +43,18 @@ export function Footer() {
                   AL CLUB
                 </h3>
                 <p className="mt-3 text-sm font-semibold text-negro/80">
-                  Sé el primero en los nuevos sabores — [descuento de bienvenida].
+                  Sé el primero en los nuevos sabores — 10% off en tu primera caja.
                 </p>
 
                 <form
-                  onSubmit={(e) => e.preventDefault()}
+                  onSubmit={submitEmail}
                   className="mt-5 flex items-center gap-2 rounded-full bg-amarillo p-2 pl-5"
                 >
                   <input
                     type="email"
                     required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     placeholder="correo electrónico"
                     className="flex-1 bg-transparent text-negro placeholder:text-negro/70 focus:outline-none"
                   />

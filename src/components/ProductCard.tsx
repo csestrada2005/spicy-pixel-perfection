@@ -1,108 +1,107 @@
-
-import { useInView } from "@/hooks/use-in-view";
-import type { Product } from "@/config/products";
-import chiliRedAsset from "@/assets/chili-red.png.asset.json";
-import chiliEmptyAsset from "@/assets/chili-empty.png.asset.json";
+import { Link } from "@tanstack/react-router";
+import { Loader2, Flame } from "lucide-react";
 import { useCartStore } from "@/stores/cartStore";
-import { Loader2 } from "lucide-react";
+import { cleanTitle, formatPrice, type ShopifyProductNode } from "@/lib/shopify-catalog";
 
-function SpicyMeter({ level }: { level: number }) {
-  const total = 5;
-  const { ref, inView } = useInView();
-  return (
-    <div ref={ref} className="flex items-center justify-center gap-1.5" aria-label={`Picante ${level} de ${total}`}>
-      {Array.from({ length: total }).map((_, i) => {
-        const active = i < level;
-        return (
-          <img
-            key={i}
-            src={active ? chiliRedAsset.url : chiliEmptyAsset.url}
-            alt={active ? "Chile picante" : "Chile sin picante"}
-            className={`h-7 w-auto ${active ? (inView ? "animate-chili-pop" : "opacity-0") : ""}`}
-            style={active ? { animationDelay: `${i * 0.08}s` } : undefined}
-            loading="lazy"
-          />
-        );
-      })}
-    </div>
-  );
-}
+type Props = {
+  product: ShopifyProductNode;
+  compact?: boolean;
+  index?: number;
+  linkToDetail?: boolean;
+};
 
-export function ProductCard({ product, compact, index, hideBuy, buyBelow, uniformImage }: { product: Product & { notSpicy?: boolean; netWeight?: string }; compact?: boolean; index?: number; hideBuy?: boolean; buyBelow?: boolean; uniformImage?: boolean }) {
+export function ProductCard({ product, compact, index, linkToDetail = true }: Props) {
   const addByHandle = useCartStore((s) => s.addByHandle);
   const isLoading = useCartStore((s) => s.isLoading);
-  const level = product.notSpicy ? 0 : product.spicyLevel;
-  const imgClass = uniformImage
-    ? "h-44 w-auto object-contain drop-shadow-md"
-    : `w-auto object-contain drop-shadow-md ${product.id === "fresh-lemon" ? "absolute left-1/2 top-[42%] h-[420px] -translate-x-1/2 -translate-y-1/2" : product.id === "pina-colada" || product.id === "pina-colada-yellow" ? "absolute left-1/2 top-[18%] h-[420px] -translate-x-1/2 -translate-y-1/2" : product.id === "mixed-berries" ? "absolute left-1/2 top-[36%] h-[420px] -translate-x-1/2 -translate-y-1/2" : product.id === "cherry-lemon" ? "absolute left-1/2 top-[22%] h-[300px] -translate-x-1/2 -translate-y-1/2" : product.id === "straw-melon" ? "absolute left-1/2 top-[24%] h-[340px] -translate-x-1/2 -translate-y-1/2" : product.id === "mango-pasion" ? "absolute left-1/2 top-[24%] h-[256px] -translate-x-1/2 -translate-y-1/2" : product.id === "fresh-tangerine" ? "absolute left-1/2 top-[24%] h-[256px] -translate-x-1/2 -translate-y-1/2" : product.id === "pink-lemonade" ? "absolute left-1/2 top-[24%] h-[256px] -translate-x-1/2 -translate-y-1/2" : compact ? "h-44" : "h-44"}`;
+
+  const name = cleanTitle(product.title).toUpperCase();
+  const image = product.featuredImage?.url ?? product.images.edges[0]?.node.url ?? "";
+  const price = formatPrice(product.priceRange.minVariantPrice);
+  const variant = product.variants.edges[0]?.node;
+  const soldOut = variant ? !variant.availableForSale : false;
 
   const handleAdd = (e: React.MouseEvent) => {
     e.preventDefault();
-    if (isLoading) return;
-    addByHandle(product.id, product.name, product.image);
+    e.stopPropagation();
+    if (isLoading || soldOut) return;
+    addByHandle(product.handle, product.title, image);
   };
 
-  return (
-    <div className="relative w-full">
-      <div className={`group hover:z-20 transition-[transform,box-shadow] duration-200 ease-out hover:-translate-y-1.5 hover:rotate-[-1deg] hover:shadow-[10px_10px_0px_#CA8A04,0_0_26px_rgba(225,20,20,0.35)] relative w-full rounded-2xl bg-amarillo-suave text-negro shadow-[6px_6px_0px_#CA8A04] ${compact ? "max-w-[224px] p-3 pb-5" : "max-w-[340px] p-5 pb-8"}`}>
-        <div
-          className={`animate-float relative flex items-center justify-center overflow-visible ${compact ? "h-32" : "h-44"}`}
-          style={{ animationDelay: `${(index ?? 0) * 0.5}s` }}
-        >
+  const inner = (
+    <div
+      className={`group relative w-full rounded-2xl bg-amarillo-suave text-negro shadow-[6px_6px_0px_#CA8A04] transition-[transform,box-shadow] duration-200 ease-out hover:-translate-y-1.5 hover:rotate-[-1deg] hover:shadow-[10px_10px_0px_#CA8A04,0_0_26px_rgba(225,20,20,0.35)] ${
+        compact ? "p-3 pb-4" : "p-4 pb-5 sm:p-5"
+      }`}
+    >
+      {/* Badge Spicy */}
+      <div className="absolute left-3 top-3 z-10 flex items-center gap-1 rounded-full bg-negro px-2.5 py-1 text-[10px] font-black uppercase tracking-widest text-amarillo shadow-[2px_2px_0_#CA8A04]">
+        <Flame className="h-3 w-3" /> SPICY
+      </div>
+      {soldOut && (
+        <div className="absolute right-3 top-3 z-10 rounded-full bg-white/90 px-2.5 py-1 text-[10px] font-black uppercase tracking-widest text-negro">
+          Agotado
+        </div>
+      )}
+      <div
+        className={`animate-float relative flex items-center justify-center overflow-visible ${
+          compact ? "h-32" : "h-40 sm:h-44"
+        }`}
+        style={{ animationDelay: `${(index ?? 0) * 0.5}s` }}
+      >
+        {image ? (
           <img
-            src={product.image}
-            alt={product.flavor}
-            className={imgClass}
+            src={image}
+            alt={name}
+            className="h-full w-auto object-contain drop-shadow-md"
             loading="lazy"
             decoding="async"
           />
-        </div>
-        <h3 className="font-display mt-4 text-center text-2xl tracking-wide">{product.name}</h3>
-        {product.netWeight && (
-          <p className="mt-0.5 text-center text-xs font-semibold uppercase tracking-widest text-negro/60">{product.netWeight}</p>
-        )}
-        <div className="mt-3">
-          <SpicyMeter level={level} />
-        </div>
-        {product.notSpicy && (
-          <p className="mt-2 text-center text-[11px] font-bold uppercase tracking-widest text-negro/70">Sin chile</p>
-        )}
-        <p className="mt-3 text-center text-xl font-bold">{product.priceLabel}</p>
-
-        {!hideBuy && !buyBelow && (
-          <button
-            type="button"
-            onClick={handleAdd}
-            disabled={isLoading}
-            aria-label={`Añadir al carrito ${product.flavor}`}
-            className="font-display pointer-events-none absolute left-full top-1/2 z-20 ml-3 -translate-y-1/2 translate-x-2 whitespace-nowrap text-xl tracking-widest opacity-0 transition-all duration-200 group-hover:pointer-events-auto group-hover:translate-x-0 group-hover:opacity-100 disabled:cursor-wait"
-            style={{
-              color: "#fff",
-              textShadow: "0 0 4px #19e0ff, 0 0 12px #19e0ff, 0 0 24px rgba(25,224,255,0.7)",
-            }}
-          >
-            {isLoading ? "..." : "COMPRAR"}
-          </button>
+        ) : (
+          <div className="h-full w-full rounded-lg bg-white/40" />
         )}
       </div>
+      <h3 className="font-display mt-3 text-center text-lg tracking-wide sm:text-xl">{name}</h3>
+      <p className="mt-0.5 text-center text-[10px] font-bold uppercase tracking-widest text-negro/60">
+        Caja Display · 24 x 90 g
+      </p>
+      <p className="mt-2 text-center text-lg font-black sm:text-xl">{price}</p>
 
-      {buyBelow && (
-        <button
-          type="button"
-          onClick={handleAdd}
-          disabled={isLoading}
-          aria-label={`Añadir al carrito ${product.flavor}`}
-          className="font-display mt-5 mx-auto flex items-center justify-center gap-2 text-2xl tracking-[0.25em] disabled:opacity-70"
-          style={{
-            color: "#fff",
-            textShadow:
-              "0 0 4px #b026ff, 0 0 12px #b026ff, 0 0 24px rgba(176,38,255,0.7), 0 0 40px rgba(176,38,255,0.5)",
-          }}
-        >
-          {isLoading ? <Loader2 className="h-5 w-5 animate-spin" /> : "COMPRAR"}
-        </button>
-      )}
+      <button
+        type="button"
+        onClick={handleAdd}
+        disabled={isLoading || soldOut}
+        aria-label={`Añadir al carrito ${name}`}
+        className="font-display mt-3 flex w-full items-center justify-center gap-2 rounded-full bg-negro py-2 text-sm tracking-widest text-amarillo transition hover:-translate-y-0.5 disabled:opacity-60 sm:text-base"
+      >
+        {isLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : soldOut ? "AGOTADO" : "COMPRAR"}
+      </button>
     </div>
+  );
+
+  if (!linkToDetail) return inner;
+  return (
+    <Link
+      to="/producto/$handle"
+      params={{ handle: product.handle }}
+      className="block"
+      preload="intent"
+    >
+      {inner}
+    </Link>
   );
 }
 
+export function ProductCardSkeleton({ compact }: { compact?: boolean }) {
+  return (
+    <div
+      className={`w-full animate-pulse rounded-2xl bg-amarillo-suave/60 shadow-[6px_6px_0px_#CA8A04] ${
+        compact ? "p-3 pb-4" : "p-5 pb-5"
+      }`}
+    >
+      <div className={`${compact ? "h-32" : "h-44"} rounded-lg bg-white/40`} />
+      <div className="mt-4 mx-auto h-4 w-2/3 rounded bg-negro/20" />
+      <div className="mt-2 mx-auto h-3 w-1/2 rounded bg-negro/10" />
+      <div className="mt-3 h-9 rounded-full bg-negro/20" />
+    </div>
+  );
+}

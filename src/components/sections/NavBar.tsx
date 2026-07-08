@@ -3,6 +3,7 @@ import { Menu, X, ShoppingBag } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { useCartStore } from "@/stores/cartStore";
 import { CartDrawer } from "@/components/CartDrawer";
+import { cartUI } from "@/lib/cart-toast";
 
 function NavLink({
   href,
@@ -38,8 +39,8 @@ const LINKS_LEFT = [
   { label: "GALERIA", href: "/galeria" },
 ];
 const LINKS_RIGHT = [
-  { label: "REVIEWS", href: "#reviews" },
-  { label: "ÚNETE", href: "#unete" },
+  { label: "ÚNETE", href: "/unete" },
+  { label: "CONTACTO", href: "/contacto" },
 ];
 
 const YELLOW = "#FFD400";
@@ -59,6 +60,13 @@ export function NavBar() {
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const unsub = cartUI.subscribe(() => setCartOpen(true));
+    return () => {
+      unsub();
+    };
   }, []);
 
   const linkClass =

@@ -9,6 +9,7 @@ import {
   updateShopifyCartLine,
   type ShopifyMoney,
 } from "@/lib/shopify";
+import { showCartToast, cartUI } from "@/lib/cart-toast";
 
 export type CartItem = {
   lineId: string | null;
@@ -89,8 +90,7 @@ export const useCartStore = create<CartStore>()(
                 checkoutUrl: result.checkoutUrl,
                 items: [{ ...newItem, lineId: result.lineId }],
               });
-              const { toast } = await import("sonner");
-              toast.success("Añadido al carrito", { description: newItem.title });
+              showCartToast({ title: newItem.title, image: newItem.image, onView: cartUI.open });
             }
           } else if (existing && existing.lineId) {
             const newQty = existing.quantity + 1;
@@ -101,8 +101,7 @@ export const useCartStore = create<CartStore>()(
                   i.variantId === variant.id ? { ...i, quantity: newQty } : i,
                 ),
               });
-              const { toast } = await import("sonner");
-              toast.success("Cantidad actualizada", { description: newItem.title });
+              showCartToast({ title: newItem.title, image: newItem.image, onView: cartUI.open });
             } else if (result.cartNotFound) {
               clearCart();
             }
@@ -112,8 +111,7 @@ export const useCartStore = create<CartStore>()(
               set({
                 items: [...get().items, { ...newItem, lineId: result.lineId ?? null }],
               });
-              const { toast } = await import("sonner");
-              toast.success("Añadido al carrito", { description: newItem.title });
+              showCartToast({ title: newItem.title, image: newItem.image, onView: cartUI.open });
             } else if (result.cartNotFound) {
               clearCart();
             }
