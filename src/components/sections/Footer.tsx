@@ -21,7 +21,8 @@ const EXPLORE = [
 ];
 
 export function Footer() {
-  return (
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
     <footer id="unete" className="bg-negro">
       <div className="mx-auto max-w-[1280px] px-4 pb-12">
         <Reveal>
