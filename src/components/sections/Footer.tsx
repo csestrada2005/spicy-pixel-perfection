@@ -23,7 +23,7 @@ export function Footer() {
       <div className="mx-auto max-w-[1280px] px-4 pb-12">
         <Reveal>
           <div className="rounded-3xl bg-azul-footer p-8 text-negro md:p-12">
-            <div className="grid grid-cols-1 gap-10 md:grid-cols-4">
+            <div className="grid grid-cols-2 gap-x-6 gap-y-8 md:grid-cols-4 md:gap-10">
               {/* Únete al club */}
               <div className="md:col-span-1">
                 <h3 className="font-display text-3xl leading-tight tracking-wide text-[#0c2340] sm:text-4xl">
