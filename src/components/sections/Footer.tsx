@@ -43,16 +43,18 @@ export function Footer() {
                   AL CLUB
                 </h3>
                 <p className="mt-3 text-sm font-semibold text-negro/80">
-                  Sé el primero en los nuevos sabores — [descuento de bienvenida].
+                  Sé el primero en los nuevos sabores — 10% off en tu primera caja.
                 </p>
 
                 <form
-                  onSubmit={(e) => e.preventDefault()}
+                  onSubmit={submitEmail}
                   className="mt-5 flex items-center gap-2 rounded-full bg-amarillo p-2 pl-5"
                 >
                   <input
                     type="email"
                     required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     placeholder="correo electrónico"
                     className="flex-1 bg-transparent text-negro placeholder:text-negro/70 focus:outline-none"
                   />
