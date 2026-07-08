@@ -1,9 +1,11 @@
 import { useRef } from "react";
+import { Link } from "@tanstack/react-router";
 import { useInView } from "@/hooks/use-in-view";
 import { ProductCard, ProductCardSkeleton } from "@/components/ProductCard";
 import { Reveal } from "@/components/Reveal";
 import { ChileBackground } from "@/components/ChileBackground";
 import { useShopifyProducts } from "@/lib/shopify-catalog";
+
 
 // Handles destacados como bestsellers (ajusta desde Shopify si cambian).
 const BESTSELLER_HANDLES = [
