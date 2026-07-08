@@ -82,7 +82,7 @@ export function Hero() {
 
 
       <div className="relative z-[15] mx-auto grid max-w-[1280px] grid-cols-1 gap-10 px-5 pt-24 pb-16 md:grid-cols-2 md:gap-10 md:px-8 md:pt-36 md:pb-4">
-        <div className="relative flex flex-col items-start gap-6 md:gap-8">
+        <div className="relative flex flex-col items-center gap-6 text-center md:items-start md:gap-8 md:text-left">
           <img
             src={ASSETS.logoNeon}
             alt="S-π-C Spicy"
