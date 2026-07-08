@@ -9,16 +9,29 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as UneteRouteImport } from './routes/unete'
 import { Route as ProductosRouteImport } from './routes/productos'
+import { Route as PoliticasRouteImport } from './routes/politicas'
 import { Route as NosotrosRouteImport } from './routes/nosotros'
 import { Route as GaleriaRouteImport } from './routes/galeria'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as ContactoRouteImport } from './routes/contacto'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ProductoHandleRouteImport } from './routes/producto.$handle'
 
+const UneteRoute = UneteRouteImport.update({
+  id: '/unete',
+  path: '/unete',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProductosRoute = ProductosRouteImport.update({
   id: '/productos',
   path: '/productos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PoliticasRoute = PoliticasRouteImport.update({
+  id: '/politicas',
+  path: '/politicas',
   getParentRoute: () => rootRouteImport,
 } as any)
 const NosotrosRoute = NosotrosRouteImport.update({
@@ -46,6 +59,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProductoHandleRoute = ProductoHandleRouteImport.update({
+  id: '/producto/$handle',
+  path: '/producto/$handle',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -53,7 +71,10 @@ export interface FileRoutesByFullPath {
   '/faq': typeof FaqRoute
   '/galeria': typeof GaleriaRoute
   '/nosotros': typeof NosotrosRoute
+  '/politicas': typeof PoliticasRoute
   '/productos': typeof ProductosRoute
+  '/unete': typeof UneteRoute
+  '/producto/$handle': typeof ProductoHandleRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -61,7 +82,10 @@ export interface FileRoutesByTo {
   '/faq': typeof FaqRoute
   '/galeria': typeof GaleriaRoute
   '/nosotros': typeof NosotrosRoute
+  '/politicas': typeof PoliticasRoute
   '/productos': typeof ProductosRoute
+  '/unete': typeof UneteRoute
+  '/producto/$handle': typeof ProductoHandleRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -70,7 +94,10 @@ export interface FileRoutesById {
   '/faq': typeof FaqRoute
   '/galeria': typeof GaleriaRoute
   '/nosotros': typeof NosotrosRoute
+  '/politicas': typeof PoliticasRoute
   '/productos': typeof ProductosRoute
+  '/unete': typeof UneteRoute
+  '/producto/$handle': typeof ProductoHandleRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -80,9 +107,21 @@ export interface FileRouteTypes {
     | '/faq'
     | '/galeria'
     | '/nosotros'
+    | '/politicas'
     | '/productos'
+    | '/unete'
+    | '/producto/$handle'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/contacto' | '/faq' | '/galeria' | '/nosotros' | '/productos'
+  to:
+    | '/'
+    | '/contacto'
+    | '/faq'
+    | '/galeria'
+    | '/nosotros'
+    | '/politicas'
+    | '/productos'
+    | '/unete'
+    | '/producto/$handle'
   id:
     | '__root__'
     | '/'
@@ -90,7 +129,10 @@ export interface FileRouteTypes {
     | '/faq'
     | '/galeria'
     | '/nosotros'
+    | '/politicas'
     | '/productos'
+    | '/unete'
+    | '/producto/$handle'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -99,16 +141,33 @@ export interface RootRouteChildren {
   FaqRoute: typeof FaqRoute
   GaleriaRoute: typeof GaleriaRoute
   NosotrosRoute: typeof NosotrosRoute
+  PoliticasRoute: typeof PoliticasRoute
   ProductosRoute: typeof ProductosRoute
+  UneteRoute: typeof UneteRoute
+  ProductoHandleRoute: typeof ProductoHandleRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/unete': {
+      id: '/unete'
+      path: '/unete'
+      fullPath: '/unete'
+      preLoaderRoute: typeof UneteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/productos': {
       id: '/productos'
       path: '/productos'
       fullPath: '/productos'
       preLoaderRoute: typeof ProductosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/politicas': {
+      id: '/politicas'
+      path: '/politicas'
+      fullPath: '/politicas'
+      preLoaderRoute: typeof PoliticasRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/nosotros': {
@@ -146,6 +205,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/producto/$handle': {
+      id: '/producto/$handle'
+      path: '/producto/$handle'
+      fullPath: '/producto/$handle'
+      preLoaderRoute: typeof ProductoHandleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -155,7 +221,10 @@ const rootRouteChildren: RootRouteChildren = {
   FaqRoute: FaqRoute,
   GaleriaRoute: GaleriaRoute,
   NosotrosRoute: NosotrosRoute,
+  PoliticasRoute: PoliticasRoute,
   ProductosRoute: ProductosRoute,
+  UneteRoute: UneteRoute,
+  ProductoHandleRoute: ProductoHandleRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

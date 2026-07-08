@@ -38,8 +38,8 @@ const LINKS_LEFT = [
   { label: "GALERIA", href: "/galeria" },
 ];
 const LINKS_RIGHT = [
-  { label: "REVIEWS", href: "#reviews" },
-  { label: "ÚNETE", href: "#unete" },
+  { label: "ÚNETE", href: "/unete" },
+  { label: "CONTACTO", href: "/contacto" },
 ];
 
 const YELLOW = "#FFD400";
