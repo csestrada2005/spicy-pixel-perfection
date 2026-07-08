@@ -10,24 +10,26 @@ function NavLink({
   className,
   style,
   onClick,
+  "aria-label": ariaLabel,
   children,
 }: {
   href: string;
   className?: string;
   style?: React.CSSProperties;
   onClick?: () => void;
+  "aria-label"?: string;
   children: React.ReactNode;
 }) {
   const internal = href.startsWith("/") && !href.startsWith("//");
   if (internal) {
     return (
-      <Link to={href} className={className} style={style} onClick={onClick} preload="intent">
+      <Link to={href} className={className} style={style} onClick={onClick} aria-label={ariaLabel} preload="intent">
         {children}
       </Link>
     );
   }
   return (
-    <a href={href} className={className} style={style} onClick={onClick}>
+    <a href={href} className={className} style={style} onClick={onClick} aria-label={ariaLabel}>
       {children}
     </a>
   );
@@ -116,11 +118,10 @@ export function NavBar() {
             ))}
           </ul>
 
-          <button
-            type="button"
-            onClick={() => setCartOpen(true)}
-            aria-label="Tienda"
+          <NavLink
+            href="/"
             className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center"
+            aria-label="Inicio"
           >
             <div className="relative">
               <svg
@@ -144,13 +145,13 @@ export function NavBar() {
                   color: CYAN,
                   textShadow:
                     "0 0 4px rgba(91,233,242,0.9), 0 0 10px rgba(91,233,242,0.7), 0 0 18px rgba(91,233,242,0.5)",
-                  transform: "translateY(2px) rotate(-4deg)",
+                  transform: "translateY(2px) translateX(-3px) rotate(-4deg)",
                 }}
               >
                 Spicy
               </span>
             </div>
-          </button>
+          </NavLink>
 
           <button
             type="button"
