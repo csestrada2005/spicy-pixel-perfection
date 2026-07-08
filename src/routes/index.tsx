@@ -34,6 +34,7 @@ function Index() {
       <Hero />
       <Marquee />
       <Bestsellers />
+      <InstagramFeed />
       <NeonBanner />
       <FruitBorder />
       <Footer />
