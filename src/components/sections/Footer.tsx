@@ -1,15 +1,15 @@
 import { ArrowRight, Instagram, MessageCircle } from "lucide-react";
-import { Link } from "@tanstack/react-router";
+import { Link, useNavigate } from "@tanstack/react-router";
+import { useState } from "react";
 
 import { Reveal } from "@/components/Reveal";
 import { CONTACT } from "@/config/contact";
 
-// Políticas — las páginas llegan en Fase 3. Los enlaces ya quedan listos.
 const POLICIES = [
-  { label: "Envíos y entregas", href: "/envios" },
-  { label: "Cambios y devoluciones", href: "/devoluciones" },
-  { label: "Términos y condiciones", href: "/terminos" },
-  { label: "Aviso de privacidad", href: "/privacidad" },
+  { label: "Envíos y entregas", href: "/politicas", hash: "envios" },
+  { label: "Cambios y devoluciones", href: "/politicas", hash: "devoluciones" },
+  { label: "Términos y condiciones", href: "/politicas", hash: "terminos" },
+  { label: "Aviso de privacidad", href: "/politicas", hash: "privacidad" },
 ];
 
 const EXPLORE = [
