@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { NavBar } from "@/components/sections/NavBar";
 import { Footer } from "@/components/sections/Footer";
 import { ChileBackground } from "@/components/ChileBackground";
-import { CONTACT } from "@/config/contact";
+
 
 export const Route = createFileRoute("/politicas")({
   head: () => ({
@@ -66,7 +66,7 @@ function Politicas() {
             </p>
             <ul className="mt-3 list-disc space-y-1 pl-6 text-sm">
               <li>Por tratarse de un producto alimenticio, no se aceptan devoluciones de cajas abiertas.</li>
-              <li>Si tu pedido llegó dañado, envíanos fotos a {CONTACT.email} en las primeras 48 horas.</li>
+              <li>Si tu pedido llegó dañado, escríbenos por WhatsApp en las primeras 48 horas.</li>
               <li>Los costos de envío de la devolución corren por cuenta del cliente, salvo error nuestro.</li>
             </ul>
           </Block>
@@ -91,7 +91,7 @@ function Politicas() {
             </p>
             <ul className="mt-3 list-disc space-y-1 pl-6 text-sm">
               <li>Los pagos se procesan a través de Shopify Payments y proveedores certificados; no almacenamos datos de tarjeta.</li>
-              <li>Puedes solicitar acceso, rectificación o eliminación de tus datos escribiendo a {CONTACT.email}.</li>
+              <li>Puedes solicitar acceso, rectificación o eliminación de tus datos escribiéndonos por WhatsApp o Instagram.</li>
               <li>No compartimos tu información con terceros ajenos al servicio del pedido.</li>
             </ul>
           </Block>
@@ -104,7 +104,7 @@ function Politicas() {
           </Block>
 
           <p className="text-center text-xs text-white/50">
-            Esta política aplica desde México · Dudas: {CONTACT.email}
+            Esta política aplica desde México.
           </p>
         </article>
       </section>
