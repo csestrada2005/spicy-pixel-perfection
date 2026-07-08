@@ -3,6 +3,8 @@ import { useInView } from "@/hooks/use-in-view";
 import type { Product } from "@/config/products";
 import chiliRedAsset from "@/assets/chili-red.png.asset.json";
 import chiliEmptyAsset from "@/assets/chili-empty.png.asset.json";
+import { useCartStore } from "@/stores/cartStore";
+import { Loader2 } from "lucide-react";
 
 function SpicyMeter({ level }: { level: number }) {
   const total = 5;
