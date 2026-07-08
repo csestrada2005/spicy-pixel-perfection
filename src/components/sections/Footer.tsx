@@ -23,6 +23,13 @@ const EXPLORE = [
 export function Footer() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
+
+  const submitEmail = (e: React.FormEvent) => {
+    e.preventDefault();
+    navigate({ to: "/unete", search: email ? { email } : undefined });
+  };
+
+  return (
     <footer id="unete" className="bg-negro">
       <div className="mx-auto max-w-[1280px] px-4 pb-12">
         <Reveal>
