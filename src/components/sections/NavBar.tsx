@@ -147,7 +147,7 @@ export function NavBar() {
                   transform: "translateY(2px) rotate(-4deg)",
                 }}
               >
-                tienda
+                Spicy
               </span>
             </div>
           </button>
