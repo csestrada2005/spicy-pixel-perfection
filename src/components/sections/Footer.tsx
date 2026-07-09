@@ -1,4 +1,4 @@
-import { Instagram, MessageCircle } from "lucide-react";
+import { Instagram } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 
 import { Reveal } from "@/components/Reveal";
@@ -76,16 +76,6 @@ export function Footer() {
                       Escríbenos
                     </Link>
                   </li>
-                  <li>
-                    <a
-                      href={CONTACT.whatsapp}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:underline"
-                    >
-                      WhatsApp
-                    </a>
-                  </li>
                 </ul>
                 <div className="mt-6 flex items-center gap-4 text-negro">
                   <a
@@ -96,15 +86,6 @@ export function Footer() {
                     className="inline-flex transition-transform duration-150 hover:-translate-y-0.5 hover:scale-110 hover:text-[#E11414]"
                   >
                     <Instagram className="h-6 w-6" />
-                  </a>
-                  <a
-                    href={CONTACT.whatsapp}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="WhatsApp"
-                    className="inline-flex transition-transform duration-150 hover:-translate-y-0.5 hover:scale-110 hover:text-[#E11414]"
-                  >
-                    <MessageCircle className="h-6 w-6" />
                   </a>
                 </div>
               </div>

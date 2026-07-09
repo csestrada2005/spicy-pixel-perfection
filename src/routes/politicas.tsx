@@ -54,7 +54,7 @@ function Politicas() {
               <li>Zona metropolitana: 2 a 4 días hábiles.</li>
               <li>Resto de México: 3 a 7 días hábiles.</li>
               <li>Recibirás un número de guía por correo una vez enviado tu pedido.</li>
-              <li>Envíos internacionales bajo cotización — contáctanos por WhatsApp.</li>
+              <li>Envíos internacionales bajo cotización — contáctanos por correo o Instagram.</li>
             </ul>
           </Block>
 
@@ -66,7 +66,7 @@ function Politicas() {
             </p>
             <ul className="mt-3 list-disc space-y-1 pl-6 text-sm">
               <li>Por tratarse de un producto alimenticio, no se aceptan devoluciones de cajas abiertas.</li>
-              <li>Si tu pedido llegó dañado, escríbenos por WhatsApp en las primeras 48 horas.</li>
+              <li>Si tu pedido llegó dañado, escríbenos por correo o Instagram en las primeras 48 horas.</li>
               <li>Los costos de envío de la devolución corren por cuenta del cliente, salvo error nuestro.</li>
             </ul>
           </Block>
@@ -91,7 +91,7 @@ function Politicas() {
             </p>
             <ul className="mt-3 list-disc space-y-1 pl-6 text-sm">
               <li>Los pagos se procesan a través de Shopify Payments y proveedores certificados; no almacenamos datos de tarjeta.</li>
-              <li>Puedes solicitar acceso, rectificación o eliminación de tus datos escribiéndonos por WhatsApp o Instagram.</li>
+              <li>Puedes solicitar acceso, rectificación o eliminación de tus datos escribiéndonos por correo o Instagram.</li>
               <li>No compartimos tu información con terceros ajenos al servicio del pedido.</li>
             </ul>
           </Block>
