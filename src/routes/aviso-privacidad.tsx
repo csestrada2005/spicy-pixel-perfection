@@ -82,7 +82,7 @@ function AvisoPrivacidad() {
           <Block title="Derechos ARCO">
             <p>
               Puedes solicitar el acceso, rectificación, cancelación u oposición al tratamiento
-              de tus datos escribiéndonos por WhatsApp o Instagram desde nuestra{" "}
+              de tus datos escribiéndonos por correo o Instagram desde nuestra{" "}
               <a href="/contacto" className="text-amarillo hover:underline">
                 página de contacto
               </a>

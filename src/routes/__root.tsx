@@ -11,7 +11,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
-import { WhatsAppFab } from "../components/WhatsAppFab";
+
 import { ChileBackground } from "../components/ChileBackground";
 import { NavBar } from "../components/sections/NavBar";
 import { Footer } from "../components/sections/Footer";
@@ -178,8 +178,6 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
-      {/* Botón flotante global de WhatsApp */}
-      <WhatsAppFab />
       <Toaster
         position="top-center"
         toastOptions={{

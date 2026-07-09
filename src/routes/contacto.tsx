@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { Instagram, MessageCircle } from "lucide-react";
+import { Instagram } from "lucide-react";
 import { NavBar } from "@/components/sections/NavBar";
 import { Footer } from "@/components/sections/Footer";
 import { Reveal } from "@/components/Reveal";
@@ -15,7 +15,7 @@ export const Route = createFileRoute("/contacto")({
       { title: "Contacto · S-π-C" },
       {
         name: "description",
-        content: "¿Dudas, mayoreo o solo saludar? Escríbenos por WhatsApp, Instagram o correo.",
+        content: "¿Dudas, mayoreo o solo saludar? Escríbenos por Instagram o correo.",
       },
     ],
   }),
@@ -36,7 +36,6 @@ function Contacto() {
   };
 
   const contactLinks = [
-    { label: "WhatsApp", href: CONTACT.whatsapp, Icon: MessageCircle },
     { label: "Instagram", href: CONTACT.instagram, Icon: Instagram },
   ];
 
